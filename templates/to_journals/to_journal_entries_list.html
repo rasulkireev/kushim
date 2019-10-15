@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}"Thoughts On" Journals{% endblock title %}
+
+{% block content %}
+
+        {% for entry in to_journal_entries %}
+          <h1>{{ entry.entry_date }}</h1>
+          <p>{{ entry.body }}</p>
+        {% endfor %}
+
+{% endblock content %}

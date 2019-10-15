@@ -1,0 +1,53 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Kushim</title>
+
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <script src="https://kit.fontawesome.com/1f5c082ba9.js"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  </head>
+  <body>
+
+    <div id="page">
+      <nav id="navbar">
+        <div class='nav-container'>
+          <div id="brand">
+            <a href="/">Kushim</a>
+          </div>
+          <div id="user">
+            {% if user.is_authenticated %}
+            <div class="dropdown" onclick="void(0)">
+              <i class="far fa-user fa-lg"></i>
+              <div class="dropdown-content">
+                <p class="dropdown-item">{{ user.username }}</p>
+                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+              </div>
+            </div>
+            {% else %}
+              <a id='login' href="{% url 'login' %}">Login</a>
+              <a id='signup' href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+
+      <div id="content">
+        {% block content %}
+
+        {% endblock content %}
+      </div>
+  </div>
+
+
+
+  </body>
+</html>

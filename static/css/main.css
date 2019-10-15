@@ -1,0 +1,221 @@
+body {
+  background-color: #349EEB;
+  font-size: 22px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+p, h1, h2, h3, h4, a, ul, li {
+  color: white;
+}
+
+/* Navbar */
+#navbar {
+  background-color: #3F8CE8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+#navbar p, #navbar a, #navbar h1 {
+  text-decoration: none;
+}
+#navbar .nav-container {
+  padding: 0 1rem;
+  height: 55px;
+  max-width: 920px;
+  margin: auto;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+#brand {
+  padding: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  float: left;
+}
+#user {
+  float: right;
+  margin-top: 3px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  padding: 12px 16px;
+  right: 0;
+  margin-top: 3px;
+  z-index: 1;
+  background-color: #3F8CE8;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-item {
+  margin-bottom: 10px;
+}
+#login {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  height: 34px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 72px;
+  box-sizing: inherit;
+}
+#signup {
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0,0,0,.25);
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* Navbar End */
+
+/* Home Page */
+.home-page h1 {
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+/* Home Page End */
+
+/* Content */
+#content {
+  margin-top: 100px;
+  max-width: 920px;
+  padding: 0 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box {
+  text-align: center;
+  border: 5px solid white;
+  border-radius: 5px;
+  padding: 15px;
+  width: 250px;
+  margin: auto;
+}
+.box h1 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.help-block {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+}
+/* Content */
+
+/* Signup and login */
+.control-group {
+  margin-bottom: 1em;
+}
+.textinput, .emailinput {
+  border-radius: 3px;
+  padding: 3px;
+  border: 0;
+}
+/* Signup and login End */
+
+/* Add Journal Button  */
+
+#id_name {
+  padding: 6px;
+  border: 0px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 170px;
+  font-size: 20px;
+  color: grey;
+}
+#myForm {
+  margin-bottom: 20px;
+  display: none;
+}
+#myForm label {
+  display: none;
+}
+#add-button {
+  margin-left: 5px;
+  background-color:#00D4FF;
+  color: #FFFFFF;
+  padding: 6px 20px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:5px;
+  cursor:pointer;
+  font-size: 20px;
+  border: 0;
+}
+#add-button:hover {
+  background-color:#00C4EB;
+  color: #FFFFFF;
+}
+/* Add Journal Button  */
+
+/* Journals */
+#journals {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+}
+#header {
+  margin-bottom: 20px;
+  font-size: 30px;
+  }
+.journal {
+  flex-basis: content;
+  background: #ebf1fe;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: 600;
+  color: #5183f5;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* Journals End */
+
+/* General */
+.green-button {
+  text-align: center;
+  background: lightgreen;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 150px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* General End */
