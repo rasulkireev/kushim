@@ -4,9 +4,19 @@
 
 {% block content %}
 
+        <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add Entry</h1>
+        <div id="new-journal">
+          <form class="" id="myForm" action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" id="add-button">Add</button>
+          </form>
+        </div>
+
         {% for entry in to_journal_entries %}
           <h1>{{ entry.entry_date }}</h1>
           <p>{{ entry.body }}</p>
         {% endfor %}
+
 
 {% endblock content %}

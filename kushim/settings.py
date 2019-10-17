@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'kushim.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "yaja",
+        'NAME': "kushim",
         'USER': "rasulkireev",
-        'PASSWORD':"test",
+        'PASSWORD':"rasulkireev",
         'HOST': 'localhost',
         'PORT': '',
     }

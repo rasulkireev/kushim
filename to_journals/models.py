@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 from autoslug import AutoSlugField
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 class to_journal(models.Model):
     name = models.CharField(max_length = 40)
