@@ -5,13 +5,10 @@ from autoslug import AutoSlugField
 from django.urls import reverse, reverse_lazy
 
 class to_journal(models.Model):
-    name = models.CharField(max_length = 40)
-    slug = AutoSlugField(populate_from='name')
+    journal_name = models.CharField(max_length = 40)
+    slug = AutoSlugField(populate_from='journal_name')
     date_created = models.DateTimeField(auto_now_add=True)
-    journal_user = models.ForeignKey(
-    get_user_model(),
-    on_delete=models.CASCADE,
-    )
+    journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
 
     def __str__(self):
         return str(self.journal_user) + " " + self.name
@@ -23,20 +20,11 @@ class to_journal(models.Model):
 class to_journal_entry(models.Model):
     body = models.TextField()
     entry_date = models.DateTimeField(auto_now_add=True)
-
-    parent_journal = models.ForeignKey(
-    to_journal,
-    on_delete=models.CASCADE,
-    related_name="entries")
-
-    journal_user = models.ForeignKey(
-    get_user_model(),
-    on_delete=models.CASCADE,
-    )
-
+    journal_name = models.ForeignKey(to_journal, on_delete=models.CASCADE,)
+    journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
 
     def __str__(self):
-        return str(self.parent_journal) + " " + str(self.entry_date)
+        return str(self.journal_name) + " " + str(self.entry_date)
 
     def get_absolute_url(self):
          return reverse('to_journals', args=[str(self.slug)])

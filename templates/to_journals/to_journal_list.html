@@ -15,7 +15,7 @@
     </div>
     <section id='journals'>
         {% for to_journal in to_journals %}
-          <a class="journal" href="{% url 'to-journal-entries' to_journal.slug %}">{{ to_journal.name }}</a>
+          <a class="journal" href="{% url 'to-journal-entries' to_journal.slug %}">{{ to_journal.journal_name }}</a>
         {% endfor %}
     </section>
 
