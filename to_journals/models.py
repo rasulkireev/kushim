@@ -2,7 +2,8 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 from autoslug import AutoSlugField
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
+
 
 class to_journal(models.Model):
     journal_name = models.CharField(max_length = 40)
@@ -11,7 +12,7 @@ class to_journal(models.Model):
     journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
 
     def __str__(self):
-        return str(self.journal_user) + " " + self.name
+        return str(self.journal_user) + " " + self.journal_name
 
     def get_absolute_url(self):
         return reverse('to-journals')
@@ -26,5 +27,5 @@ class to_journal_entry(models.Model):
     def __str__(self):
         return str(self.journal_name) + " " + str(self.entry_date)
 
-    def get_absolute_url(self):
-         return reverse('to_journals', args=[str(self.slug)])
+    # def get_absolute_url(self):
+    #     return reverse('to_journals.views.to-journal-entries', args=(self.slug))
