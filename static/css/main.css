@@ -150,7 +150,6 @@ p, h1, h2, h3, h4, a, ul, li {
 /* Signup and login End */
 
 /* Add Journal Button  */
-
 #id_name {
   padding: 6px;
   border: 0px;
@@ -223,5 +222,9 @@ p, h1, h2, h3, h4, a, ul, li {
   color: white;
   cursor: pointer;
   text-decoration: none;
+}
+.go-back {
+  display: block;
+  margin-bottom: 2rem;
 }
 /* General End */

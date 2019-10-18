@@ -27,5 +27,5 @@ class to_journal_entry(models.Model):
     def __str__(self):
         return str(self.journal_name) + " " + str(self.entry_date)
 
-    # def get_absolute_url(self):
-    #     return reverse('to_journals.views.to-journal-entries', args=(self.slug))
+    def get_absolute_url(self):
+        return reverse('to-journal-entries', args=(self.slug))
