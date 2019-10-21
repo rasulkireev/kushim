@@ -5,7 +5,7 @@
     <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add Journal</h1>
     <h1 id="header">My thoughts on:</h1>
     <div id="new-journal">
-      <form class="" id="myForm" action="" method="post">
+      <form class="" id="myForm" action="{% url 'to-journals' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <button type="submit" id="add-button">Add</button>
