@@ -3,7 +3,6 @@ from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import to_journal, to_journal_entry
 from django.urls import reverse
-from django.shortcuts import get_object_or_404
 
 
 
@@ -11,6 +10,9 @@ class CreateToJournal(LoginRequiredMixin, CreateView):
     model = to_journal
     template_name = 'to_journals/to_journal_list.html'
     fields = ('journal_name',)
+
+    def get_success_url(self):
+        return reverse('to-journals')
 
     def form_valid(self, form):
         form.instance.journal_user = self.request.user

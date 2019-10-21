@@ -7,6 +7,10 @@
 
 {% if user.is_authenticated %}
   <a class="journal" href="{% url 'to-journals' %}">Journals</a>
+
+  {% load journal_tags %}
+  {% get_journals %}
+
 {% else %}
   <div class="home-page">
     <h1>Welcome!</h1>

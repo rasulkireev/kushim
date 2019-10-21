@@ -27,7 +27,7 @@ urlpatterns = [
 
     path('', include('pages.urls')),
 
-    path('to-journals/', include('to_journals.urls')),
+    path('journals/', include('to_journals.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
