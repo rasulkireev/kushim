@@ -12,7 +12,7 @@ class CreateToJournal(LoginRequiredMixin, CreateView):
     fields = ('journal_name',)
 
     def get_success_url(self):
-        return reverse('to-journals')
+        return reverse('home')
 
     def form_valid(self, form):
         form.instance.journal_user = self.request.user

@@ -9,11 +9,12 @@
   <a class="journal" href="{% url 'to-journals' %}">Journals</a>
 
   {% load journal_tags %}
-  {% get_journals %}
+  {% get_journals to_journal %}
+
 
 {% else %}
   <div class="home-page">
-    <h1>Welcome!</h1>
+    <h1>Minimalist Life Management tool.</h1>
     <!-- <img class="welcome-svg" src="{% static 'images/undraw_book_reading.svg' %}" onerror="this.onerror=null; this.src='image.png'" alt="Welcome message, book reading"> -->
   </div>
 {% endif %}

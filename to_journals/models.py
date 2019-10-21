@@ -28,4 +28,5 @@ class to_journal_entry(models.Model):
         return str(self.journal_name) + " " + str(self.entry_date)
 
     def get_absolute_url(self):
-        return reverse('to-journal-entries', args=(self.slug))
+        current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
+        return reverse('to-journal-entries', args=current_journal)
