@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.forms import ModelForm
 from django.db import models
 from autoslug import AutoSlugField
 from django.urls import reverse
@@ -16,6 +17,11 @@ class to_journal(models.Model):
 
     def get_absolute_url(self):
         return reverse('to-journals')
+
+class JournalForm(ModelForm):
+    class Meta:
+        model = to_journal
+        fields = ['journal_name']
 
 
 class to_journal_entry(models.Model):

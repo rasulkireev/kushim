@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from .models import to_journal, to_journal_entry
+from .models import to_journal, to_journal_entry, JournalForm
 from django.urls import reverse
 
 
@@ -9,7 +9,7 @@ from django.urls import reverse
 class CreateToJournal(LoginRequiredMixin, CreateView):
     model = to_journal
     template_name = 'to_journals/to_journal_list.html'
-    fields = ('journal_name',)
+    form_class = JournalForm
 
     def get_success_url(self):
         return reverse('home')
