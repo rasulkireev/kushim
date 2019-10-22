@@ -1,19 +1,19 @@
 {% load static %}
 
-
-
-    <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add Journal</h1>
-    <h1 id="header">My thoughts on:</h1>
-    <div id="new-journal">
-      <form class="" id="myForm" action="{% url 'to-journals' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit" id="add-button">Add</button>
-      </form>
-    </div>
-
     <section id='journals'>
+
         {% for journal in journals %}
           <a class="journal" href="{% url 'to-journal-entries' journal.slug %}">{{ journal.journal_name }}</a>
         {% endfor %}
+
+          <button class="add-button" id="to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
+
+          <span id="new-journal">
+            <form class="" id="myForm" action="{% url 'to-journals' %}" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <button type="submit" class="add-button">Add Journal</button>
+            </form>
+          </span>
+
     </section>

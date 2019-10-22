@@ -6,15 +6,27 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-  <a class="journal" href="{% url 'to-journals' %}">Journals</a>
 
+  <h1 class='app'>Journals</h1>
   {% load journal_tags %}
   {% get_journals to_journal %}
 
 
 {% else %}
   <div class="home-page">
-    <h1>Minimalist Life Management tool.</h1>
+    <h1>Minimalist Life Management Tool</h1>
+
+
+    <div class="add-journal-intro-block">
+      <img class="intro-gif" src="{% static 'images/Add a journal gif.gif' %}" alt="Adding a Journal is easy">
+      <h2>Adding a journal is easy. You can add as many journals as you want.</h2>
+    </div>
+
+    <div class="add-journal-intro-block">
+      <h2>Adding a journal is easy. You can add as many journals as you want.</h2>
+      <img class="intro-gif" src="{% static 'images/Add a journal gif.gif' %}" alt="Adding a Journal is easy">
+    </div>
+
     <!-- <img class="welcome-svg" src="{% static 'images/undraw_book_reading.svg' %}" onerror="this.onerror=null; this.src='image.png'" alt="Welcome message, book reading"> -->
   </div>
 {% endif %}

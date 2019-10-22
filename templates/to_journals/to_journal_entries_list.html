@@ -4,21 +4,25 @@
 
 {% block content %}
 
-        <a class="go-back" href="{% url 'home' %}">back to journals</a>
+<a class="go-back" href="{% url 'home' %}">back home</a>
 
-        <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add Entry</h1>
-        <div id="new-journal">
-          <form class="" id="myForm" action="" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit" id="add-button">Add</button>
-          </form>
-        </div>
+<button id="to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
+<div id="new-journal">
+  <form class="" id="myForm" action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="add-entry-button">Add Entry</button>
+  </form>
+</div>
 
-        {% for entry in to_journal_entries %}
-          <h1>{{ entry.entry_date }}</h1>
-          <p>{{ entry.body }}</p>
-        {% endfor %}
+  <div id="entries">
+    {% for entry in to_journal_entries %}
+      <h1 class="entry-date">{{ entry.entry_date }}</h1>
+      <p class="entry-body">{{ entry.body }}</p>
+    {% endfor %}
+  <div>
+
+
 
 
 {% endblock content %}

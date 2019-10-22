@@ -41,5 +41,5 @@ class ToJournalEntriesList(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
         context = super(ToJournalEntriesList, self).get_context_data(**kwargs)
-        context['to_journal_entries'] = to_journal_entry.objects.filter(journal_user=self.request.user, journal_name=current_journal)
+        context['to_journal_entries'] = to_journal_entry.objects.filter(journal_user=self.request.user, journal_name=current_journal).order_by('-entry_date')
         return context
