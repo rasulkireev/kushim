@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
-
 {% block title %}"Thoughts On" Journals{% endblock title %}
-
 {% block content %}
 
 <a class="go-back" href="{% url 'home' %}">back home</a>
+
+<h2 class="block-header">{{ journal_name }}</h2>
+<a class="delete-button" href="{% url 'delete-journal' journal_user slug %}">Delete</a>
+<a class="rename-button" href="#">Rename</a>
+<hr class="block-header-underline">
 
 <button id="to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
@@ -14,6 +17,8 @@
     <button type="submit" class="add-entry-button">Add Entry</button>
   </form>
 </div>
+
+
 
   <div id="entries">
     {% for entry in to_journal_entries %}

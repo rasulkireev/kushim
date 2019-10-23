@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Delete Journal{% endblock title %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ object.journal_name }}"?</p>
+    <input type="submit" value="Confirm">
+  </form>
+
+
+{% endblock content %}
