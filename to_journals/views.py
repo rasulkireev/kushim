@@ -30,11 +30,9 @@ class DeleteJournal(LoginRequiredMixin, DeleteView):
     tempalte_name = 'to_journals/delete_journal.html'
     success_url = reverse_lazy('home')
 
-    def form_valid(self, form):
-        current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
-        form.instance.journal_user = self.request.user
-        form.instance.journal_name = current_journal
-        return super(DeleteJournal, self).form_valid(form)
+    def get_object(self, queryset=None):
+        id = self.kwargs['id']
+        return self.get_queryset().filter(id=id).get()
 
 
 class ToJournalEntriesList(LoginRequiredMixin, CreateView):
