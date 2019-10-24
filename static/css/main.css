@@ -3,6 +3,7 @@ body {
   font-size: 22px;
   color: white;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
 }
 p, h1, h2, h3, h4, a, ul, li {
   color: white;
@@ -63,6 +64,7 @@ p, h1, h2, h3, h4, a, ul, li {
   display: block;
 }
 .dropdown-item {
+  display: block;
   margin-bottom: 10px;
 }
 #login {
@@ -126,6 +128,9 @@ p, h1, h2, h3, h4, a, ul, li {
  display: flex;
  flex-direction: column;
 }
+.intro-block {
+ margin-top: 3rem;
+}
 .intro-block-gif {
   padding: 5px;
   border:1px solid white;
@@ -139,10 +144,36 @@ p, h1, h2, h3, h4, a, ul, li {
   padding-left: 1rem;
 }
 .intro-block-description-item {
-  padding: 5px;
+  padding: 10px;
   font-size: 22px;
 }
+.roadmap-header {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 22px;
+}
+.roadmap-block-header-underline {
+  border: 4px solid white;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
 /* Home Page End */
+
+/* Home Page Footer */
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+/* Home Page Footer End */
+
 
 /* Home Page Logged In */
 .app {
@@ -326,6 +357,11 @@ p, h1, h2, h3, h4, a, ul, li {
   display: block;
   margin-bottom: 1rem;
   font-size: 15px;
+}
+strong {
+  font-weight: 600;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 /* General End */
 
