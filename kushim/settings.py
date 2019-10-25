@@ -133,6 +133,18 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+# Sentry Error Tracking
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://974acdaa705049d886ce5f5afff967d9@sentry.io/1795794",
+    integrations=[DjangoIntegration()]
+)
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 

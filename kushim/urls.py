@@ -19,6 +19,11 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.views.generic.base import TemplateView
 
+from django.urls import path
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -26,8 +31,9 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
 
     path('', include('pages.urls')),
-
     path('journals/', include('to_journals.urls')),
+
+    path('sentry-debug/', trigger_error),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
