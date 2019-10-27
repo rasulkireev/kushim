@@ -1,12 +1,17 @@
+
 {% extends 'base.html' %}
 {% block title %}Delete Journal{% endblock title %}
 {% block content %}
 
-<form method="post">
+<a class="go-back" href="{% url 'home' %}">back home</a>
+
+<div class="delete-form">
+  <form method="post">
     {% csrf_token %}
-    <p>Are you sure you want to delete "{{ object.journal_name }}"?</p>
-    <input type="submit" value="Confirm">
+    <p>Are you sure you want to delete <span class="journal-name-delete">"{{ object.journal_name }}"</span>?</p>
+    <input id="delete-form-button" type="submit" value="Confirm">
   </form>
+</div>
 
 
 {% endblock content %}

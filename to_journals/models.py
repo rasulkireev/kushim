@@ -8,7 +8,7 @@ from django.urls import reverse
 
 class to_journal(models.Model):
     journal_name = models.CharField(max_length = 40)
-    slug = AutoSlugField(populate_from='journal_name')
+    slug = AutoSlugField(populate_from='journal_name',always_update=True)
     date_created = models.DateTimeField(auto_now_add=True)
     journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
 

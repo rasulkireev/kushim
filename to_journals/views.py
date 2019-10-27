@@ -27,12 +27,16 @@ class CreateToJournal(LoginRequiredMixin, CreateView):
 
 class DeleteJournal(LoginRequiredMixin, DeleteView):
     model = to_journal
-    tempalte_name = 'to_journals/delete_journal.html'
     success_url = reverse_lazy('home')
+    pk_url_kwarg = 'id'
 
-    def get_object(self, queryset=None):
-        id = self.kwargs['id']
-        return self.get_queryset().filter(id=id).get()
+class RenameJournal(LoginRequiredMixin, UpdateView):
+    model = to_journal
+    template_name_suffix = '_update_form'
+    fields = ['journal_name']
+    success_url = reverse_lazy('home')
+    pk_url_kwarg = 'id'
+
 
 
 class ToJournalEntriesList(LoginRequiredMixin, CreateView):

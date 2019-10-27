@@ -4,10 +4,17 @@
 
 <a class="go-back" href="{% url 'home' %}">back home</a>
 
-<h2 class="block-header">{{ journal_name }}</h2>
-<!-- <a class="delete-button" href="{% url 'delete-journal' slug %}">Delete</a>
-<a class="rename-button" href="#">Rename</a> -->
-<hr class="block-header-underline">
+<div class="journal-name-header">
+    <h2 class="journal-name">{{ journal_name }}</h2>
+    <span onclick="editJournal(); this.onclick=null"><i class="fas fa-pen-square"></i></span>
+</div>
+
+<div class="delete-rename-block">
+  <a id="rename-button" href="{% url 'rename-journal' slug %}">Rename</a>
+  <a id="delete-button" href="{% url 'delete-journal' slug %}">Delete</a>
+</div>
+
+<!-- <hr class="block-header-underline"> -->
 
 <button id="to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
@@ -20,12 +27,26 @@
 
 
 
+
+
   <div id="entries">
-    {% for entry in to_journal_entries %}
-      <h1 class="entry-date">{{ entry.entry_date }}</h1>
-      <p class="entry-body">{{ entry.body }}</p>
-    {% endfor %}
-  <div>
+    {% regroup to_journal_entries by entry_date|date:'F j, Y' as entries %}
+
+      {% for entry_date in entries %}
+
+      <div class="entry-card">
+        <h2 class="entry-date">{{ entry_date.grouper }}</h2>
+
+        {% for entry in entry_date.list %}
+        <p class="entry-body">{{ entry.body }}</p>
+        {% endfor %}
+      </div>
+
+      {% endfor %}
+
+
+  </div>
+
 
 
 

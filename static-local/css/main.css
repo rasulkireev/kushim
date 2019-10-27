@@ -163,18 +163,6 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 /* Home Page End */
 
-/* Home Page Footer */
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-   background:#999;
-}
-/* Home Page Footer End */
-
-
 /* Home Page Logged In */
 .app {
   text-transform: uppercase;
@@ -227,7 +215,7 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 /* Signup and login End */
 
-/* Add Journal Button  */
+/* Add, Delete, Rename Journal Button  */
 #id_name {
   padding: 6px;
   border: 0px;
@@ -272,7 +260,78 @@ p, h1, h2, h3, h4, a, ul, li {
   font-weight: 600;
   font-size: 20px;
 }
-/* Add Journal Button  */
+/* Add Journal Button End */
+
+/* Delete, Rename Journal Button  */
+.edit-journal {}
+.delete-rename-block {
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+#delete-button {
+  text-align: center;
+  background:red;
+  color: #FFFFFF;
+  border-radius:5px;
+  padding: 5px 10px;
+  font-weight: 400;
+  cursor:pointer;
+  font-size: 15px;
+  border: 0;
+  text-decoration:none;
+  display: none;
+}
+#rename-button {
+  text-align: center;
+  background: grey;
+  color: #FFFFFF;
+  border-radius:5px;
+  padding: 5px 10px;
+  font-weight: 400;
+  cursor:pointer;
+  font-size: 15px;
+  border: 0;
+  text-decoration:none;
+  display: none;
+}
+.delete-form {
+  text-align: center;
+}
+#delete-form-button {
+  text-align: center;
+  background:red;
+  color: #FFFFFF;
+  border-radius:5px;
+  padding: 5px 10px;
+  font-weight: 800;
+  cursor:pointer;
+  font-size: 20px;
+  border: 0;
+  text-decoration:none;
+  margin-top: 1rem;
+
+}
+.journal-name-delete {
+  font-weight: 600;
+}
+.rename-form {
+  text-align: center;
+}
+.rename-form label {
+  display: none;
+}
+#rename-form-button {
+  background:#00D4FF;
+  color: #FFFFFF;
+  border-radius:5px;
+  padding: 10px 20px;
+  font-weight: 800;
+  cursor:pointer;
+  font-size: 20px;
+  border: 0;
+  text-decoration:none;
+}
+/* Delete, Rename Journal Button End  */
 
 /* Journals */
 #journals {
@@ -296,6 +355,14 @@ p, h1, h2, h3, h4, a, ul, li {
   color: #5183f5;
   cursor: pointer;
   text-decoration: none;
+}
+.journal-name {
+  font-size: 30px;
+  font-weight: 600;
+  display: inline;
+}
+.journal-name-header {
+
 }
 /* Journals End */
 
@@ -330,12 +397,22 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 .entry-date {
   font-weight: 500;
-  font-size: 25px;
-  margin-bottom: 0.5rem;
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+  color: #5183f5;
+
 }
 .entry-body {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 20px;
+  color: #5183f5;
+
+}
+.entry-card {
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
 }
 /* Journals Entry End */
 

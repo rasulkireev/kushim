@@ -138,10 +138,11 @@ USE_TZ = True
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-sentry_sdk.init(
-    dsn="https://974acdaa705049d886ce5f5afff967d9@sentry.io/1795794",
-    integrations=[DjangoIntegration()]
-)
+if not DEBUG:
+    sentry_sdk.init(
+        dsn="https://974acdaa705049d886ce5f5afff967d9@sentry.io/1795794",
+        integrations=[DjangoIntegration()]
+    )
 
 
 
@@ -155,6 +156,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static-local/'),
+]
+
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

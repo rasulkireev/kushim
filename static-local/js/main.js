@@ -12,3 +12,11 @@ function inputJournalEntry() {
   document.getElementById('to-hide').style.display="none";
 
 }
+
+
+function editJournal() {
+
+  document.getElementById("rename-button").style.display="inline";
+  document.getElementById("delete-button").style.display="inline";
+
+}
