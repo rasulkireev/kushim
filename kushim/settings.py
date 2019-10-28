@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'to_journals.apps.ToJournalsConfig',
+    'lists.apps.ListsConfig',
 
     'crispy_forms',
 

@@ -9,6 +9,32 @@ p, h1, h2, h3, h4, a, ul, li {
   color: white;
 }
 
+/* General */
+.green-button {
+  text-align: center;
+  background: lightgreen;
+  color: white;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 150px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.go-back {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 15px;
+}
+strong {
+  font-weight: 600;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+/* General End */
+
 /* Navbar */
 #navbar {
   background-color: #3F8CE8;
@@ -165,6 +191,9 @@ p, h1, h2, h3, h4, a, ul, li {
 
 /* Home Page Logged In */
 .app {
+  margin-bottom: 2rem;
+}
+.app-name {
   text-transform: uppercase;
   font-size: 40px;
   font-weight: 700;
@@ -225,11 +254,11 @@ p, h1, h2, h3, h4, a, ul, li {
   font-size: 20px;
   color: grey;
 }
-#myForm {
+#myJournalForm, #myListForm {
   margin-bottom: 20px;
   display: none;
 }
-#myForm label {
+#myJournalForm label, #myListForm label {
   display: none;
 }
 .add-button {
@@ -249,9 +278,9 @@ p, h1, h2, h3, h4, a, ul, li {
   background-color:#00C4EB;
   color: #FFFFFF;
 }
-#to-hide {
+#journal-to-hide, #list-to-hide {
 }
-#id_journal_name {
+#id_journal_name, #id_list_name {
   height: 40px;
   width: 150px;
   padding-left: 5px;
@@ -432,31 +461,6 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 /* Journals Entry End */
 
-/* General */
-.green-button {
-  text-align: center;
-  background: lightgreen;
-  color: white;
-  border-radius: 4px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-  width: 150px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-}
-.go-back {
-  display: block;
-  margin-bottom: 1rem;
-  font-size: 15px;
-}
-strong {
-  font-weight: 600;
-  text-decoration: underline;
-  text-transform: uppercase;
-}
-/* General End */
 
 @media (min-width: 768px) {
   /* Home Page */

@@ -2,8 +2,8 @@
 {% block title %}{{ journal_name }}{% endblock title %}
 {% block content %}
 
-    <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add Journal</h1>
-    <h1 id="header">My thoughts on:</h1>
+    <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add List</h1>
+    <h1 id="header">Lists:</h1>
     <div id="new-journal">
       <form class="" id="myForm" action="" method="post">
         {% csrf_token %}
@@ -13,8 +13,8 @@
     </div>
 
     <section id='journals'>
-        {% for to_journal in to_journals %}
-          <a class="journal" href="{% url 'to-journal-entries' to_journal.slug %}">{{ to_journal.journal_name }}</a>
+        {% for list in lists %}
+          <a class="journal" href="{% url 'list-entries' list.slug %}">{{ list.journal_name }}</a>
         {% endfor %}
     </section>
 

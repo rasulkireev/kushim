@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Delete List{% endblock title %}
+{% block content %}
+
+<a class="go-back" href="{% url 'home' %}">back home</a>
+
+<div class="delete-form">
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete <span class="journal-name-delete">"{{ object.list_name }}"</span>?</p>
+    <input id="delete-form-button" type="submit" value="Confirm">
+  </form>
+</div>
+
+
+{% endblock content %}

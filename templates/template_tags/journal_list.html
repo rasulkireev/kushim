@@ -6,10 +6,10 @@
           <a class="journal" href="{% url 'to-journal-entries' journal.slug %}">{{ journal.journal_name }}</a>
         {% endfor %}
 
-          <button class="add-button" id="to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
+          <button class="add-button" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
 
           <span id="new-journal">
-            <form class="" id="myForm" action="{% url 'to-journals' %}" method="post">
+            <form class="" id="myJournalForm" action="{% url 'to-journals' %}" method="post">
               {% csrf_token %}
               {{ form }}
               <button type="submit" class="add-button">Add Journal</button>

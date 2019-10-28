@@ -1,0 +1,19 @@
+{% load static %}
+
+    <section id='journals'>
+
+        {% for list in lists %}
+          <a class="journal" href="{% url 'list-entries' list.slug %}">{{ list.list_name }}</a>
+        {% endfor %}
+
+          <button class="add-button" id="list-to-hide" onclick="inputList(); this.onclick=null;">Add List</button>
+
+          <span id="new-journal">
+            <form class="" id="myListForm" action="{% url 'lists' %}" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <button type="submit" class="add-button">Add List</button>
+            </form>
+          </span>
+
+    </section>

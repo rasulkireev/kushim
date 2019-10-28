@@ -7,9 +7,17 @@
 
 {% if user.is_authenticated %}
 
-  <h1 class='app'>Journals</h1>
-  {% load journal_tags %}
-  {% get_journals to_journal %}
+  <div class="app">
+    <h1 class='app-name'>Journals</h1>
+    {% load journal_tags %}
+    {% get_journals to_journal %}
+  </div>
+
+  <div class="app">
+    <h1 class='app-name'>Lists</h1>
+    {% load list_tags %}
+    {% get_lists list %}
+  </div>
 
 
 {% else %}

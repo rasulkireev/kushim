@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
-{% block title %}{{ journal_name }}{% endblock title %}
+{% block title %}{{ list_name }}{% endblock title %}
 {% block content %}
 
 <a class="go-back" href="{% url 'home' %}">back home</a>
 
 <div class="journal-name-header">
-    <h2 class="journal-name">{{ journal_name }}</h2>
+    <h2 class="journal-name">{{ list_name }}</h2>
     <span onclick="editJournal(); this.onclick=null"><i class="fas fa-pen-square"></i></span>
 </div>
 
 <div class="delete-rename-block">
-  <a id="rename-button" href="{% url 'rename-journal' slug %}">Rename</a>
-  <a id="delete-button" href="{% url 'delete-journal' slug %}">Delete</a>
+  <a id="rename-button" href="{% url 'rename-list' slug %}">Rename</a>
+  <a id="delete-button" href="{% url 'delete-list' slug %}">Delete</a>
 </div>
 
 
-<button id="journal-to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
+<button id="list-to-hide" class="add-entry-button" onclick="inputList(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
-  <form class="" id="myJournalForm" action="" method="post">
+  <form class="" id="myListForm" action="" method="post">
     {% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Entry</button>
@@ -29,7 +29,7 @@
 
 
   <div id="entries">
-    {% regroup to_journal_entries by entry_date|date:'F j, Y' as entries %}
+    {% regroup list_entries by entry_date|date:'F j, Y' as entries %}
 
       {% for entry_date in entries %}
 
