@@ -281,13 +281,14 @@ strong {
 #journal-to-hide, #list-to-hide {
 }
 #id_journal_name, #id_list_name {
-  height: 40px;
+  height: 43px;
   width: 150px;
   padding-left: 5px;
   border-radius: 5px;
   border: 0;
   font-weight: 600;
   font-size: 20px;
+  margin-bottom: 10px;
 }
 /* Add Journal Button End */
 
