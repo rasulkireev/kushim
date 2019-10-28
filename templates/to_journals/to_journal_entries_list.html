@@ -14,7 +14,6 @@
   <a id="delete-button" href="{% url 'delete-journal' slug %}">Delete</a>
 </div>
 
-<!-- <hr class="block-header-underline"> -->
 
 <button id="to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
@@ -38,7 +37,10 @@
         <h2 class="entry-date">{{ entry_date.grouper }}</h2>
 
         {% for entry in entry_date.list %}
-        <p class="entry-body">{{ entry.body }}</p>
+        <div class="entry">
+          <p class="entry-body">{{ entry.body }}</p>
+          <a class="edit-entry-button-main" href="{% url 'edit-entry' entry.id %}"><i class="fas fa-pen fa-xs" style="color: grey; font-size: 15px;"></i></a>
+        </div>
         {% endfor %}
       </div>
 

@@ -281,7 +281,7 @@ p, h1, h2, h3, h4, a, ul, li {
   text-decoration:none;
   display: none;
 }
-#rename-button {
+#rename-button, #edit-entry-button-main {
   text-align: center;
   background: grey;
   color: #FFFFFF;
@@ -317,7 +317,7 @@ p, h1, h2, h3, h4, a, ul, li {
 .rename-form {
   text-align: center;
 }
-.rename-form label {
+.rename-form label, .edit-entry label {
   display: none;
 }
 #rename-form-button {
@@ -330,6 +330,19 @@ p, h1, h2, h3, h4, a, ul, li {
   font-size: 20px;
   border: 0;
   text-decoration:none;
+}
+#edit-entry-button {
+  background:#00D4FF;
+  color: #FFFFFF;
+  border-radius:5px;
+  padding: 10px 20px;
+  font-weight: 800;
+  cursor:pointer;
+  font-size: 20px;
+  border: 0;
+  text-decoration:none;
+  margin-top: 1rem;
+  display: block;
 }
 /* Delete, Rename Journal Button End  */
 
@@ -395,6 +408,9 @@ p, h1, h2, h3, h4, a, ul, li {
   word-wrap: break-word;
   hyphens: auto;
 }
+.entry {
+  margin-bottom: 1rem;
+}
 .entry-date {
   font-weight: 500;
   font-size: 30px;
@@ -403,9 +419,9 @@ p, h1, h2, h3, h4, a, ul, li {
 
 }
 .entry-body {
-  margin-bottom: 1rem;
   font-size: 20px;
   color: #5183f5;
+  display: inline;
 
 }
 .entry-card {

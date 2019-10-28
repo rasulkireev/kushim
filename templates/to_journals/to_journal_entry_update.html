@@ -4,11 +4,12 @@
 
 <a class="go-back" href="{% url 'home' %}">back home</a>
 
-<div class="rename-form">
+<div class="edit-entry">
   <form method="post">{% csrf_token %}
       {{ form }}
-      <input id="rename-form-button" type="submit" value="Update">
+      <input id="edit-entry-button" type="submit" value="Update">
   </form>
 </div>
+
 
 {% endblock content %}

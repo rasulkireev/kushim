@@ -60,3 +60,12 @@ class ToJournalEntriesList(LoginRequiredMixin, CreateView):
         context["slug"] = current_journal.slug
         context['to_journal_entries'] = to_journal_entry.objects.filter(journal_user=self.request.user, journal_name=current_journal).order_by('-entry_date')
         return context
+
+class EditEntry(LoginRequiredMixin, UpdateView):
+    model = to_journal_entry
+    template_name_suffix = '_update'
+    fields = ['body']
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('to-journal-entries', kwargs={'slug':self.object.journal_name.slug})
