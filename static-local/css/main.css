@@ -416,6 +416,7 @@ strong {
   font-size: 20px;
   padding: 10px;
   height: 50px;
+  max-width: 92%
 }
 .add-entry-button {
   text-align: center;
