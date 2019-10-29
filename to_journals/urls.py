@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CreateToJournal, ToJournalEntriesList, DeleteJournal, RenameJournal, EditEntry
+from .views import CreateToJournal, ToJournalEntriesList, DeleteJournal, RenameJournal, EditJournalEntry
 
 
 urlpatterns = [
@@ -7,5 +7,5 @@ urlpatterns = [
     path('<slug:slug>', ToJournalEntriesList.as_view(), name='to-journal-entries'),
     path('<slug:slug>/delete', DeleteJournal.as_view(), name='delete-journal'),
     path('<slug:slug>/rename', RenameJournal.as_view(), name='rename-journal'),
-    path('<int:id>/edit-entry', EditEntry.as_view(), name='edit-entry'),
+    path('<int:id>/edit-entry', EditJournalEntry.as_view(), name='edit-journal-entry'),
 ]

@@ -29,17 +29,17 @@
 
 
   <div id="entries">
-    {% regroup list_entries by entry_date|date:'F j, Y' as entries %}
+    {% regroup list_entries by entry_date|date:'F j, Y' as list_entries %}
 
-      {% for entry_date in entries %}
+      {% for entry_date in list_entries %}
 
       <div class="entry-card">
         <h2 class="entry-date">{{ entry_date.grouper }}</h2>
 
-        {% for entry in entry_date.list %}
+        {% for list_entry in entry_date.list %}
         <div class="entry">
-          <p class="entry-body">{{ entry.body }}</p>
-          <a class="edit-entry-button-main" href="{% url 'edit-entry' entry.id %}"><i class="fas fa-pen fa-xs" style="color: grey; font-size: 15px;"></i></a>
+          <p class="entry-body">{{ list_entry.body }}</p>
+          <a class="edit-entry-button-main" href="{% url 'edit-list-entry' list_entry.id %}"><i class="fas fa-pen fa-xs" style="color: grey; font-size: 15px;"></i></a>
         </div>
         {% endfor %}
       </div>

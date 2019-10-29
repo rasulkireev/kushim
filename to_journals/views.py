@@ -61,7 +61,7 @@ class ToJournalEntriesList(LoginRequiredMixin, CreateView):
         context['to_journal_entries'] = to_journal_entry.objects.filter(journal_user=self.request.user, journal_name=current_journal).order_by('-entry_date')
         return context
 
-class EditEntry(LoginRequiredMixin, UpdateView):
+class EditJournalEntry(LoginRequiredMixin, UpdateView):
     model = to_journal_entry
     template_name_suffix = '_update'
     fields = ['body']

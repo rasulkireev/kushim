@@ -7,5 +7,5 @@ urlpatterns = [
     path('<slug:slug>', CreateListEntry.as_view(), name='list-entries'),
     path('<slug:slug>/delete', DeleteList.as_view(), name='delete-list'),
     path('<slug:slug>/rename', RenameList.as_view(), name='rename-list'),
-    path('<int:id>/edit-entry', EditListEntry.as_view(), name='edit-entry'),
+    path('<int:id>/edit-entry', EditListEntry.as_view(), name='edit-list-entry'),
 ]
