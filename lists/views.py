@@ -68,4 +68,4 @@ class EditListEntry(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
 
     def get_success_url(self):
-        return reverse('list_entries', kwargs={'slug':self.object.list_name.slug})
+        return reverse('list-entries', kwargs={'slug':self.object.list_name.slug})
