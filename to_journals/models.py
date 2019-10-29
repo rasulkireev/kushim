@@ -6,6 +6,7 @@ from autoslug import AutoSlugField
 from django.urls import reverse
 
 
+
 class to_journal(models.Model):
     journal_name = models.CharField(max_length = 40)
     slug = AutoSlugField(populate_from='journal_name',always_update=True)

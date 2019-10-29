@@ -2,6 +2,7 @@
 {% block title %}{{ journal_name }}{% endblock title %}
 {% block content %}
 
+
 <a class="go-back" href="{% url 'home' %}">back home</a>
 
 <div class="journal-name-header">
@@ -27,18 +28,17 @@
 
 
 
-
   <div id="entries">
     {% regroup to_journal_entries by entry_date|date:'F j, Y' as journal_entries %}
 
       {% for journal_entry_date in journal_entries %}
 
       <div class="entry-card">
-        <h2 class="entry-date">{{ journal_entry_date.grouper }}</h2>
+        <h1 class="entry-date">{{ journal_entry_date.grouper }}</h1>
 
         {% for journal_entry in journal_entry_date.list %}
         <div class="entry">
-          <p class="entry-body">{{ journal_entry.body }}</p>
+          <p>{{ journal_entry.body|urlize|linebreaks }}</p>
           <a class="edit-entry-button-main" href="{% url 'edit-journal-entry' journal_entry.id %}"><i class="fas fa-pen fa-xs" style="color: grey; font-size: 15px;"></i></a>
         </div>
         {% endfor %}

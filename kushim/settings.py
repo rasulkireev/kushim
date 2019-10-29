@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'lists.apps.ListsConfig',
 
     'crispy_forms',
+    'markdownx',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -167,3 +168,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# MARKDOWNX settings
+MARKDOWNX_MARKDOWN_EXTENSIONS = list()
+MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = dict()

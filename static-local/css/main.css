@@ -27,6 +27,7 @@ p, h1, h2, h3, h4, a, ul, li {
   display: block;
   margin-bottom: 1rem;
   font-size: 15px;
+  color: white;
 }
 strong {
   font-weight: 600;
@@ -48,6 +49,7 @@ strong {
 }
 #navbar p, #navbar a, #navbar h1 {
   text-decoration: none;
+  color: white;
 }
 #navbar .nav-container {
   padding: 0 1rem;
@@ -63,10 +65,14 @@ strong {
   cursor: pointer;
   border-radius: 4px;
   font-weight: 600;
+  font-size: 30px;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
   float: left;
+}
+#brand a {
+  font-size: 25px;
 }
 #user {
   float: right;
@@ -92,6 +98,7 @@ strong {
 .dropdown-item {
   display: block;
   margin-bottom: 10px;
+  margin-top: 0px;
 }
 #login {
   padding: 5px;
@@ -446,15 +453,18 @@ strong {
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
   color: #5183f5;
-
 }
-.entry-body {
-  font-size: 20px;
+.entry-card p, .entry-card a {
   color: #5183f5;
   display: inline;
-
+  font-size: 20px;
 }
+/* .entry p, a {
+  font-size: 20px;
+  display: inline;
+} */
 .entry-card {
   margin-bottom: 10px;
   background-color: white;
