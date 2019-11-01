@@ -17,7 +17,6 @@ I have started building this for myself. I have started with a Journaling app th
 
 
 ### To-dos
-</hr>
 
 #### Github
 - [ ] Write the Installation Process
@@ -35,7 +34,6 @@ I have started building this for myself. I have started with a Journaling app th
 - [ ] Create account edit page. 
 
 ### Roadmap
-</hr>
 - [x] Journals
 - [x] Lists
 - [ ] Personal CRM
