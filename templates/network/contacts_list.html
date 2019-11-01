@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
-{% block title %}{{ list_name }}{% endblock title %}
+{% block title %}"Kushim - Contacts"{% endblock title %}
 {% block content %}
 
-    <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add List</h1>
+    <!-- <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add List</h1>
     <h1 id="header">Lists:</h1>
-    <div id="new-journal">
+    <div id="new-journal"> -->
       <form class="" id="myForm" action="" method="post">
         {% csrf_token %}
         {{ form }}
         <button type="submit" id="add-button">Add</button>
       </form>
-    </div>
+    <!-- </div> -->
 
     <section id='journals'>
-        {% for list in lists %}
-          <a class="journal" href="{% url 'list-entries' list.slug %}">{{ list.journal_name }}</a>
+        {% for contact in contacts %}
+          <a class="journal" href="">{{ contact.first_name }} {{ contact.last_name }}</a>
         {% endfor %}
     </section>
 

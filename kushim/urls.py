@@ -33,6 +33,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('journals/', include('to_journals.urls')),
     path('lists/', include('lists.urls')),
+    path('network/', include('network.urls')),
 
     path('sentry-debug/', trigger_error),
     path('markdownx/', include('markdownx.urls')),

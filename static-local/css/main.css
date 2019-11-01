@@ -29,10 +29,12 @@ p, h1, h2, h3, h4, a, ul, li {
   font-size: 15px;
   color: white;
 }
-strong {
-  font-weight: 600;
-  text-decoration: underline;
-  text-transform: uppercase;
+#content {
+  margin-top: 100px;
+  max-width: 920px;
+  padding: 0 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* General End */
 
@@ -100,7 +102,7 @@ strong {
   margin-bottom: 10px;
   margin-top: 0px;
 }
-#login {
+#login-nav-button {
   padding: 5px;
   cursor: pointer;
   border-radius: 4px;
@@ -113,7 +115,7 @@ strong {
   width: 72px;
   box-sizing: inherit;
 }
-#signup {
+#signup-nav-button  {
   background-image: linear-gradient(to right,#e052a0,#f15c41);
   cursor: pointer;
   border-radius: 4px;
@@ -156,43 +158,13 @@ strong {
   border-radius: 5px;
   margin-bottom: 1.5rem;
 }
-.intro-block-flex {
- margin-bottom: 3rem;
- display: flex;
- flex-direction: column;
-}
 .intro-block {
  margin-top: 3rem;
 }
-.intro-block-gif {
-  padding: 5px;
-  border:1px solid white;
+.my-setup-image {
+  border: 5px solid white;
   border-radius: 5px;
-  max-width: 100%;
-  height: auto;
-}
-.intro-block-description-flex {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-}
-.intro-block-description-item {
-  padding: 10px;
-  font-size: 22px;
-}
-.roadmap-header {
-  padding-left: 10px;
-  padding-top: 10px;
-  font-size: 22px;
-}
-.roadmap-block-header-underline {
-  border: 4px solid white;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-}
-.done {
-  color: grey;
-  text-decoration: line-through;
+  max-width: 900px;
 }
 /* Home Page End */
 
@@ -208,15 +180,7 @@ strong {
 }
 /* Home Page Logged In End */
 
-
-/* Content */
-#content {
-  margin-top: 100px;
-  max-width: 920px;
-  padding: 0 1rem;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Signup and login */
 .box {
   text-align: center;
   border: 5px solid white;
@@ -226,28 +190,54 @@ strong {
   margin: auto;
 }
 .box h1 {
+  margin-top: 7px;
   margin-bottom: 10px;
-  font-weight: 700;
+  font-weight: 650;
   text-transform: uppercase;
+  font-size: 30px;
 }
-.help-block {
-  margin-top: 10px;
+.help-block, .alert-block {
+  margin: 10px 0;
   font-size: 15px;
-  font-weight: 500;
   padding: 10px;
   background-color: #f44336;
-  color: white;
 }
-/* Content */
+.alert-block ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
 
-/* Signup and login */
+}
 .control-group {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+}
+.control-group label {
+  font-size: 1.5rem;
 }
 .textinput, .emailinput {
   border-radius: 3px;
   padding: 3px;
   border: 0;
+  font-size: 1rem;
+}
+.asteriskField {
+  display: none;
+}
+#signup-button, #login-button {
+  color: white;
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0,0,0,.25);
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 93%;
+
 }
 /* Signup and login End */
 
@@ -470,6 +460,9 @@ strong {
   background-color: white;
   padding: 15px;
   border-radius: 10px;
+}
+.entry .small-text {
+  font-size: 12px;
 }
 /* Journals Entry End */
 

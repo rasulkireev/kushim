@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'to_journals.apps.ToJournalsConfig',
     'lists.apps.ListsConfig',
+    'network.apps.NetworkConfig',
 
     'crispy_forms',
     'markdownx',

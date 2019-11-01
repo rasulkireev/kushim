@@ -5,14 +5,14 @@
 <html lang="en" dir="ltr">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143847424-2"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143847424-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-143847424-2');
-    </script>
+    </script> -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
     <meta charset="utf-8">
@@ -48,8 +48,8 @@
               </div>
             </div>
             {% else %}
-              <a id='login' href="{% url 'login' %}">Login</a>
-              <a id='signup' href="{% url 'signup' %}">Signup</a>
+              <a id='login-nav-button' href="{% url 'login' %}">Login</a>
+              <a id='signup-nav-button' href="{% url 'signup' %}">Signup</a>
             {% endif %}
           </div>
         </div>
