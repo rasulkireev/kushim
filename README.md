@@ -1,14 +1,23 @@
+# Work in Progress
+
 # Kushim
 ## Open Source Minimalist Life Management Tool
 
 ### About
 I have started building this for myself. I have started with a Journaling app that was inspired by [Derek Sivers](http://sivers.org) [post on Journaling](https://sivers.org/dj). I have kept a physical journal for the past 6 months and wanted to experiment with a digital version, but couldn't find anything that fit my needs. I have now fully moved my journal to [Kushim](https://kushim.io). This is how my current setup looks like:
 
-
+.
+.
+.
 
 ### Installation
+.
+.
+.
+
 
 ### To-dos
+<hr>
 
 #### Github
 * Write the Installation Process
@@ -26,6 +35,7 @@ I have started building this for myself. I have started with a Journaling app th
 * Create account edit page. 
 
 ### Roadmap 
+<hr>
 - [x] Journals
 - [x] Lists
 - [ ] Personal CRM
