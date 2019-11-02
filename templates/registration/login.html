@@ -7,7 +7,6 @@
 {% block content %}
 
 <div class="box">
-  <h1>LogIn</h1>
   <form id="login-form" method="post">
     {% csrf_token %}
     {{ form|crispy }}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ list_name }}{% endblock title %}
+{% block content %}
+
+    <h1 id="header">Lists:</h1>
+    <button class="add-button" id="list-to-hide" style="margin-left:0px;margin-bottom:10px;" onclick="inputList(); this.onclick=null;">Add List</button>
+    <div id="new-journal">
+      <form class="" style="margin-bottom:0px;" id="myListForm" action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="add-button">Add</button>
+      </form>
+    </div>
+
+    <section id='journals'>
+        {% for list in lists %}
+          <a class="journal" href="{% url 'list-entries' list.slug %}">{{ list.list_name }}</a>
+        {% endfor %}
+    </section>
+
+{% endblock content %}

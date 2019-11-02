@@ -1,9 +1,9 @@
 {% load static %}
 
-    <section id='journals'>
+    <section id='lists'>
 
         {% for list in lists %}
-          <a class="journal" href="{% url 'list-entries' list.slug %}">{{ list.list_name }}</a>
+          <a class="list" href="{% url 'list-entries' list.slug %}">{{ list.list_name }}</a>
         {% endfor %}
 
           <button class="add-button" id="list-to-hide" onclick="inputList(); this.onclick=null;">Add List</button>

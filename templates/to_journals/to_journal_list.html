@@ -2,19 +2,19 @@
 {% block title %}{{ journal_name }}{% endblock title %}
 {% block content %}
 
-    <h1 class="green-button" onclick="inputJournal(); this.onclick=null;">Add Journal</h1>
-    <h1 id="header">My thoughts on:</h1>
-    <div id="new-journal">
-      <form class="" id="myForm" action="" method="post">
+    <h1 id="header">Journals:</h1>
+    <button class="add-button" style="margin-left: 0px;margin-bottom: 10px;" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
+    <span id="new-journal">
+      <form class="" id="myJournalForm" action="" method="post"  style="margin-bottom:0px;">
         {% csrf_token %}
         {{ form }}
-        <button type="submit" id="add-button">Add</button>
+        <button type="submit" class="add-button">Add</button>
       </form>
-    </div>
+    </span>
 
     <section id='journals'>
-        {% for to_journal in to_journals %}
-          <a class="journal" href="{% url 'to-journal-entries' to_journal.slug %}">{{ to_journal.journal_name }}</a>
+        {% for journal in to_journals %}
+          <a class="journal" href="{% url 'to-journal-entries' journal.slug %}">{{ journal.journal_name }}</a>
         {% endfor %}
     </section>
 

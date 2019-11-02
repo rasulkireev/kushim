@@ -24,9 +24,9 @@
     <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'favicon/500x500.png' %}">
 
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/line-awesome.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-    <script src="https://kit.fontawesome.com/1f5c082ba9.js"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
   </head>
   <body>
@@ -40,7 +40,7 @@
           <div id="user">
             {% if user.is_authenticated %}
             <div class="dropdown" onclick="void(0)">
-              <i class="far fa-user fa-lg"></i>
+              <i class="la la-user"></i>
               <div class="dropdown-content">
                 <p class="dropdown-item">{{ user.username }}</p>
                 <a class="dropdown-item" href="mailto:me@rasulkireev.com">Feedback</a>

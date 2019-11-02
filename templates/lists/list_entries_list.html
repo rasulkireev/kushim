@@ -6,7 +6,7 @@
 
 <div class="journal-name-header">
     <h2 class="journal-name">{{ list_name }}</h2>
-    <span onclick="editJournal(); this.onclick=null"><i class="fas fa-pen-square"></i></span>
+    <span onclick="editJournal(); this.onclick=null"><i class="las la-pen"></i></span>
 </div>
 
 <div class="delete-rename-block">
@@ -38,8 +38,8 @@
 
         {% for list_entry in entry_date.list %}
         <div class="entry">
-            <p class="entry-body">{{ list_entry.body|urlize }}</p>
-            <a class="edit-entry-button-main" href="{% url 'edit-list-entry' list_entry.id %}"><i class="fas fa-pen fa-xs" style="color: grey; font-size: 15px;"></i></a>
+            <p class="entry-body">{{ list_entry.body|urlize }} - <span class='small-text'>@{{ list_entry.entry_date|date:'P' }}</span></p>
+            <a class="edit-entry-button-main" href="{% url 'edit-list-entry' list_entry.id %}"><i class="las la-pen small"></i></a>
         </div>
         {% endfor %}
       </div>
