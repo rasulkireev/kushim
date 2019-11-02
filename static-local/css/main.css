@@ -398,18 +398,34 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 /* Delete, Rename Journal Button End  */
 
-/* Journals */
-#journals, #lists {
+/* Journals and Lists*/
+.journals {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-
+}
+.lists {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 #header {
   margin-bottom: 20px;
   font-size: 30px;
   }
-.journal, .list {
+.journal {
+  flex-basis: content;
+  background: #ebf1fe;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: 600;
+  color: #5183f5;
+  cursor: pointer;
+  text-decoration: none;
+}
+.list {
   flex-basis: content;
   background: #ebf1fe;
   border-radius: 4px;
