@@ -10,8 +10,8 @@
 </div>
 
 <div class="delete-rename-block">
-  <a id="rename-button" href="{% url 'rename-list' slug %}">Rename</a>
-  <a id="delete-button" href="{% url 'delete-list' slug %}">Delete</a>
+  <a id="rename-button" href="{% url 'rename-list' slug=list_slug id=list_id %}">Rename</a>
+  <a id="delete-button" href="{% url 'delete-list' slug=list_slug id=list_id %}">Delete</a>
 </div>
 
 

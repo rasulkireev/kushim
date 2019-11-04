@@ -57,7 +57,8 @@ class CreateListEntry(LoginRequiredMixin, CreateView):
         current_list = List.objects.get(list_owner=self.request.user, slug=self.kwargs['slug'])
         context = super(CreateListEntry, self).get_context_data(**kwargs)
         context["list_name"] = current_list.list_name
-        context["slug"] = current_list.slug
+        context["list_slug"] = current_list.slug
+        context["list_id"] = current_list.id
         context['list_entries'] = ListEntry.objects.filter(list_owner=self.request.user, list_name=current_list).order_by('-entry_date')
         return context
 

@@ -11,8 +11,8 @@
 </div>
 
 <div class="delete-rename-block">
-  <a id="rename-button" href="{% url 'rename-journal' slug %}">Rename</a>
-  <a id="delete-button" href="{% url 'delete-journal' slug %}">Delete</a>
+  <a id="rename-button" href="{% url 'rename-journal' slug=slug id=journal_id %}">Rename</a>
+  <a id="delete-button" href="{% url 'delete-journal' slug=slug id=journal_id %}">Delete</a>
 </div>
 
 
