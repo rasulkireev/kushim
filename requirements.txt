@@ -1,5 +1,6 @@
 certifi==2019.9.11
 Django==2.2.6
+django-analytical==2.5.0
 django-autoslug==1.9.6
 django-crispy-forms==1.7.2
 django-environ==0.4.5
