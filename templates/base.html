@@ -1,19 +1,11 @@
 {% load static %}
+{% load analytical %}
 
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143847424-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-143847424-2');
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% analytical_head_top %}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,8 +20,11 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+    {% analytical_head_bottom %}
   </head>
   <body>
+    {% analytical_body_top %}
 
     <div id="page">
       <nav id="navbar">
@@ -63,6 +58,6 @@
   </div>
 
 
-
+    {% analytical_body_bottom %}
   </body>
 </html>

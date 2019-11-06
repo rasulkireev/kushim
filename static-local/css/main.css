@@ -276,12 +276,23 @@ p, h1, h2, h3, h4, a, ul, li {
   font-size: 20px;
   color: grey;
 }
-#myJournalForm, #myListForm {
+#myJournalForm, #myListForm, #myContactForm {
   margin-bottom: 20px;
   display: none;
 }
 #myJournalForm label, #myListForm label {
   display: none;
+}
+#myContactForm p {
+  margin: 3px;
+}
+#myContactForm p label {
+  font-weight: 700;
+  text-align: center;
+  border: solid 2px white;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 8px 20px;
 }
 .add-button {
   text-align: center;
@@ -300,9 +311,9 @@ p, h1, h2, h3, h4, a, ul, li {
   background-color:#00C4EB;
   color: #FFFFFF;
 }
-#journal-to-hide, #list-to-hide {
+#journal-to-hide, #list-to-hide, #contact-to-hide {
 }
-#id_journal_name, #id_list_name {
+#id_journal_name, #id_list_name, #id_first_name, #id_last_name {
   height: 43px;
   width: 150px;
   padding-left: 5px;
@@ -398,13 +409,8 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 /* Delete, Rename Journal Button End  */
 
-/* Journals and Lists*/
-.journals {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.lists {
+/* Journals, Lists and Contacts @home */
+.journals, .lists, .contacts {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -413,19 +419,7 @@ p, h1, h2, h3, h4, a, ul, li {
   margin-bottom: 20px;
   font-size: 30px;
   }
-.journal {
-  flex-basis: content;
-  background: #ebf1fe;
-  border-radius: 4px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-weight: 600;
-  color: #5183f5;
-  cursor: pointer;
-  text-decoration: none;
-}
-.list {
+.journal, .list, .contact {
   flex-basis: content;
   background: #ebf1fe;
   border-radius: 4px;
@@ -445,7 +439,7 @@ p, h1, h2, h3, h4, a, ul, li {
 .journal-name-header {
 
 }
-/* Journals End */
+/* Journals, Lists and Contacts @home END */
 
 /* Journals Entry */
 #id_body {

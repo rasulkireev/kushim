@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'network.apps.NetworkConfig',
 
     'crispy_forms',
+    'analytical',
     'markdownx',
 
     'django.contrib.admin',
@@ -173,3 +174,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # MARKDOWNX settings
 MARKDOWNX_MARKDOWN_EXTENSIONS = list()
 MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = dict()
+
+
+# Django Analytical
+if not DEBUG:
+    GOOGLE_ANALYTICS_PROPERTY_ID = env('GOOGLE_ANALYTICS_PROPERTY_ID')
+    ANALYTICAL_INTERNAL_IPS = env.list('ANALYTICAL_INTERNAL_IPS')

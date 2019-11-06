@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from .models import Contact
+from .models import Contact, ContactForm
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 
@@ -9,10 +9,10 @@ from django.shortcuts import render
 class CreateContact(LoginRequiredMixin, CreateView):
     model = Contact
     template_name = 'network/contacts_list.html'
-    fields = ['first_name', 'last_name',]
+    form_class = ContactForm
 
     def get_success_url(self):
-        return reverse('contacts')
+        return reverse('home')
 
     def form_valid(self, form):
         form.instance.contact_owner = self.request.user
