@@ -54,3 +54,27 @@ class ContactWork(models.Model):
 
     def __str__(self):
         return self.contact_id + ": " + self.title + " - " + self.employer
+
+
+class ContactLog(models.Model):
+    contact_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
+    contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE)
+
+    Gift_Ideas = 'Gift Ideas'
+    Notes = 'Notes'
+    Conversations = 'Conversations'
+    LOG_TYPE = [
+        (Gift_Ideas, 'Gift Ideas'),
+        (Notes, 'Notes'),
+        (Conversations, 'Conversations'),
+    ]
+    log_type = models.CharField(
+    choices=LOG_TYPE,
+        max_length=20,
+        default=Notes,
+    )
+
+    body = models.TextField()
+
+    def __str__(self):
+        return self.contact_id + ": " + self.log_type

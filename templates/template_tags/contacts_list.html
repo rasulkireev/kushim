@@ -3,7 +3,7 @@
     <section class='contacts'>
 
         {% for contact in contacts %}
-          <a class="contact" href="#">{{ contact.first_name }} {{ contact.last_name }}</a>
+          <a class="contact" href="{% url 'contact-detail' contact.contact_id %}">{{ contact.first_name }} {{ contact.last_name }}</a>
         {% endfor %}
 
           <button class="add-button" id="contact-to-hide" onclick="inputContact(); this.onclick=null;">Add Contact</button>

@@ -289,8 +289,6 @@ p, h1, h2, h3, h4, a, ul, li {
 #myContactForm p label {
   font-weight: 700;
   text-align: center;
-  border: solid 2px white;
-  border-radius: 5px;
   font-size: 20px;
   padding: 8px 20px;
 }
