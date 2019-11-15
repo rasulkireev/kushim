@@ -39,6 +39,7 @@ class ContactContact(models.Model):
     contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE)
     contact_type = models.CharField(max_length=200, blank=True)
     contact_value = models.CharField(max_length=200, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.contact_type + ": " + self.contact_value + " - " + self.contact_id
@@ -59,6 +60,7 @@ class ContactWork(models.Model):
 class ContactLog(models.Model):
     contact_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
     contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     Gift_Ideas = 'Gift Ideas'
     Notes = 'Notes'
@@ -77,4 +79,4 @@ class ContactLog(models.Model):
     body = models.TextField()
 
     def __str__(self):
-        return self.contact_id + ": " + self.log_type
+        return str(self.contact_id) + ": " + self.log_type

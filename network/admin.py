@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Contact, ContactLog
 
-# Register your models here.
+admin.site.register(Contact)
+admin.site.register(ContactLog)

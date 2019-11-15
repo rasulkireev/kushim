@@ -23,24 +23,25 @@ class CreateContact(LoginRequiredMixin, CreateView):
         context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)
         return context
 
-class CreateLog(LoginRequiredMixin, CreateView):
+class CreateContactLog(LoginRequiredMixin, CreateView):
     model = ContactLog
     template_name = 'network/contact_detail.html'
     fields = ('log_type','body',)
 
     def get_success_url(self):
-        return reverse('contact-detail', kwargs={'pk':self.object.contact_id})
+        return reverse('contact-detail', kwargs={'id':self.kwargs['id']})
 
     def form_valid(self, form):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.contact_id)
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
         form.instance.contact_owner = self.request.user
         form.instance.contact_id = current_contact
-        return super(CreateLog, self).form_valid(form)
+        return super(CreateContactLog, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.contact_id)
-        context = super(CreateLog, self).get_context_data(**kwargs)
-        context["contact-info"] = current_contact
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        context = super(CreateContactLog, self).get_context_data(**kwargs)
+        context["contact_info"] = current_contact
+        context["first_name"] = current_contact.first_name
         context["id"] = current_contact.contact_id
-        context['log-entries'] = ContactLog.objects.filter(contact_owner=self.request.user, contact_id=current_contact)
+        context['log_entries'] = ContactLog.objects.filter(contact_owner=self.request.user, contact_id=current_contact)
         return context

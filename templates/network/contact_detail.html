@@ -2,6 +2,30 @@
 {% block title %}"Kushim - Contacts"{% endblock title %}
 {% block content %}
 
-  <p>{ contact-info.first_name }</p>
+  <p>{{ contact_info.first_name }} {{ contact_info.last_name }}</p>
+
+  <form class="" id="" action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="add-entry-button">Add Log</button>
+  </form>
+
+  <div id="">
+    {% regroup log_entries by log_type as log_entries %}
+
+      {% for date_created in log_entries %}
+
+      <div class="entry-card">
+        <h2 class="entry-date">{{ date_created.grouper }}</h2>
+
+        {% for log_entry in date_created.list %}
+        <div class="entry">
+            <p class="entry-body">{{ log_entry.body|urlize }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% endfor %}
+  </div>
 
 {% endblock content %}
