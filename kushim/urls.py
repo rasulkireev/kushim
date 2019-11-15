@@ -36,7 +36,6 @@ urlpatterns = [
     path('network/', include('network.urls')),
 
     path('sentry-debug/', trigger_error),
-    path('markdownx/', include('markdownx.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -51,10 +51,9 @@ INSTALLED_APPS = [
     'to_journals.apps.ToJournalsConfig',
     'lists.apps.ListsConfig',
     'network.apps.NetworkConfig',
-
+    
     'crispy_forms',
     'analytical',
-    'markdownx',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -169,12 +168,8 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+# Email setup
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# MARKDOWNX settings
-MARKDOWNX_MARKDOWN_EXTENSIONS = list()
-MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = dict()
-
 
 # Django Analytical
 if not DEBUG:

@@ -27,11 +27,17 @@ p, h1, h2, h3, h4, a, ul, li {
   display: block;
   margin-bottom: 1rem;
   font-size: 15px;
+  color: white;
 }
-strong {
-  font-weight: 600;
-  text-decoration: underline;
-  text-transform: uppercase;
+#content {
+  margin-top: 100px;
+  max-width: 920px;
+  padding: 0 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.small {
+  font-size: 15px;
 }
 /* General End */
 
@@ -48,6 +54,7 @@ strong {
 }
 #navbar p, #navbar a, #navbar h1 {
   text-decoration: none;
+  color: white;
 }
 #navbar .nav-container {
   padding: 0 1rem;
@@ -63,10 +70,14 @@ strong {
   cursor: pointer;
   border-radius: 4px;
   font-weight: 600;
+  font-size: 30px;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
   float: left;
+}
+#brand a {
+  font-size: 25px;
 }
 #user {
   float: right;
@@ -82,7 +93,6 @@ strong {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   padding: 12px 16px;
   right: 0;
-  margin-top: 3px;
   z-index: 1;
   background-color: #3F8CE8;
 }
@@ -92,8 +102,9 @@ strong {
 .dropdown-item {
   display: block;
   margin-bottom: 10px;
+  margin-top: 0px;
 }
-#login {
+#login-nav-button {
   padding: 5px;
   cursor: pointer;
   border-radius: 4px;
@@ -106,7 +117,7 @@ strong {
   width: 72px;
   box-sizing: inherit;
 }
-#signup {
+#signup-nav-button  {
   background-image: linear-gradient(to right,#e052a0,#f15c41);
   cursor: pointer;
   border-radius: 4px;
@@ -149,43 +160,32 @@ strong {
   border-radius: 5px;
   margin-bottom: 1.5rem;
 }
-.intro-block-flex {
- margin-bottom: 3rem;
- display: flex;
- flex-direction: column;
-}
-.intro-block {
- margin-top: 3rem;
-}
-.intro-block-gif {
-  padding: 5px;
-  border:1px solid white;
+
+.card-block {
+  border: 5px solid white;
   border-radius: 5px;
-  max-width: 100%;
-  height: auto;
-}
-.intro-block-description-flex {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-}
-.intro-block-description-item {
   padding: 10px;
-  font-size: 22px;
+  margin-bottom: 2rem;
+  background-color: #ea7f33;
 }
-.roadmap-header {
-  padding-left: 10px;
-  padding-top: 10px;
-  font-size: 22px;
+.card-block h2 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-.roadmap-block-header-underline {
-  border: 4px solid white;
+.card-block h2, .card-block p {
+  text-align: center;
+}
+.card-separator {
+  border: 2px solid white;
+  border-radius: 3px;
+}
+.center-image {
+  text-align: center;
+}
+.my-setup-image {
+  border: 5px solid white;
   border-radius: 5px;
-  margin-bottom: 0.5rem;
-}
-.done {
-  color: grey;
-  text-decoration: line-through;
+  max-width: 95%;
 }
 /* Home Page End */
 
@@ -199,17 +199,12 @@ strong {
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
+.la-user {
+  font-size: 2.5rem;
+}
 /* Home Page Logged In End */
 
-
-/* Content */
-#content {
-  margin-top: 100px;
-  max-width: 920px;
-  padding: 0 1rem;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Signup and login */
 .box {
   text-align: center;
   border: 5px solid white;
@@ -219,32 +214,59 @@ strong {
   margin: auto;
 }
 .box h1 {
+  margin-top: 7px;
   margin-bottom: 10px;
-  font-weight: 700;
+  font-weight: 650;
   text-transform: uppercase;
+  font-size: 30px;
 }
-.help-block {
-  margin-top: 10px;
+.help-block, .alert-block {
+  margin: 10px 0;
   font-size: 15px;
-  font-weight: 500;
   padding: 10px;
   background-color: #f44336;
-  color: white;
 }
-/* Content */
+.alert-block ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
 
-/* Signup and login */
+}
 .control-group {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+}
+.control-group label {
+  font-size: 1.5rem;
 }
 .textinput, .emailinput {
   border-radius: 3px;
   padding: 3px;
   border: 0;
+  font-size: 1rem;
+  width: 215px;
+}
+.asteriskField {
+  display: none;
+}
+#signup-button, #login-button {
+  color: white;
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0,0,0,.25);
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: 220px;
+
 }
 /* Signup and login End */
 
-/* Add, Delete, Rename Journal Button  */
+/* Add, Delete, Rename Journal and List Button  */
 #id_name {
   padding: 6px;
   border: 0px;
@@ -254,12 +276,21 @@ strong {
   font-size: 20px;
   color: grey;
 }
-#myJournalForm, #myListForm {
+#myJournalForm, #myListForm, #myContactForm {
   margin-bottom: 20px;
   display: none;
 }
 #myJournalForm label, #myListForm label {
   display: none;
+}
+#myContactForm p {
+  margin: 3px;
+}
+#myContactForm p label {
+  font-weight: 700;
+  text-align: center;
+  font-size: 20px;
+  padding: 8px 20px;
 }
 .add-button {
   text-align: center;
@@ -278,9 +309,9 @@ strong {
   background-color:#00C4EB;
   color: #FFFFFF;
 }
-#journal-to-hide, #list-to-hide {
+#journal-to-hide, #list-to-hide, #contact-to-hide {
 }
-#id_journal_name, #id_list_name {
+#id_journal_name, #id_list_name, #id_first_name, #id_last_name {
   height: 43px;
   width: 150px;
   padding-left: 5px;
@@ -292,7 +323,7 @@ strong {
 }
 /* Add Journal Button End */
 
-/* Delete, Rename Journal Button  */
+/* Delete, Rename Journal and List Button  */
 .edit-journal {}
 .delete-rename-block {
   margin-bottom: 1.5rem;
@@ -376,18 +407,17 @@ strong {
 }
 /* Delete, Rename Journal Button End  */
 
-/* Journals */
-#journals {
+/* Journals, Lists and Contacts @home */
+.journals, .lists, .contacts {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-
 }
 #header {
   margin-bottom: 20px;
   font-size: 30px;
   }
-.journal {
+.journal, .list, .contact {
   flex-basis: content;
   background: #ebf1fe;
   border-radius: 4px;
@@ -407,7 +437,7 @@ strong {
 .journal-name-header {
 
 }
-/* Journals End */
+/* Journals, Lists and Contacts @home END */
 
 /* Journals Entry */
 #id_body {
@@ -446,38 +476,32 @@ strong {
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
   color: #5183f5;
-
 }
-.entry-body {
-  font-size: 20px;
+.entry-card p, .entry-card a {
   color: #5183f5;
   display: inline;
-
+  font-size: 20px;
 }
+/* .entry p, a {
+  font-size: 20px;
+  display: inline;
+} */
 .entry-card {
   margin-bottom: 10px;
   background-color: white;
   padding: 15px;
   border-radius: 10px;
 }
+.entry .small-text {
+  font-size: 12px;
+}
 /* Journals Entry End */
 
 
 @media (min-width: 768px) {
   /* Home Page */
-  .intro-block-flex {
-   flex-direction: row;
-  }
-  .intro-block-gif {
-    max-width: 60%;
-    height: auto;
-  }
-  .one {
-    order: 1;
-  }
-  .two {
-    order: 2;
-  }
+
   /* Home Page End */
 }
