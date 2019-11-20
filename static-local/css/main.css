@@ -284,6 +284,7 @@ p, h1, h2, h3, h4, a, ul, li {
   color: #FFFFFF;
 }
 #journal-to-hide, #list-to-hide, #contact-to-hide {
+  
 }
 #id_journal_name, #id_list_name, #id_first_name, #id_last_name {
   height: 43px;
