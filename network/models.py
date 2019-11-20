@@ -14,6 +14,7 @@ class Contact(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     nickname = models.CharField(max_length = 30, blank=True)
+    support_image = models.ImageField(blank=True, upload_to='contact-support-images/')
     tags = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(upload_to='profile-images/', blank=True)
     how_you_met = models.TextField(blank=True)
