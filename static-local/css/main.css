@@ -1,11 +1,12 @@
 body {
   background-color: #349EEB;
-  font-size: 22px;
-  color: white;
+  /* background-color: #96ccf2; */
   font-family: "Montserrat", sans-serif;
+  /* font-family: -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue; */
   margin-bottom: 50px;
 }
-p, h1, h2, h3, h4, a, ul, li {
+
+p, h1, h2, h3, h4, li, ul, a {
   color: white;
 }
 
@@ -30,7 +31,7 @@ p, h1, h2, h3, h4, a, ul, li {
   color: white;
 }
 #content {
-  margin-top: 100px;
+  margin-top: 70px;
   max-width: 920px;
   padding: 0 1rem;
   margin-left: auto;
@@ -40,6 +41,19 @@ p, h1, h2, h3, h4, a, ul, li {
   font-size: 15px;
 }
 /* General End */
+
+/* Semantic */
+.f6 {
+  font-size: 0.875rem;
+}
+.lh-copy {
+  line-height: 1.5;
+}
+.normal{
+  font-weight: 400;
+}
+  /* Semantic */
+
 
 /* Navbar */
 #navbar {
@@ -86,6 +100,9 @@ p, h1, h2, h3, h4, a, ul, li {
 .dropdown {
   position: relative;
   display: inline-block;
+}
+.dropdown i {
+  color: white;
 }
 .dropdown-content {
   display: none;
@@ -142,7 +159,7 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 .intro-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   width: 100%;
   float: left;
 }
@@ -152,6 +169,7 @@ p, h1, h2, h3, h4, a, ul, li {
   font-weight: 450;
 }
 .signup-button {
+  display: inline-block;
   background-image: linear-gradient(to right,#e052a0,#f15c41);
   cursor: pointer;
   border-radius: 6px;
@@ -159,6 +177,13 @@ p, h1, h2, h3, h4, a, ul, li {
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
+}
+.main-description{
+  font-weight: 800;
+  font-size: 30px;
+}
+.main-sub-description{
+  font-size: 22px;
 }
 
 /* Home Page Intro End */
@@ -238,6 +263,7 @@ p, h1, h2, h3, h4, a, ul, li {
   width: 220px;
 
 }
+
 /* Signup and login End */
 
 /* Add, Delete, Rename Journal and List Button  */
@@ -387,6 +413,7 @@ p, h1, h2, h3, h4, a, ul, li {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  font-size: 1.25rem;
 }
 #header {
   margin-bottom: 20px;
@@ -459,10 +486,6 @@ p, h1, h2, h3, h4, a, ul, li {
   display: inline;
   font-size: 20px;
 }
-/* .entry p, a {
-  font-size: 20px;
-  display: inline;
-} */
 .entry-card {
   margin-bottom: 10px;
   background-color: white;
@@ -476,12 +499,19 @@ p, h1, h2, h3, h4, a, ul, li {
   display: block;
   max-width: 90%;
   max-height: 100px;
+  margin-top: 0.5rem;
 }
 /* Journals Entry End */
 
 
 @media (min-width: 768px) {
   /* Home Page */
-
+  .main-description{
+    font-weight: 800;
+    font-size: 55px;
+  }
+  .main-sub-description{
+    font-size: 24px;
+  }
   /* Home Page End */
 }
