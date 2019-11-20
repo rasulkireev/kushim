@@ -30,6 +30,7 @@ class to_journal_entry(models.Model):
     entry_date = models.DateTimeField(auto_now_add=True)
     journal_name = models.ForeignKey(to_journal, on_delete=models.CASCADE,)
     journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
+    support_image = models.ImageField(blank=True, upload_to='entry-support-images/')
 
     def __str__(self):
         return str(self.journal_name) + " " + str(self.entry_date)

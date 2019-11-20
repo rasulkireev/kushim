@@ -42,7 +42,7 @@ class RenameJournal(LoginRequiredMixin, UpdateView):
 class ToJournalEntriesList(LoginRequiredMixin, CreateView):
     model = to_journal_entry
     template_name = 'to_journals/to_journal_entries_list.html'
-    fields = ('body',)
+    fields = ('body','support_image')
 
     def get_success_url(self):
         return reverse('to-journal-entries', kwargs={'slug':self.object.journal_name.slug})

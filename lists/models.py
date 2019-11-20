@@ -29,6 +29,7 @@ class ListEntry(models.Model):
     entry_date = models.DateTimeField(auto_now_add=True)
     list_name = models.ForeignKey(List, on_delete=models.CASCADE,)
     list_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
+    support_image = models.ImageField(blank=True, upload_to='list-support-images/')
 
     def __str__(self):
         return str(self.list_name) + " " + str(self.entry_date)

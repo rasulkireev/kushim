@@ -134,60 +134,34 @@ p, h1, h2, h3, h4, a, ul, li {
 /* Home Page Intro */
 .intro {
   margin-bottom: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 64rem;
 }
 .intro-header {
   text-align: center;
-  font-size: 35px;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-
+  margin-bottom: 4rem;
+  width: 100%;
+  float: left;
 }
 .intro-description {
   text-align: center;
   font-size: 25px;
   font-weight: 450;
 }
+.signup-button {
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0,0,0,.25);
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
 /* Home Page Intro End */
-
-/* Home Page */
-.block-header {
-  display: inline;
-  font-size: 27px;
-  font-weight: 600;
-}
-.block-header-underline {
-  border: 4px solid white;
-  border-radius: 5px;
-  margin-bottom: 1.5rem;
-}
-
-.card-block {
-  border: 5px solid white;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 2rem;
-  background-color: #ea7f33;
-}
-.card-block h2 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.card-block h2, .card-block p {
-  text-align: center;
-}
-.card-separator {
-  border: 2px solid white;
-  border-radius: 3px;
-}
-.center-image {
-  text-align: center;
-}
-.my-setup-image {
-  border: 5px solid white;
-  border-radius: 5px;
-  max-width: 95%;
-}
-/* Home Page End */
 
 /* Home Page Logged In */
 .app {
@@ -496,6 +470,11 @@ p, h1, h2, h3, h4, a, ul, li {
 }
 .entry .small-text {
   font-size: 12px;
+}
+.journal-support-image {
+  display: block;
+  max-width: 90%;
+  max-height: 100px;
 }
 /* Journals Entry End */
 

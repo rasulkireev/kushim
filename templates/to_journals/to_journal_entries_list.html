@@ -18,7 +18,7 @@
 
 <button id="journal-to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
-  <form class="" id="myJournalForm" action="" method="post">
+  <form class="" id="myJournalForm" action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Entry</button>
@@ -40,6 +40,9 @@
         <div class="entry">
           <p>{{ journal_entry.body|urlize }} - <span class='small-text'>@{{ journal_entry.entry_date|date:'P' }}</span></p>
           <a class="edit-entry-button-main" href="{% url 'edit-journal-entry' journal_entry.id %}"><i class="las la-pen"></i></a>
+          {% if journal_entry.support_image %}
+            <img src="{{ MEDIA_URL }}{{ journal_entry.support_image }}" alt="{{ journal_entry.body}}" class="journal-support-image">
+          {% endif %}
         </div>
         {% endfor %}
       </div>
