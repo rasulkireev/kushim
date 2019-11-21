@@ -6,9 +6,9 @@ body {
   margin-bottom: 50px;
 }
 
-p, h1, h2, h3, h4, li, ul, a {
+/* p, h1, h2, h3, h4, li, ul, a {
   color: white;
-}
+} */
 
 /* General */
 .green-button {
@@ -31,7 +31,7 @@ p, h1, h2, h3, h4, li, ul, a {
   color: white;
 }
 #content {
-  margin-top: 70px;
+  margin-top: 100px;
   max-width: 920px;
   padding: 0 1rem;
   margin-left: auto;
@@ -51,6 +51,10 @@ p, h1, h2, h3, h4, li, ul, a {
 }
 .normal{
   font-weight: 400;
+}
+.center{
+  text-align: center;
+  align-content: center;
 }
   /* Semantic */
 
@@ -149,7 +153,7 @@ p, h1, h2, h3, h4, li, ul, a {
 /* Navbar End */
 
 /* Home Page Intro */
-.intro {
+.home-page {
   margin-bottom: 2.5rem;
   margin-left: auto;
   margin-right: auto;
@@ -157,11 +161,23 @@ p, h1, h2, h3, h4, li, ul, a {
   padding-right: 1rem;
   max-width: 64rem;
 }
-.intro-header {
+.home-page p, .home-page button, .home-page h1, .home-page h2, .home-page h3, .home-page a, .home-page img{
+ text-align: center;
+ margin-left: auto;
+ margin-right: auto;
+} 
+.intro-block {
   text-align: center;
   margin-bottom: 2rem;
   width: 100%;
   float: left;
+}
+.intro-card {
+  border: 5px solid white;
+  border-radius: 6px;
+  color:black;
+  background-color:white;
+  box-shadow: 0 4px 6px hsla(0, 0%, 70%), 0 5px 15px hsla(0,0%,10%);
 }
 .intro-description {
   text-align: center;
@@ -185,7 +201,14 @@ p, h1, h2, h3, h4, li, ul, a {
 .main-sub-description{
   font-size: 22px;
 }
-
+.app-screenshot{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 95%;
+  border: 2px solid white;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px hsla(0, 0%, 70%), 0 5px 15px hsla(0,0%,10%);
+}
 /* Home Page Intro End */
 
 /* Home Page Logged In */

@@ -27,40 +27,29 @@
 
 
 {% else %}
-  <div class="home-page">
+ 
+  <div class="home-page intro-card">
 
-      <div class="intro">
-        <div class="intro-header">
-          <h1 class="main-description">Open source life management.</h1>
-          <h2 class="main-sub-description lh-copy normal">Kushim helps you organize your life and not lose your mind.</h2>
-          <p class="lh-copy">Record your thoughts. <span class="sketch-underline">Strengthen your relationships</span>.</p>
-        </div>
-        
+        <h1 class="main-description">Open source life management.</h1>
+        <h2 class="main-sub-description lh-copy normal">Kushim helps you organize your life and not lose your mind.</h2>
+        <p class="lh-copy">Record your thoughts. <span class="sketch-underline">Strengthen your relationships</span>.</p>
+      
+        <a href="{% url 'signup' %}" class="signup-button">Signup for free</a>
+        <p class="f6">No credit card required. Or <a href="https://github.com/rasulkireev/kushim" target="_blank">install it</a> on your own server.</p>
+
+        <img class="app-screenshot"src="{% static 'images/app-screenshot.png' %}" alt="Kushim App Screenshot">
     
-        <div class="intro-header">
-          <a href="{% url 'signup' %}" class="signup-button">Signup for free</a>
-          <p class="f6">No credit card required. Or <a href="https://github.com/rasulkireev/kushim" target="_blank">install it</a> on your own server.</p>
-        </div>
-      </div>
+        <h2 class="">Journals</h2>
+        <p class="">There are a lot of studies that show many benefits of journaling.</p>
+        <p class="">Kushim will help you create journals for different aspects of your life. <br>This is my current setup:</p>
 
-    <div class="">
-      <h2 class="">Journals</h2>
-      <p class="">There are a lot of studies that show many benefits of journaling.</p>
-      <p class="">Kushim will help you create journals for different aspects of your life. <br>This is my current setup:</p>
-    </div>
+        <h2 class="">Lists</h2>
+        <p class="">If you ever had a problem with remembering cool stuff you found online you are going to love this.</p>
+        <p class="">Kushim will help you keep a structured list of things you want to remember. <br>This is my current setup:</p>
 
-    <div class="">
-      <h2 class="">Lists</h2>
-      <p class="">If you ever had a problem with remembering cool stuff you found online you are going to love this.</p>
-      <p class="">Kushim will help you keep a structured list of things you want to remember. <br>This is my current setup:</p>
-    </div>
-
-
-    <div class="">
-      <h2 class="">Pricing</h2>
-      <p class="">Kushim is currently free. If you register now, you will get a lifetime subscription to the service for <strong>free</strong>.<p>
-      <p class="">Once I add a couple more features, I plan to make it paid, with a classic subscription model.<p>
-    </div>
+        <h2 class="">Pricing</h2>
+        <p class="">Kushim is currently free. If you register now, you will get a lifetime subscription to the service for <strong>free</strong>.</p>
+        <p class="">Once I add a couple more features, I plan to make it paid, with a classic subscription model.</p>
 
   </div>
 
