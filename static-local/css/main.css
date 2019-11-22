@@ -72,7 +72,6 @@ body {
 }
 #navbar p, #navbar a, #navbar h1 {
   text-decoration: none;
-  color: white;
 }
 #navbar .nav-container {
   padding: 0 1rem;
@@ -96,6 +95,7 @@ body {
 }
 #brand a {
   font-size: 25px;
+  color: white;
 }
 #user {
   float: right;
@@ -125,18 +125,22 @@ body {
   margin-bottom: 10px;
   margin-top: 0px;
 }
-#login-nav-button {
-  padding: 5px;
+.login-nav-button {
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: 600;
-  height: 34px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 9px 15px;
+  letter-spacing: 3px;
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  width: 72px;
-  box-sizing: inherit;
+  color: white;
+  
+}
+.login-nav-button:hover {
+  background-color: white;
+  color: black;
 }
 #signup-nav-button  {
   background-image: linear-gradient(to right,#e052a0,#f15c41);
@@ -153,19 +157,6 @@ body {
 /* Navbar End */
 
 /* Home Page Intro */
-.home-page {
-  margin-bottom: 2.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  max-width: 64rem;
-}
-.home-page p, .home-page button, .home-page h1, .home-page h2, .home-page h3, .home-page a, .home-page img{
- text-align: center;
- margin-left: auto;
- margin-right: auto;
-} 
 .intro-block {
   text-align: center;
   margin-bottom: 2rem;
@@ -178,7 +169,19 @@ body {
   color:black;
   background-color:white;
   box-shadow: 0 4px 6px hsla(0, 0%, 70%), 0 5px 15px hsla(0,0%,10%);
+  margin-bottom: 2rem;
+  text-align: center;
 }
+.image-intro-card {
+  border: 5px solid white;
+  border-radius: 6px;
+  color:black;
+  background-color:white;
+  box-shadow: 0 4px 6px hsla(0, 0%, 70%), 0 5px 15px hsla(0,0%,10%);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 .intro-description {
   text-align: center;
   font-size: 25px;
@@ -193,21 +196,21 @@ body {
   padding: 1rem 2rem;
   text-align: center;
   text-decoration: none;
+  color: white;
+  font-weight: 600;
 }
 .main-description{
   font-weight: 800;
   font-size: 30px;
+  margin-top: 15px;
 }
 .main-sub-description{
   font-size: 22px;
 }
 .app-screenshot{
-  margin-left: auto;
-  margin-right: auto;
+  margin: 15px 0px;
   max-width: 95%;
-  border: 2px solid white;
   border-radius: 6px;
-  box-shadow: 0 4px 6px hsla(0, 0%, 70%), 0 5px 15px hsla(0,0%,10%);
 }
 /* Home Page Intro End */
 
@@ -535,6 +538,15 @@ body {
   }
   .main-sub-description{
     font-size: 24px;
+  }
+  .intro-card{
+    padding: 0.5rem 3rem;
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+  .image-intro-card {
+    margin-left: 5em;
+    margin-right: 5em;
   }
   /* Home Page End */
 }
