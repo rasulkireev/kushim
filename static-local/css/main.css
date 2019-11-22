@@ -40,6 +40,9 @@ body {
 .small {
   font-size: 15px;
 }
+.white {
+  color: white;
+}
 /* General End */
 
 /* Semantic */
@@ -124,6 +127,7 @@ body {
   display: block;
   margin-bottom: 10px;
   margin-top: 0px;
+  font-size: 20px;
 }
 .login-nav-button {
   cursor: pointer;
@@ -203,6 +207,7 @@ body {
   font-weight: 800;
   font-size: 30px;
   margin-top: 15px;
+  text-align: center;
 }
 .main-sub-description{
   font-size: 22px;
@@ -211,6 +216,9 @@ body {
   margin: 15px 0px;
   max-width: 95%;
   border-radius: 6px;
+}
+.features {
+  text-align: left;
 }
 /* Home Page Intro End */
 
@@ -223,6 +231,7 @@ body {
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  color: white;
 }
 .la-user {
   font-size: 2.5rem;
@@ -230,15 +239,17 @@ body {
 /* Home Page Logged In End */
 
 /* Signup and login */
-.box {
-  text-align: center;
+.auth-box {
+  text-align: left;
   border: 5px solid white;
   border-radius: 5px;
   padding: 15px;
   width: 250px;
   margin: auto;
+  background-color:white;
+  box-shadow: 0 4px 6px hsla(0, 0%, 70%), 0 5px 15px hsla(0,0%,10%);
 }
-.box h1 {
+.auth-box h1 {
   margin-top: 7px;
   margin-bottom: 10px;
   font-weight: 650;
@@ -249,7 +260,10 @@ body {
   margin: 10px 0;
   font-size: 15px;
   padding: 10px;
-  background-color: #f44336;
+  border: 5px solidred;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  background-color:hsla(360, 100%, 74%, 0.84);
 }
 .alert-block ul {
   list-style-type: none;
@@ -260,15 +274,15 @@ body {
 .control-group {
   margin-bottom: 1rem;
 }
-.control-group label {
-  font-size: 1.5rem;
-}
+.control-group label {}
 .textinput, .emailinput {
   border-radius: 3px;
   padding: 3px;
   border: 0;
   font-size: 1rem;
-  width: 215px;
+  width: 240px;
+  border: 1px solid lightgray;
+  box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 8%);
 }
 .asteriskField {
   display: none;
@@ -281,12 +295,12 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0,0,0,.25);
   padding: 5px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  width: 220px;
+  width: 248px;
 
 }
 
@@ -461,6 +475,7 @@ body {
   font-size: 30px;
   font-weight: 600;
   display: inline;
+  color: white;
 }
 .journal-name-header {
 
@@ -526,6 +541,12 @@ body {
   max-width: 90%;
   max-height: 100px;
   margin-top: 0.5rem;
+}
+#id_body {
+  margin-bottom: 10px;
+}
+#id_support_image {
+  display: block;
 }
 /* Journals Entry End */
 

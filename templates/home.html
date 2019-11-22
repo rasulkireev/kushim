@@ -19,11 +19,11 @@
     {% get_lists list %}
   </div>
 
-  <div class="app">
+  <!-- <div class="app">
     <h1 class='app-name'>Network</h1>
     {% load contacts_tags %}
     {% get_contacts contact %}
-  </div>
+  </div> -->
 
 
 {% else %}
@@ -37,11 +37,9 @@
         <p class="f6">No credit card required. Or <a href="https://github.com/rasulkireev/kushim" target="_blank">install it</a> on your own server.</p>
       </div>
 
-      <div class="image-intro-card">
-        <img class="app-screenshot"src="{% static 'images/app-screenshot.png' %}" alt="Kushim App Screenshot">
-      </div>
-
-      <div class="intro-card">
+      
+      <div class="intro-card features">
+        <h1 class="main-description">Features</h1>
         <h2 class="">Journals</h2>
         <p class="">There are a lot of studies that show many benefits of journaling.</p>
         <p class="">Kushim will help you create journals for different aspects of your life. <br>This is my current setup:</p>
@@ -54,6 +52,11 @@
         <p class="">Kushim is currently free. If you register now, you will get a lifetime subscription to the service for <strong>free</strong>.</p>
         <p class="">Once I add a couple more features, I plan to make it paid, with a classic subscription model.</p>
       </div>
+
+      <div class="image-intro-card">
+        <h1 class="main-description">S</h1>
+      <img class="app-screenshot"src="{% static 'images/app-screenshot.png' %}" alt="Kushim App Screenshot">
+    </div>
 
 {% endif %}
 
