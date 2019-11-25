@@ -31,3 +31,11 @@ function inputContact() {
   document.getElementById("myContactForm").style.display="block";
   document.getElementById('contact-to-hide').style.display="none";
 }
+function inputContactEntry() {
+  document.getElementById("myContactForm").style.display="block";
+  document.getElementById('list-to-hide').style.display="none";
+}
+function editContact() {
+  document.getElementById("rename-button").style.display="inline";
+  document.getElementById("delete-button").style.display="inline";
+}

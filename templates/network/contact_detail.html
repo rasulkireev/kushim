@@ -2,17 +2,22 @@
 {% block title %}"Kushim - Contacts"{% endblock title %}
 {% block content %}
 
-  <p>{{ contact_info.first_name }} {{ contact_info.last_name }}</p>
+<div class="contact-card">
+  <h1>{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
+</div>
 
+<a id="" href="{% url 'edit-contact' id=id %}">Edit</a>
+
+<button id="contact-to-hide" class="add-entry-button" onclick="inputContact(); this.onclick=null;">Add Entry</button>
 <div class="contact-log">  
-  <form class="" id="" action="" method="post">
+  <form class="" id="myContactForm" action="" method="post">
     {% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Log</button>
   </form>
 </div>
 
-  <div id="">
+  <div class="contact-entries">
     {% regroup log_entries by log_type as log_entries %}
 
       {% for date_created in log_entries %}

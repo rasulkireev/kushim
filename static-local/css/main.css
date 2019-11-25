@@ -569,6 +569,33 @@ body {
 }
 /* Journals Entry End */
 
+/* Contact */
+.contact-card {
+  display: block;
+  text-align: center;
+}
+.contact-card p, .contact-card h1, .contact-card a {
+  color: white;
+}
+.contact-log label {
+  display: none;
+}
+.contact-log textarea {
+  display: block;
+}
+.contact-log select {
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.edit-contact label {
+  color: white;
+  display: block;
+}
+/* Contact End */
+
+
 
 @media (min-width: 768px) {
   /* Home Page */

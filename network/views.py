@@ -23,6 +23,23 @@ class CreateContact(LoginRequiredMixin, CreateView):
         context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)
         return context
 
+class EditContact(LoginRequiredMixin, UpdateView):
+    model = Contact
+    template_name_suffix = '_update_form'
+    pk_url_kwarg = 'id'
+    fields = ('first_name', 'last_name', 'nickname', 'profile_image', 'tags', 'how_you_met', 'current_location', 'date_of_birth',)
+    
+    def get_success_url(self):
+        return reverse('contact-detail', kwargs={'id':self.kwargs['id']})
+
+    def form_valid(self, form):
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        form.instance.contact_owner = self.request.user
+        form.instance.contact_id = current_contact.contact_id
+        return super(EditContact, self).form_valid(form)
+
+
+
 class CreateContactLog(LoginRequiredMixin, CreateView):
     model = ContactLog
     template_name = 'network/contact_detail.html'
