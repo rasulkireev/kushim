@@ -4,9 +4,12 @@
 
 <div class="contact-card">
   <h1>{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
+  <a class="edit-button" href="{% url 'edit-contact' id=id %}">Edit Contact Information</a>
 </div>
 
-<a id="" href="{% url 'edit-contact' id=id %}">Edit</a>
+<div class="contact-info-card">
+  
+</div>
 
 <button id="contact-to-hide" class="add-entry-button" onclick="inputContact(); this.onclick=null;">Add Entry</button>
 <div class="contact-log">  

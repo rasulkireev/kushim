@@ -573,6 +573,7 @@ body {
 .contact-card {
   display: block;
   text-align: center;
+  margin-bottom: 15px;
 }
 .contact-card p, .contact-card h1, .contact-card a {
   color: white;
@@ -592,6 +593,16 @@ body {
 .edit-contact label {
   color: white;
   display: block;
+}
+.edit-button {
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  padding: 6px 12px;
+  background-color: #eff3f6;
+  color: #24292e !important;
+  text-decoration: none;
+  font-weight: 500;
+  vertical-align: middle;
 }
 /* Contact End */
 
