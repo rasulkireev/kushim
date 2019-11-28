@@ -14,13 +14,15 @@ class Contact(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     nickname = models.CharField(max_length = 30, blank=True)
-    support_image = models.ImageField(blank=True, upload_to='contact-support-images/')
     tags = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(upload_to='profile-images/', blank=True)
     how_you_met = models.TextField(blank=True)
     current_location = models.CharField(max_length=200, blank=True)
     when_to_contact = models.DurationField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
+
+    title = models.CharField(max_length=200, blank=True)
+    employer = models.CharField(max_length=200, blank=True)
 
 
     def __str__(self):
@@ -44,18 +46,6 @@ class ContactContact(models.Model):
 
     def __str__(self):
         return self.contact_type + ": " + self.contact_value + " - " + self.contact_id
-
-
-
-class ContactWork(models.Model):
-    contact_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
-    contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200, blank=True)
-    employer = models.CharField(max_length=200, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.contact_id + ": " + self.title + " - " + self.employer
 
 
 class ContactLog(models.Model):

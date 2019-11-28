@@ -27,7 +27,7 @@ class EditContact(LoginRequiredMixin, UpdateView):
     model = Contact
     template_name_suffix = '_update_form'
     pk_url_kwarg = 'id'
-    fields = ('first_name', 'last_name', 'nickname', 'profile_image', 'tags', 'how_you_met', 'current_location', 'date_of_birth',)
+    fields = ('first_name', 'last_name', 'nickname', 'profile_image', 'tags', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer')
     
     def get_success_url(self):
         return reverse('contact-detail', kwargs={'id':self.kwargs['id']})

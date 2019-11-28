@@ -2,18 +2,21 @@
 {% block title %}"Kushim - Contacts"{% endblock title %}
 {% block content %}
 
-<div class="contact-card">
-  <h1>{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
+<header class="contact-card">
+  {% if contact_info.profile_image %}
+    <img src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}" class="contact-profile-image">
+  {% endif %}
+  <h1 href="/">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
   <a class="edit-button" href="{% url 'edit-contact' id=id %}">Edit Contact Information</a>
-</div>
+</header>
 
 <div class="contact-info-card">
-  
+
 </div>
 
 <button id="contact-to-hide" class="add-entry-button" onclick="inputContact(); this.onclick=null;">Add Entry</button>
 <div class="contact-log">  
-  <form class="" id="myContactForm" action="" method="post">
+  <form class="" id="myContactForm" action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Log</button>
