@@ -359,7 +359,7 @@ body {
   color: #FFFFFF;
   border-radius:5px;
   margin-left: 5px;
-  padding: 10px 20px;
+  padding: 5px 20px;
   font-weight: 800;
   cursor:pointer;
   font-size: 20px;
@@ -374,13 +374,11 @@ body {
   
 }
 #id_journal_name, #id_list_name, #id_first_name, #id_last_name {
-  height: 43px;
+  height: 40px;
   width: 150px;
   padding-left: 5px;
   border-radius: 5px;
   border: 0;
-  font-weight: 600;
-  font-size: 20px;
   margin-bottom: 10px;
 }
 /* Add Journal Button End */
@@ -507,7 +505,6 @@ body {
 #id_body {
   border-radius: 5px;
   border: 0px;
-  font-size: 20px;
   padding: 10px;
   height: 100px;
   max-width: 100%
