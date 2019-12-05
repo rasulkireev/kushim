@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}"Kushim - Contacts"{% endblock title %}
 {% block content %}
 
-<header class="contact-card">
+<header class="md:flex">
   {% if contact_info.profile_image %}
-    <img src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}" class="contact-profile-image">
+    <img src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}" class="">
+  {% else %}
+  <img src="{% static 'images/contact-image.png' %}" alt="Sample Contact Image" class="">
   {% endif %}
-  <h1 href="/">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
+  <h1 class="text-4xl font-bold text-white" href="/">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
   <a class="edit-button" href="{% url 'edit-contact' id=id %}">Edit Contact Information</a>
 </header>
 

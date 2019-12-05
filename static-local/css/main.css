@@ -568,13 +568,7 @@ body {
 /* Journals Entry End */
 
 /* Contact */
-.contact-card {
-  display: block;
-  margin-bottom: 15px;
-}
-.contact-card p, .contact-card h1, .contact-card a {
-  color: white;
-}
+
 .contact-log label {
   display: none;
 }

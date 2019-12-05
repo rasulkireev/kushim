@@ -144,7 +144,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 
 if not DEBUG:
     sentry_sdk.init(
-        dsn="https://974acdaa705049d886ce5f5afff967d9@sentry.io/1795794",
+        dsn=env('dsn'),
         integrations=[DjangoIntegration()]
     )
 
