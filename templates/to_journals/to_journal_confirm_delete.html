@@ -8,7 +8,7 @@
 <div class="delete-form">
   <form method="post">
     {% csrf_token %}
-    <p>Are you sure you want to delete <span class="journal-name-delete">"{{ object.journal_name }}"</span>?</p>
+    <p class="text-white">Are you sure you want to delete <span class="journal-name-delete">"{{ object.journal_name }}"</span>?</p>
     <input id="delete-form-button" type="submit" value="Confirm">
   </form>
 </div>
