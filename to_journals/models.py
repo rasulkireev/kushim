@@ -12,6 +12,7 @@ class to_journal(models.Model):
     slug = AutoSlugField(populate_from='journal_name',always_update=True)
     date_created = models.DateTimeField(auto_now_add=True)
     journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
+    description = models.TextField(blank=True)
 
     def __str__(self):
         return str(self.journal_user) + " " + self.journal_name

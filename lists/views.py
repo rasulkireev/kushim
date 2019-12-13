@@ -70,3 +70,10 @@ class EditListEntry(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('list-entries', kwargs={'slug':self.object.list_name.slug})
+
+class DeleteGardenEntry(LoginRequiredMixin, DeleteView):
+    model = ListEntry
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('list-entries', kwargs={'slug':self.object.list_name.slug})
