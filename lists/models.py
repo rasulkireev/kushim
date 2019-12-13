@@ -4,6 +4,8 @@ from django.forms import ModelForm
 from django.db import models
 from autoslug import AutoSlugField
 from django.urls import reverse
+from image_optimizer.fields import OptimizedImageField
+
 
 
 class List(models.Model):

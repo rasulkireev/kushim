@@ -17,7 +17,7 @@
 
 <button id="list-to-hide" class="add-entry-button" onclick="inputList(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
-  <form class="" id="myListForm" action="" method="post">
+  <form class="" id="myListForm" action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Entry</button>
@@ -39,8 +39,14 @@
         {% for list_entry in entry_date.list %}
         <div class="entry">
             <p class="entry-body">{{ list_entry.body|urlize|linebreaks }} - <span class='small-text'>@{{ list_entry.entry_date|date:'P' }}</span></p>
+            
+            
             <a class="edit-entry-button-main" href="{% url 'edit-list-entry' list_entry.id %}"><i class="las la-pen small"></i></a>
             <a class="edit-entry-button-main" href="{% url 'delete-garden-entry' list_entry.id %}"><i class="las la-times-circle small"></i></a>
+           
+            {% if list_entry.support_image %}
+              <img src="{{ MEDIA_URL }}{{ list_entry.support_image }}" alt="{{ list_entry.body}}" class="journal-support-image">
+            {% endif %}
         </div>
         {% endfor %}
       </div>

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     
     'crispy_forms',
     'analytical',
+    'image_optimizer',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -176,3 +177,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 if not DEBUG:
     GOOGLE_ANALYTICS_PROPERTY_ID = env('GOOGLE_ANALYTICS_PROPERTY_ID')
     ANALYTICAL_INTERNAL_IPS = env.list('ANALYTICAL_INTERNAL_IPS')
+
+
+# Using Pillow for image optimization when user uploads
+OPTIMIZED_IMAGE_METHOD = 'pillow'
