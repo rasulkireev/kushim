@@ -46,22 +46,23 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
-    'pages.apps.PagesConfig',
-    'to_journals.apps.ToJournalsConfig',
-    'lists.apps.ListsConfig',
-    'network.apps.NetworkConfig',
-    
-    'crispy_forms',
-    'analytical',
-    'image_optimizer',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'crispy_forms',
+    'analytical',
+    'image_optimizer',
+    'emoji_picker',
+
+    'users.apps.UsersConfig',
+    'pages.apps.PagesConfig',
+    'to_journals.apps.ToJournalsConfig',
+    'lists.apps.ListsConfig',
+    'network.apps.NetworkConfig',
 ]
 
 MIDDLEWARE = [
