@@ -10,9 +10,15 @@
     {% else %}
       <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{% static 'images/unknown-profile.png' %}" alt="Sample Contact Image"></a>
     {% endif %}
+    
     <h1 class="text-2xl font-bold">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
     <p class="">DoB: {{ contact_info.date_of_birth }}</p>
-    <p class="">Tags: {{ contact_info.tags }}</з>
+    <p class="">Tags: {{ contact_info.tags }}</p>
+    
+    {% if contact_info.title %}
+    <p class="">{{ contact_info.title }} at {{ contact_info.employer }}</p>
+    {% endif %}
+
   </div>
   <a class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" href="{% url 'edit-contact' id=id %}">Edit Contact Information</a>
 </header>

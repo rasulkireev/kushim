@@ -2,7 +2,7 @@
 {% block title %}edit Contact{% endblock title %}
 {% block content %}
 
-        <form class="max-w-xl p-10 m-4 mx-auto rounded" id="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <form class="flex flex-col max-w-xl p-10 m-4 mx-auto rounded" id="" method="post" enctype="multipart/form-data">{% csrf_token %}
           {{ form.non_field_errors }}
 
             <div class="text-center">
@@ -37,7 +37,20 @@
                 {{ form.date_of_birth }}
             </div>
 
-          <button class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-300" type="submit">Submit</button>
+            <div class="text-center">
+              {{ form.title.errors }}
+              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.title.id_for_label }}">Job Title</label>
+                {{ form.title }}
+            </div>
+
+            <div class="text-center">
+              {{ form.employer.errors }}
+              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.employer.id_for_label }}">Company</label>
+                {{ form.employer }}
+            </div>
+
+            <button class="w-full px-4 py-2 mx-auto font-bold text-white bg-blue-800 rounded hover:bg-blue-300" type="submit">Submit</button>
+
         </form>
 
 {% endblock content %}
