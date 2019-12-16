@@ -31,11 +31,6 @@ class Contact(models.Model):
     def get_absolute_url(self):
         return reverse('contacts')
 
-class ContactForm(ModelForm):
-    class Meta:
-        model = Contact
-        fields = ['first_name', 'last_name']
-
 
 class ContactContact(models.Model):
     contact_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)

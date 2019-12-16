@@ -373,7 +373,7 @@ body {
 #journal-to-hide, #list-to-hide, #contact-to-hide {
   
 }
-#id_journal_name, #id_list_name, #id_first_name, #id_last_name {
+#id_journal_name, #id_list_name, .homepage-add-contact {
   height: 40px;
   width: 150px;
   padding-left: 5px;

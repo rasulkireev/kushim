@@ -1,6 +1,7 @@
 from django import template
 from django.forms import modelform_factory
-from network.models import Contact, ContactForm
+from network.models import Contact
+from network.forms import ContactForm
 from network.views import CreateContact
 
 register = template.Library()
