@@ -12,7 +12,7 @@
 
     <title>Kushim - Minimalist Life Management Tool</title>
 
-    <link rel="apple-touch-icon" href="{% static 'favicon/500x500.png' %">
+    <link rel="apple-touch-icon" href="{% static 'favicon/500x500.png' %}">
     <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'favicon/500x500.png' %}">
 
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
@@ -60,6 +60,11 @@
         {% block content %}
         {% endblock content %}
       </div>
+      
+      <a class="fixed bottom-0 right-0 z-10 p-1 font-semibold text-gray-900 no-underline bg-white border-t border-l border-white border-solid rounded-tl-lg" href="https://rasulkireev.typeform.com/to/ajUJ23">
+        <img class="inline w-4 align-middle rounded" src="{% static 'images/logo.png' %}" alt="Kushim logo">
+        <p class="inline m-0 ml-1 font-bold align-middle">Feedback</p>
+      </a>
 
     {% analytical_body_bottom %}
   </body>
