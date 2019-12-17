@@ -17,6 +17,7 @@ class Contact(models.Model):
     tags = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(upload_to='profile-images/', blank=True)
     how_you_met = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     current_location = models.CharField(max_length=200, blank=True)
     when_to_contact = models.DurationField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)

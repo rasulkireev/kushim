@@ -6,13 +6,16 @@ class EditContact(ModelForm):
     def __init__(self, *args, **kwargs):
             super(EditContact, self).__init__(*args, **kwargs)
             
-            for fieldname in ['first_name', 'last_name', 'tags', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer']:
+            for fieldname in ['first_name', 'last_name', 'tags', 'description', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer']:
                 self.fields[fieldname].help_text = None
-                self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
+                self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-200 text-gray-500 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
                 
+            for fieldname in ['date_of_birth']:
+                self.fields[fieldname].widget.attrs.update({'placeholder':'mm/dd/yyyy'})
+
     class Meta:
         model = Contact
-        fields = ('first_name', 'last_name', 'profile_image', 'tags', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer')
+        fields = ('first_name', 'last_name', 'profile_image', 'tags', 'description', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer')
 
 
 class ContactForm(ModelForm):
@@ -41,13 +44,13 @@ class ContactContactForm(ModelForm):
 
             for fieldname in ['contact_type', 'contact_value']:
                 self.fields[fieldname].help_text = None
-                self.fields[fieldname].widget.attrs.update({'class':'homepage-add-contact'})
+                self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-200 text-gray-500 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
 
             for fieldname in ['contact_type']:
-                self.fields[fieldname].widget.attrs.update({'placeholder':'Type'})
+                self.fields[fieldname].widget.attrs.update({'placeholder':'Email'})
 
             for fieldname in ['contact_value']:
-                self.fields[fieldname].widget.attrs.update({'placeholder':'Value'})
+                self.fields[fieldname].widget.attrs.update({'placeholder':'someone@example.com'})
     class Meta:
         model = ContactContact
         fields = ('contact_type', 'contact_value')

@@ -2,6 +2,10 @@
 {% block title %}edit Contact{% endblock title %}
 {% block content %}
 
+        <p class="italic font-thin text-center">
+          All fields are optional
+        </p>
+
         <form class="flex flex-col max-w-xl p-10 m-4 mx-auto rounded" id="" method="post" enctype="multipart/form-data">{% csrf_token %}
           {{ form.non_field_errors }}
 
@@ -47,6 +51,18 @@
               {{ form.employer.errors }}
               <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.employer.id_for_label }}">Company</label>
                 {{ form.employer }}
+            </div>
+
+            <div class="text-center">
+              {{ form.how_you_met.errors }}
+              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.how_you_met.id_for_label }}">How you met?</label>
+                {{ form.how_you_met }}
+            </div>
+
+            <div class="text-center">
+              {{ form.description.errors }}
+              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.description.id_for_label }}">Short Description</label>
+                {{ form.description }}
             </div>
 
             <button class="w-full px-4 py-2 mx-auto font-bold text-white bg-blue-800 rounded hover:bg-blue-300" type="submit">Submit</button>

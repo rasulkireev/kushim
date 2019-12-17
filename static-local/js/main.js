@@ -39,3 +39,10 @@ function editContact() {
   document.getElementById("rename-button").style.display="inline";
   document.getElementById("delete-button").style.display="inline";
 }
+
+// Network Contacts Dynamicity
+function inputContactContacts() {
+  document.getElementById("myContactContactForm").style.display="block";
+  document.getElementById('contactcontactsbutton-to-hide').style.display="none";
+}
+
