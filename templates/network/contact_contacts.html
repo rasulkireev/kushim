@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}"Kushim - Add Contact Detaile"{% endblock title %}
+{% block content %}
+
+
+
+  <form class="" id="" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="add-entry-button">Add Contact</button>
+  </form>
+
+  <div>
+    {% for contact in contact_contacts %}
+      <p>{{ contact.contact_type }}: {{ contact.contact_value }}</p>
+    {% endfor %}
+  </div>
+
+
+
+{% endblock content %}

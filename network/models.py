@@ -40,7 +40,7 @@ class ContactContact(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.contact_type + ": " + self.contact_value + " - " + self.contact_id
+        return str(self.contact_type) + ": " + str(self.contact_value) + " - " + str(self.contact_id)
 
 
 class ContactLog(models.Model):

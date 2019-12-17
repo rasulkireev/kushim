@@ -1,9 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from .models import Contact, ContactLog
+from .models import Contact, ContactLog, ContactContact
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
-from .forms import EditContact, ContactForm
+from .forms import EditContact, ContactForm, ContactContactForm
 
 class CreateContact(LoginRequiredMixin, CreateView):
     model = Contact
@@ -37,6 +37,28 @@ class EditContact(LoginRequiredMixin, UpdateView):
         form.instance.contact_id = current_contact.contact_id
         return super(EditContact, self).form_valid(form)
 
+class CreateContactContact(LoginRequiredMixin, CreateView):
+    model = ContactContact
+    template_name = 'network/contact_contacts.html'
+    fields = ('contact_type','contact_value',)
+
+    def get_success_url(self):
+        return reverse('contact-detail', kwargs={'id':self.kwargs['id']})
+
+    def form_valid(self, form):
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        form.instance.contact_owner = self.request.user
+        form.instance.contact_id = current_contact
+        return super(CreateContactContact, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        context = super(CreateContactContact, self).get_context_data(**kwargs)
+        context["contact_info"] = current_contact
+        context["first_name"] = current_contact.first_name
+        context["id"] = current_contact.contact_id
+        context['contact_contacts'] = ContactContact.objects.filter(contact_owner=self.request.user, contact_id=current_contact)
+        return context
 
 
 class CreateContactLog(LoginRequiredMixin, CreateView):
@@ -60,4 +82,6 @@ class CreateContactLog(LoginRequiredMixin, CreateView):
         context["first_name"] = current_contact.first_name
         context["id"] = current_contact.contact_id
         context['log_entries'] = ContactLog.objects.filter(contact_owner=self.request.user, contact_id=current_contact)
+        context['contact_contacts'] = ContactContact.objects.filter(contact_owner=self.request.user, contact_id=current_contact)
+        context['contacts_form'] = ContactContactForm()
         return context

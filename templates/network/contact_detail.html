@@ -24,10 +24,20 @@
 </header>
 
 
+<form class="" id="" action="{% url 'edit-contact-contacts' contact_info.contact_id %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ contacts_form }}
+  <button type="submit" class="add-entry-button">Add Contact</button>
+</form>
 
-<div class="contact-info-card">
-
+<div>
+  {% for contact in contact_contacts %}
+    <p>{{ contact.contact_type }}: {{ contact.contact_value }}</p>
+  {% endfor %}
 </div>
+
+
+
 
 <button id="contact-to-hide" class="add-entry-button" onclick="inputContact(); this.onclick=null;">Add Entry</button>
 <div class="contact-log">  

@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Contact
+from .models import Contact, ContactContact
 
 class EditContact(ModelForm):
 
@@ -32,3 +32,22 @@ class ContactForm(ModelForm):
     class Meta:
         model = Contact
         fields = ('first_name', 'last_name')
+
+
+class ContactContactForm(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+            super(ContactContactForm, self).__init__(*args, **kwargs)
+
+            for fieldname in ['contact_type', 'contact_value']:
+                self.fields[fieldname].help_text = None
+                self.fields[fieldname].widget.attrs.update({'class':'homepage-add-contact'})
+
+            for fieldname in ['contact_type']:
+                self.fields[fieldname].widget.attrs.update({'placeholder':'Type'})
+
+            for fieldname in ['contact_value']:
+                self.fields[fieldname].widget.attrs.update({'placeholder':'Value'})
+    class Meta:
+        model = ContactContact
+        fields = ('contact_type', 'contact_value')
