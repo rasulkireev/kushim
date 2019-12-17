@@ -13,14 +13,14 @@
     
     <h1 class="text-2xl font-bold">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
     <p class="">DoB: {{ contact_info.date_of_birth }}</p>
-    <!-- <p class="">Tags: {{ contact_info.tags }}</p> -->
-    
-    <p class="font-bold">
+    <p class="">Tags: {{ contact_info.tags }}</p>
+    <p class="">
+      Work:
     {% if contact_info.title %}
-      {{ contact_info.title }} 
+      <span class="font-bold">{{ contact_info.title }}</span>
     {% endif %}
     {% if contact_info.employer %}
-    at {{ contact_info.employer }}
+    at <span class="font-bold">{{ contact_info.employer }}</span>
     {% endif %}
     </p>
   </div>
@@ -30,22 +30,25 @@
 </header>
 
 <div class="flex flex-col md:flex-row">
-  <div class="flex-1 block p-4 mb-4 mr-2 leading-normal bg-white rounded-lg">
-    {% if contact_info.description %}
+  
+  {% if contact_info.description or contact_info.how_you_met %}
+  <div class="flex-1 block p-4 mb-4 mr-4 leading-normal bg-white rounded-lg">
     <h2 class="text-lg font-bold">Description</h2>
+    {% if contact_info.description %}
     <p class="mb-3">
       {{ contact_info.description }} 
     </p>
     {% endif %}
-    {% if contact_info.how_you_met %}
     <h2 class="text-lg font-bold">How you met</h2>
+    {% if contact_info.how_you_met %}
     <p class="">
       {{ contact_info.how_you_met }} 
     </p>
     {% endif %}
   </div>
+  {% endif %}
 
-    <div class="flex-1 block p-4 mb-4 ml-2 leading-normal bg-white rounded-lg">
+    <div class="flex-1 block p-4 mb-4 leading-normal bg-white rounded-lg">
     <div class="mb-6">
       <h2 class="text-lg font-bold">Contacts</h2>
       {% for contact in contact_contacts %}
