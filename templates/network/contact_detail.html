@@ -33,14 +33,14 @@
   
   {% if contact_info.description or contact_info.how_you_met %}
   <div class="flex-1 block p-4 mb-4 mr-4 leading-normal bg-white rounded-lg">
-    <h2 class="text-lg font-bold">Description</h2>
     {% if contact_info.description %}
+    <h2 class="text-lg font-bold">Description</h2>
     <p class="mb-3">
       {{ contact_info.description }} 
     </p>
     {% endif %}
-    <h2 class="text-lg font-bold">How you met</h2>
     {% if contact_info.how_you_met %}
+    <h2 class="text-lg font-bold">How you met</h2>
     <p class="">
       {{ contact_info.how_you_met }} 
     </p>
@@ -92,6 +92,10 @@
         {% for log_entry in date_created.list %}
         <div class="entry">
             <p class="entry-body">{{ log_entry.body|urlize|linebreaks }} - <span class='small-text'>{{ log_entry.date_created }}</span></p></p>
+
+            <a class="edit-entry-button-main" href="{% url 'edit-contact-log' log_entry.id %}"><i class="las la-pen small"></i></a>
+            <a class="edit-entry-button-main" href="{% url 'delete-contact-log' log_entry.id %}"><i class="las la-times-circle small"></i></a>
+
         </div>
         {% endfor %}
       </div>

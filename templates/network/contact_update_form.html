@@ -6,67 +6,69 @@
           All fields are optional
         </p>
 
-        <form class="flex flex-col max-w-xl p-10 m-4 mx-auto rounded" id="" method="post" enctype="multipart/form-data">{% csrf_token %}
-          {{ form.non_field_errors }}
 
-            <div class="text-center">
-              {{ form.first_name.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.first_name.id_for_label }}">First Name</label>
-              {{ form.first_name }}
-            </div>
+        <div class="w-auto mx-auto mt-10">
+          <div class="p-8 mb-6 bg-white border-t-8 border-blue-500 rounded-lg shadow-lg">
+            <form class="" id="" method="post" enctype="multipart/form-data">{% csrf_token %}
+              {{ form.non_field_errors }}
 
-            <div class="text-center">
-              {{ form.last_name.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.last_name.id_for_label }}">Last Name</label>
-              {{ form.last_name }}
-            </div>
+                <div class="">
+                  {{ form.first_name.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.first_name.id_for_label }}">First Name</label>
+                  {{ form.first_name }}
+                </div>
 
-            <div class="text-center">
-              {{ form.profile_image.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.profile_image.id_for_label }}">Profile Image</label>
-              <div class= "px-4 py-3 mx-2 mx-auto mb-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white">
-                {{ form.profile_image }}
-              </div>
-            </div>
+                <div class="">
+                  {{ form.last_name.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.last_name.id_for_label }}">Last Name</label>
+                  {{ form.last_name }}
+                </div>
 
-            <div class="text-center">
-              {{ form.tags.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.tags.id_for_label }}">Tags</label>
-                {{ form.tags }}
-            </div>
+                <div class="">
+                  {{ form.profile_image.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.profile_image.id_for_label }}">Profile Image</label>
+                    {{ form.profile_image }}
+                </div>
 
-            <div class="text-center">
-              {{ form.date_of_birth.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
-                {{ form.date_of_birth }}
-            </div>
+                <div class="">
+                  {{ form.tags.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.tags.id_for_label }}">Tags</label>
+                    {{ form.tags }}
+                </div>
 
-            <div class="text-center">
-              {{ form.title.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.title.id_for_label }}">Job Title</label>
-                {{ form.title }}
-            </div>
+                <div class="">
+                  {{ form.date_of_birth.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+                    {{ form.date_of_birth }}
+                </div>
 
-            <div class="text-center">
-              {{ form.employer.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.employer.id_for_label }}">Company</label>
-                {{ form.employer }}
-            </div>
+                <div class="">
+                  {{ form.title.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.title.id_for_label }}">Job Title</label>
+                    {{ form.title }}
+                </div>
 
-            <div class="text-center">
-              {{ form.how_you_met.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.how_you_met.id_for_label }}">How you met?</label>
-                {{ form.how_you_met }}
-            </div>
+                <div class="">
+                  {{ form.employer.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.employer.id_for_label }}">Company</label>
+                    {{ form.employer }}
+                </div>
 
-            <div class="text-center">
-              {{ form.description.errors }}
-              <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase" for="{{ form.description.id_for_label }}">Short Description</label>
-                {{ form.description }}
-            </div>
+                <div class="">
+                  {{ form.how_you_met.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.how_you_met.id_for_label }}">How you met?</label>
+                    {{ form.how_you_met }}
+                </div>
 
-            <button class="w-full px-4 py-2 mx-auto font-bold text-white bg-blue-800 rounded hover:bg-blue-300" type="submit">Submit</button>
+                <div class="">
+                  {{ form.description.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.description.id_for_label }}">Short Description</label>
+                    {{ form.description }}
+                </div>
 
-        </form>
+                <button class="w-full px-4 py-2 mx-auto font-bold text-white bg-blue-800 rounded hover:bg-blue-300" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
 
 {% endblock content %}

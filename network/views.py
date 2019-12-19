@@ -32,7 +32,7 @@ class EditContact(LoginRequiredMixin, UpdateView):
         return reverse('contact-detail', kwargs={'id':self.kwargs['id']})
 
     def form_valid(self, form):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['contact_id'])
         form.instance.contact_owner = self.request.user
         form.instance.contact_id = current_contact.contact_id
         return super(EditContact, self).form_valid(form)
@@ -46,13 +46,13 @@ class CreateContactContact(LoginRequiredMixin, CreateView):
         return reverse('contact-detail', kwargs={'id':self.kwargs['id']})
 
     def form_valid(self, form):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['contact_id'])
         form.instance.contact_owner = self.request.user
         form.instance.contact_id = current_contact
         return super(CreateContactContact, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['contact_id'])
         context = super(CreateContactContact, self).get_context_data(**kwargs)
         context["contact_info"] = current_contact
         context["first_name"] = current_contact.first_name
@@ -67,16 +67,16 @@ class CreateContactLog(LoginRequiredMixin, CreateView):
     fields = ('log_type','body',)
 
     def get_success_url(self):
-        return reverse('contact-detail', kwargs={'id':self.kwargs['id']})
+        return reverse('contact-detail', kwargs={'contact_id':self.object.contact_id.contact_id})
 
     def form_valid(self, form):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['contact_id'])
         form.instance.contact_owner = self.request.user
         form.instance.contact_id = current_contact
         return super(CreateContactLog, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['contact_id'])
         context = super(CreateContactLog, self).get_context_data(**kwargs)
         context["contact_info"] = current_contact
         context["first_name"] = current_contact.first_name
@@ -85,3 +85,19 @@ class CreateContactLog(LoginRequiredMixin, CreateView):
         context['contact_contacts'] = ContactContact.objects.filter(contact_owner=self.request.user, contact_id=current_contact)
         context['contacts_form'] = ContactContactForm()
         return context
+
+class EditContactLog(LoginRequiredMixin, UpdateView):
+    model = ContactLog
+    template_name_suffix = '_update'
+    fields = ['log_type','body']
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('contact-detail', kwargs={'contact_id':self.object.contact_id.contact_id})
+
+class DeleteContactLog(LoginRequiredMixin, DeleteView):
+    model = ContactLog
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('contact-detail', kwargs={'contact_id':self.object.contact_id.contact_id})

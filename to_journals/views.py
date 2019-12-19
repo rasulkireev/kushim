@@ -70,3 +70,10 @@ class EditJournalEntry(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('to-journal-entries', kwargs={'slug':self.object.journal_name.slug})
+
+class DeleteJournalEntry(LoginRequiredMixin, DeleteView):
+    model = to_journal_entry
+    pk_url_kwarg = 'id'
+
+    def get_success_url(self):
+        return reverse('to-journal-entries', kwargs={'slug':self.object.journal_name.slug})

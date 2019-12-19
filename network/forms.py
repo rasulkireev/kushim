@@ -6,7 +6,7 @@ class EditContact(ModelForm):
     def __init__(self, *args, **kwargs):
             super(EditContact, self).__init__(*args, **kwargs)
             
-            for fieldname in ['first_name', 'last_name', 'tags', 'description', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer']:
+            for fieldname in ['first_name', 'last_name', 'tags', 'description', 'profile_image','how_you_met', 'current_location', 'date_of_birth', 'title', 'employer']:
                 self.fields[fieldname].help_text = None
                 self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-200 text-gray-500 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
                 
@@ -44,7 +44,7 @@ class ContactContactForm(ModelForm):
 
             for fieldname in ['contact_type', 'contact_value']:
                 self.fields[fieldname].help_text = None
-                self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-200 text-gray-500 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
+                self.fields[fieldname].widget.attrs.update({'class':'block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow'})
 
             for fieldname in ['contact_type']:
                 self.fields[fieldname].widget.attrs.update({'placeholder':'Email'})

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Delete Garden Item{% endblock title %}
+{% block content %}
+
+<a class="go-back" href="{% url 'home' %}">back home</a>
+
+<div class="">
+  
+  <form method="post">
+    {% csrf_token %}
+    <p class="text-white">Are you sure you want to delete the following entry?</p>
+    
+    <div class="entry-card">
+        <div class="entry">
+            <p class="entry-body">{{ object.body|urlize|linebreaks }} - <span class='small-text'>@{{ object.entry_date|date:'P' }}</span></p>
+        </div>
+    </div>
+
+    <input class="p-2 text-white bg-blue-700 rounded-lg hover:bg-blue-400" id="" type="submit" value="Confirm">
+  </form>
+</div>
+
+
+{% endblock content %}

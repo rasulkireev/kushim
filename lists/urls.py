@@ -9,6 +9,6 @@ urlpatterns = [
     path('<slug:slug>/<int:id>/delete', DeleteList.as_view(), name='delete-list'),
     path('<slug:slug>/<int:id>/rename', RenameList.as_view(), name='rename-list'),
     
-    path('<int:id>/edit-entry', EditListEntry.as_view(), name='edit-list-entry'),
-    path('<int:id>/delete', DeleteGardenEntry.as_view(), name='delete-garden-entry'),
+    path('<int:id>/edit-garden-item', EditListEntry.as_view(), name='edit-list-entry'),
+    path('<int:id>/delete-garden-item', DeleteGardenEntry.as_view(), name='delete-garden-entry'),
 ]
