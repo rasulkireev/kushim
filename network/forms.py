@@ -8,7 +8,7 @@ class EditContact(ModelForm):
             
             for fieldname in ['first_name', 'last_name', 'tags', 'description', 'profile_image','how_you_met', 'current_location', 'date_of_birth', 'title', 'employer']:
                 self.fields[fieldname].help_text = None
-                self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-200 text-gray-500 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
+                self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-100 text-gray-800 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
                 
             for fieldname in ['date_of_birth']:
                 self.fields[fieldname].widget.attrs.update({'placeholder':'mm/dd/yyyy'})
