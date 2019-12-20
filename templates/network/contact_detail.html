@@ -49,7 +49,7 @@
   {% endif %}
 
     <div class="flex-1 block p-4 mb-4 leading-normal bg-white rounded-lg">
-    <div class="mb-6">
+    <div class="mb-4">
       <h2 class="text-lg font-bold">Contacts</h2>
       {% for contact in contact_contacts %}
       <p>{{ contact.contact_type }}: {{ contact.contact_value }}</p>
@@ -57,17 +57,21 @@
     </div>
   
     <button type="submit" id="contactcontactsbutton-to-hide" onclick="inputContactContacts(); this.onclick=null;" class="block px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Add Contact</button>
+    
     <form class="hidden" id="myContactContactForm" action="{% url 'edit-contact-contacts' contact_info.contact_id %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-      {{ contacts_form.contact_type.errors }}
-      {{ contacts_form.contact_type }}
-          <div class="text-center">
+      {{ form.non_field_errors }}
+      
+      <div class="my-2">
+        {{ contacts_form.contact_type.errors }}
+        {{ contacts_form.contact_type }}
       </div>
       
-      {{ contacts_form.contact_value.errors }}
-      {{ contacts_form.contact_value }}
-          <div class="text-center">
+      <div class="my-2">
+        {{ contacts_form.contact_value.errors }}
+        {{ contacts_form.contact_value }}
       </div>
-      <button type="submit" class="block px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Add Contact</button>
+      
+      <button type="submit" class="block px-4 py-2 my-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Add Contact</button>
     </form>
   </div>
 </div>
@@ -82,7 +86,7 @@
 </div>
 
   <div class="contact-entries">
-    {% regroup log_entries by log_type as log_entries %}
+    {% regroup log_entries|dictsort:"log_type" by log_type as log_entries %}
 
       {% for date_created in log_entries %}
 
