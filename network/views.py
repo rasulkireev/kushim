@@ -29,10 +29,10 @@ class EditContact(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     
     def get_success_url(self):
-        return reverse('contact-detail', kwargs={'id':self.kwargs['contact_id']})
+        return reverse('contact-detail', kwargs={'contact_id':self.object.contact_id})
 
     def form_valid(self, form):
-        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['contact_id'])
+        current_contact = Contact.objects.get(contact_owner=self.request.user, contact_id=self.kwargs['id'])
         form.instance.contact_owner = self.request.user
         form.instance.contact_id = current_contact.contact_id
         return super(EditContact, self).form_valid(form)

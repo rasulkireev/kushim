@@ -29,10 +29,10 @@
   
 </header>
 
-<div class="flex flex-col md:flex-row">
+<div class="flex flex-col ">
   
   {% if contact_info.description or contact_info.how_you_met %}
-  <div class="flex-1 block p-4 mb-4 mr-4 leading-normal bg-white rounded-lg">
+  <div class="flex-1 block p-4 mb-4 leading-normal bg-white rounded-lg">
     {% if contact_info.description %}
     <h2 class="text-lg font-bold">Description</h2>
     <p class="mb-3">
@@ -52,7 +52,7 @@
     <div class="mb-4">
       <h2 class="text-lg font-bold">Contacts</h2>
       {% for contact in contact_contacts %}
-      <p>{{ contact.contact_type }}: {{ contact.contact_value }}</p>
+      <p class="my-1"><span class="font-semibold">{{ contact.contact_type }}</span>: {{ contact.contact_value }}</p>
       {% endfor %}
     </div>
   
