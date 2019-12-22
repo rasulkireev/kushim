@@ -11,9 +11,11 @@ __pycache__/
 
 # Media
 media/
+builtwithdjango-site-images/
 
 # Dependency directories
 node_modules/
+
 
 # Distribution / packaging
 .Python
