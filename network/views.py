@@ -21,9 +21,12 @@ class CreateContact(LoginRequiredMixin, CreateView):
     def is_limit_reached(self):
         return Contact.objects.filter(contact_owner=self.request.user).count() >= 2
 
+    def has_permission(self):
+        return self.request.user.has_perm('pro')
+
     def post(self, request, *args, **kwargs):
-        if self.is_limit_reached():
-            return HttpResponseRedirect(reverse('upgrade-account'))
+        if self.is_limit_reached() and not self.has_permission():
+            return HttpResponseRedirect(reverse('upgrade'))
         else:
             return super().post(request, *args, **kwargs)
 

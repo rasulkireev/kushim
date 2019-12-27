@@ -43,6 +43,7 @@ class CreateListEntry(LoginRequiredMixin, CreateView):
     model = ListEntry
     template_name = 'lists/list_entries_list.html'
     fields = ('body','support_image')
+    login_url = 'login'
 
     def get_success_url(self):
         return reverse('list-entries', kwargs={'slug':self.object.list_name.slug})

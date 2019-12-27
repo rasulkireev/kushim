@@ -34,6 +34,7 @@ urlpatterns = [
     path('journals/', include('to_journals.urls')),
     path('lists/', include('lists.urls')),
     path('network/', include('network.urls')),
+    path('upgrade/', include('upgrades.urls')),
 
     path('sentry-debug/', trigger_error),
 

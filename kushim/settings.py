@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'to_journals.apps.ToJournalsConfig',
     'lists.apps.ListsConfig',
     'network.apps.NetworkConfig',
+    'upgrades.apps.UpgradesConfig',
 ]
 
 MIDDLEWARE = [
@@ -185,3 +186,5 @@ OPTIMIZED_IMAGE_METHOD = 'pillow'
 
 
 # Stripe Keys
+STRIPE_TEST_PUBLISHABLE_KEY=env('STRIPE_TEST_PUBLISHABLE_KEY')
+STRIPE_TEST_SECRET_KEY=env('STRIPE_TEST_SECRET_KEY')

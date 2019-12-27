@@ -12,11 +12,17 @@ class List(models.Model):
     list_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
     description = models.TextField(blank=True)
 
+    class Meta:
+        permissions = [
+            ('pro', 'Can create unlimited lists (gardens)')
+        ]
+        
     def __str__(self):
         return str(self.list_owner) + " " + self.list_name
 
     def get_absolute_url(self):
         return reverse('lists')
+
 
 class ListForm(ModelForm):
     class Meta:
