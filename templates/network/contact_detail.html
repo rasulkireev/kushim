@@ -100,6 +100,10 @@
             <a class="edit-entry-button-main" href="{% url 'edit-contact-log' log_entry.id %}"><i class="las la-pen small"></i></a>
             <a class="edit-entry-button-main" href="{% url 'delete-contact-log' log_entry.id %}"><i class="las la-times-circle small"></i></a>
 
+            {% if log_entry.support_image %}
+              <img src="{{ MEDIA_URL }}{{ log_entry.support_image }}" alt="{{ list_entry.body}}" class="journal-support-image">
+            {% endif %}
+
         </div>
         {% endfor %}
       </div>

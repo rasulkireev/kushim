@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'analytical',
     'image_optimizer',
     'emoji_picker',
+    'djstripe',
 
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
@@ -182,3 +183,13 @@ if not DEBUG:
 
 # Using Pillow for image optimization when user uploads
 OPTIMIZED_IMAGE_METHOD = 'pillow'
+
+
+# Stripe Keys
+
+STRIPE_LIVE_PUBLIC_KEY = env("STRIPE_LIVE_PUBLIC_KEY")
+STRIPE_LIVE_SECRET_KEY = env("STRIPE_LIVE_SECRET_KEY")
+DJSTRIPE_WEBHOOK_SECRET = env("DJSTRIPE_WEBHOOK_SECRET")  # Get it from the section in the Stripe dashboard where you added the webhook endpoint
+STRIPE_TEST_PUBLIC_KEY = env("STRIPE_TEST_PUBLIC_KEY")
+STRIPE_TEST_SECRET_KEY = env("STRIPE_TEST_SECRET_KEY")
+STRIPE_LIVE_MODE = env('STRIPE_LIVE_MODE')  # Change to True in production

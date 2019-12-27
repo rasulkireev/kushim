@@ -8,5 +8,5 @@ class HomePageView(LoginRequiredMixin, TemplateView):
 class LoggedInHomePageView(TemplateView):
     template_name = 'home.html'
 
-
-
+class UpgradeAccountView(LoginRequiredMixin, TemplateView):
+    template_name = 'upgrade_account.html'

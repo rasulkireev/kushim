@@ -4,6 +4,8 @@ from .models import Contact, ContactLog, ContactContact
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from .forms import EditContact, ContactForm, ContactContactForm
+from django.http.response import HttpResponseRedirect
+from djstripe.models import Customer
 
 class CreateContact(LoginRequiredMixin, CreateView):
     model = Contact
@@ -16,6 +18,15 @@ class CreateContact(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.contact_owner = self.request.user
         return super(CreateContact, self).form_valid(form)
+
+    def is_limit_reached(self):
+        return Contact.objects.filter(contact_owner=self.request.user).count() >= 2
+
+    def post(self, request, *args, **kwargs):
+        if self.is_limit_reached() and not self.request.user.has_active_subscription:
+            return HttpResponseRedirect(reverse('upgrade-account'))
+        else:
+            return super().post(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(CreateContact, self).get_context_data(**kwargs)
@@ -40,7 +51,7 @@ class EditContact(LoginRequiredMixin, UpdateView):
 class CreateContactContact(LoginRequiredMixin, CreateView):
     model = ContactContact
     template_name = 'network/contact_contacts.html'
-    fields = ('contact_type','contact_value',)
+    fields = ('contact_type','contact_value')
 
     def get_success_url(self):
         return reverse('contact-detail', kwargs={'contact_id':self.object.contact_id.contact_id})
@@ -64,7 +75,7 @@ class CreateContactContact(LoginRequiredMixin, CreateView):
 class CreateContactLog(LoginRequiredMixin, CreateView):
     model = ContactLog
     template_name = 'network/contact_detail.html'
-    fields = ('log_type','body',)
+    fields = ('log_type','body','support_image')
 
     def get_success_url(self):
         return reverse('contact-detail', kwargs={'contact_id':self.object.contact_id.contact_id})
@@ -89,7 +100,7 @@ class CreateContactLog(LoginRequiredMixin, CreateView):
 class EditContactLog(LoginRequiredMixin, UpdateView):
     model = ContactLog
     template_name_suffix = '_update'
-    fields = ['log_type','body']
+    fields = ['log_type','body','support_image']
     pk_url_kwarg = 'id'
 
     def get_success_url(self):

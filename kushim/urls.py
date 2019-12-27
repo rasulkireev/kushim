@@ -36,6 +36,7 @@ urlpatterns = [
     path('network/', include('network.urls')),
 
     path('sentry-debug/', trigger_error),
+    path("stripe/", include("djstripe.urls", namespace="djstripe")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -21,6 +21,11 @@
 
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
+    {% block stripe_init %}
+      {# Stripe Elements #}
+    {% endblock %}
+
+
     {% analytical_head_bottom %}
   </head>
   

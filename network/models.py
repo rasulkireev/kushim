@@ -64,6 +64,7 @@ class ContactLog(models.Model):
     )
 
     body = models.TextField()
+    support_image = models.ImageField(blank=True, upload_to='network-log-support-images/')
 
     def __str__(self):
         return str(self.contact_id) + ": " + self.log_type
