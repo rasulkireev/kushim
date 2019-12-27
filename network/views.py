@@ -5,7 +5,6 @@ from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from .forms import EditContact, ContactForm, ContactContactForm
 from django.http.response import HttpResponseRedirect
-from djstripe.models import Customer
 
 class CreateContact(LoginRequiredMixin, CreateView):
     model = Contact
@@ -23,7 +22,7 @@ class CreateContact(LoginRequiredMixin, CreateView):
         return Contact.objects.filter(contact_owner=self.request.user).count() >= 2
 
     def post(self, request, *args, **kwargs):
-        if self.is_limit_reached() and not self.request.user.has_active_subscription:
+        if self.is_limit_reached():
             return HttpResponseRedirect(reverse('upgrade-account'))
         else:
             return super().post(request, *args, **kwargs)
