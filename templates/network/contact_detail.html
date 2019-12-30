@@ -4,7 +4,7 @@
 {% block content %}
 
 <header class="block px-4 py-6 mb-4 leading-normal bg-white rounded-lg">
-  <div class="mb-6 md:mb-4">
+  <div class="flex mb-6 md:mb-4">
     <div id="headshot">
       {% if contact_info.profile_image %}
         <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}"></a>
