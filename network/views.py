@@ -33,6 +33,7 @@ class CreateContact(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateContact, self).get_context_data(**kwargs)
         context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)
+        context['MEDIA_URL'] = settings.MEDIA_URL
         return context
 
 class EditContact(LoginRequiredMixin, UpdateView):
