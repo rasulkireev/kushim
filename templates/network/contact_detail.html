@@ -5,24 +5,28 @@
 
 <header class="block px-4 py-6 mb-4 leading-normal bg-white rounded-lg">
   <div class="mb-6 md:mb-4">
-    {% if contact_info.profile_image %}
-      <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}"></a>
-    {% else %}
-      <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{% static 'images/unknown-profile.png' %}" alt="Sample Contact Image"></a>
-    {% endif %}
+    <div id="headshot">
+      {% if contact_info.profile_image %}
+        <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}"></a>
+      {% else %}
+        <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{% static 'images/unknown-profile.png' %}" alt="Sample Contact Image"></a>
+      {% endif %}
+    </div>
     
-    <h1 class="text-2xl font-bold">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
-    <p class="">DoB: {{ contact_info.date_of_birth }}</p>
-    <p class="">Tags: {{ contact_info.tags }}</p>
-    <p class="">
-      Work:
-    {% if contact_info.title %}
-      <span class="font-bold">{{ contact_info.title }}</span>
-    {% endif %}
-    {% if contact_info.employer %}
-    at <span class="font-bold">{{ contact_info.employer }}</span>
-    {% endif %}
-    </p>
+    <div id="basic-info">
+      <h1 class="text-2xl font-bold">{{ contact_info.first_name }} {{ contact_info.last_name }}</h1>
+      <p class="">DoB: {{ contact_info.date_of_birth }}</p>
+      <p class="">Tags: {{ contact_info.tags }}</p>
+      <p class="">
+        Work:
+      {% if contact_info.title %}
+        <span class="font-bold">{{ contact_info.title }}</span>
+      {% endif %}
+      {% if contact_info.employer %}
+      at <span class="font-bold">{{ contact_info.employer }}</span>
+      {% endif %}
+      </p>
+    </div>
   </div>
   <a class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" href="{% url 'edit-contact' id=id %}">Edit Contact Information</a>
         
