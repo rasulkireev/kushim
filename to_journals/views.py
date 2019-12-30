@@ -65,7 +65,7 @@ class ToJournalEntriesList(LoginRequiredMixin, CreateView):
 class EditJournalEntry(LoginRequiredMixin, UpdateView):
     model = to_journal_entry
     template_name_suffix = '_update'
-    fields = ['body']
+    fields = ['body','support_image']
     pk_url_kwarg = 'id'
 
     def get_success_url(self):

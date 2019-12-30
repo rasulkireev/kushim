@@ -66,7 +66,7 @@ class CreateListEntry(LoginRequiredMixin, CreateView):
 class EditListEntry(LoginRequiredMixin, UpdateView):
     model = ListEntry
     template_name_suffix = '_update'
-    fields = ['body']
+    fields = ['body','support_image']
     pk_url_kwarg = 'id'
 
     def get_success_url(self):
