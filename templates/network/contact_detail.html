@@ -94,7 +94,7 @@
         <h1 class="mt-2 mb-3 text-3xl font-semibold text-blue-900">{{ date_created.grouper }}</h1>
 
         {% for log_entry in date_created.list %}
-        <div class="mb-1 entry">
+        <div class="mb-5 entry">
             <span class="entry-body">{{ log_entry.body|urlize|linebreaks }}</span> - <span class='small-text'>{{ log_entry.date_created }}</span>
 
             <a class="edit-entry-button-main" href="{% url 'edit-contact-log' log_entry.id %}"><i class="las la-pen small"></i></a>
