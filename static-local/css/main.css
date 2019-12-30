@@ -373,7 +373,7 @@ body {
   
 }
 #id_journal_name, #id_list_name, .homepage-add-contact {
-  height: 40px;
+  height: 2.2rem;
   width: 150px;
   padding-left: 5px;
   border-radius: 5px;
@@ -528,9 +528,6 @@ body {
   word-wrap: break-word;
   hyphens: auto;
 }
-.entry {
-  margin-bottom: 1rem;
-}
 .entry-date {
   font-weight: 500;
   font-size: 30px;
@@ -538,10 +535,16 @@ body {
   margin-top: 0.5rem;
   color: #5183f5;
 }
-.entry-card p, .entry-card a {
-  color: #5183f5;
+.entry-body p {
+  color: black;
   display: inline;
   font-size: 20px;
+}
+.entry-body a {
+  color: blue;
+  display: inline;
+  font-size: 20px;
+  border-bottom: 2px solid grey;
 }
 .entry-card {
   margin-bottom: 10px;

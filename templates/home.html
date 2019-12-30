@@ -7,20 +7,20 @@
 
 {% if user.is_authenticated %}
 
-  <div class="app">
-    <h1 class='app-name'>Journals</h1>
+  <div class="mb-6">
+    <h1 class='mb-2 text-3xl font-bold text-white uppercase'>Journals</h1>
     {% load journal_tags %}
     {% get_journals to_journal %}
   </div>
 
   <div class="app">
-    <h1 class='app-name'>Digital Garden</h1>
+    <h1 class='mb-2 text-3xl font-bold text-white uppercase'>Digital Garden</h1>
     {% load list_tags %}
     {% get_lists list %}
   </div>
 
   <div class="app">
-    <h1 class='app-name'>Network</h1>
+    <h1 class='mb-2 text-3xl font-bold text-white uppercase'>Network</h1>
     {% load contacts_tags %}
     {% get_contacts contact %}
   </div>

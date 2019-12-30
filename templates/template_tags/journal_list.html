@@ -1,18 +1,18 @@
 {% load static %}
 
-    <section class='journals'>
+    <section class='flex flex-wrap items-start text-xl'>
 
         {% for journal in journals %}
-          <a class="journal" href="{% url 'to-journal-entries' journal.slug %}">{{ journal.journal_name }}</a>
+          <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'to-journal-entries' journal.slug %}">{{ journal.journal_name }}</a>
         {% endfor %}
 
-          <button class="add-button" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
+          <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
 
           <span id="new-journal">
             <form class="" id="myJournalForm" action="{% url 'to-journals' %}" method="post">
               {% csrf_token %}
               {{ form }}
-              <button type="submit" class="add-button">Add Journal</button>
+              <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer">Add Journal</button>
             </form>
           </span>
 

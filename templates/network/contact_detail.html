@@ -90,12 +90,12 @@
 
       {% for date_created in log_entries %}
 
-      <div class="entry-card">
-        <h2 class="entry-date">{{ date_created.grouper }}</h2>
+      <div class="px-4 py-2 mb-4 bg-white rounded-lg">
+        <h1 class="mt-2 mb-3 text-3xl font-semibold text-blue-900">{{ date_created.grouper }}</h1>
 
         {% for log_entry in date_created.list %}
-        <div class="entry">
-            <p class="entry-body">{{ log_entry.body|urlize|linebreaks }} - <span class='small-text'>{{ log_entry.date_created }}</span></p></p>
+        <div class="mb-1 entry">
+            <span class="entry-body">{{ log_entry.body|urlize|linebreaks }}</span> - <span class='small-text'>{{ log_entry.date_created }}</span>
 
             <a class="edit-entry-button-main" href="{% url 'edit-contact-log' log_entry.id %}"><i class="las la-pen small"></i></a>
             <a class="edit-entry-button-main" href="{% url 'delete-contact-log' log_entry.id %}"><i class="las la-times-circle small"></i></a>

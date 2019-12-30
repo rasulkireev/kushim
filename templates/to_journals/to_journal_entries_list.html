@@ -33,12 +33,12 @@
 
       {% for journal_entry_date in journal_entries %}
 
-      <div class="entry-card">
-        <h1 class="entry-date">{{ journal_entry_date.grouper }}</h1>
+      <div class="px-4 py-2 mb-4 bg-white rounded-lg">
+        <h1 class="mt-2 mb-3 text-3xl font-semibold text-blue-900">{{ journal_entry_date.grouper }}</h1>
 
         {% for journal_entry in journal_entry_date.list %}
-        <div class="entry">
-          <p>{{ journal_entry.body|urlize|linebreaks }} - <span class='small-text'>@{{ journal_entry.entry_date|date:'P' }}</span></p>
+        <div class="mb-1 entry">
+          <span class="entry-body">{{ journal_entry.body|urlize|linebreaks }}</span> - <span class='small-text'>@{{ journal_entry.entry_date|date:'P' }}</span>
 
           <a class="edit-entry-button-main" href="{% url 'edit-journal-entry' journal_entry.id %}"><i class="las la-pen"></i></a>
           <a class="edit-entry-button-main" href="{% url 'delete-journal-entry' journal_entry.id %}"><i class="las la-times-circle small"></i></a>

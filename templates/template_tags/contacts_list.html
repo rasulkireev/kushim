@@ -1,12 +1,12 @@
 {% load static %}
 
-    <section class='contacts'>
+    <section class='flex flex-wrap items-start text-xl'>
 
         {% for contact in contacts %}
-          <a class="contact" href="{% url 'contact-detail' contact.contact_id %}">{{ contact.first_name }} {{ contact.last_name }}</a>
+          <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'contact-detail' contact.contact_id %}">{{ contact.first_name }} {{ contact.last_name }}</a>
         {% endfor %}
 
-          <button class="add-button" id="contact-to-hide" onclick="inputContact(); this.onclick=null;">Add Contact</button>
+          <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="contact-to-hide" onclick="inputContact(); this.onclick=null;">Add Contact</button>
 
     </section>
 
@@ -24,6 +24,6 @@
           {{ form.last_name }}
         </div>
 
-        <button type="submit" class="add-button">Add Contact</button>
+        <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer">Add Contact</button>
       </form>
     </div>
