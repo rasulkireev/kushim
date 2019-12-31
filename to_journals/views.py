@@ -4,7 +4,7 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import to_journal, to_journal_entry, JournalForm
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
-
+from django.http.response import HttpResponseRedirect
 
 
 class CreateToJournal(LoginRequiredMixin, CreateView):
@@ -14,6 +14,19 @@ class CreateToJournal(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('home')
+
+    def is_limit_reached(self):
+        return to_journal.objects.filter(journal_user=self.request.user).count() >= 3
+
+    def has_permission(self):
+        return self.request.user.has_perm('to_journals.journal-pro')
+
+    def post(self, request, *args, **kwargs):
+        if self.is_limit_reached() and not self.has_permission():
+            return HttpResponseRedirect(reverse('upgrade'))
+        else:
+            return super().post(request, *args, **kwargs)
+
 
     def form_valid(self, form):
         form.instance.journal_user = self.request.user
@@ -46,7 +59,7 @@ class ToJournalEntriesList(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('to-journal-entries', kwargs={'slug':self.object.journal_name.slug})
-
+    
     def form_valid(self, form):
         current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
         form.instance.journal_user = self.request.user

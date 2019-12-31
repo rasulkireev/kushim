@@ -10,11 +10,12 @@ class List(models.Model):
     slug = AutoSlugField(populate_from='list_name',always_update=True)
     date_created = models.DateTimeField(auto_now_add=True)
     list_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
+    profile_image = models.ImageField(upload_to='garden-desc-image/', blank=True)
     description = models.TextField(blank=True)
 
     class Meta:
         permissions = [
-            ('pro', 'Can create unlimited lists (gardens)')
+            ('garden-pro', 'Can create unlimited lists (gardens)')
         ]
         
     def __str__(self):

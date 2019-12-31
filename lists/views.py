@@ -4,7 +4,7 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import List, ListEntry, ListForm
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
-
+from django.http.response import HttpResponseRedirect
 
 
 class CreateList(LoginRequiredMixin, CreateView):
@@ -14,6 +14,19 @@ class CreateList(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('home')
+
+    def is_limit_reached(self):
+        return List.objects.filter(list_owner=self.request.user).count() >= 3
+
+    def has_permission(self):
+        return self.request.user.has_perm('lists.garden-pro')
+
+    def post(self, request, *args, **kwargs):
+        if self.is_limit_reached() and not self.has_permission():
+            return HttpResponseRedirect(reverse('upgrade'))
+        else:
+            return super().post(request, *args, **kwargs)
+
 
     def form_valid(self, form):
         form.instance.list_owner = self.request.user
@@ -47,7 +60,7 @@ class CreateListEntry(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('list-entries', kwargs={'slug':self.object.list_name.slug})
-
+    
     def form_valid(self, form):
         current_list = List.objects.get(list_owner=self.request.user, slug=self.kwargs['slug'])
         form.instance.list_owner = self.request.user

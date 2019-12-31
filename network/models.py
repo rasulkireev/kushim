@@ -25,6 +25,10 @@ class Contact(models.Model):
     title = models.CharField(max_length=200, blank=True)
     employer = models.CharField(max_length=200, blank=True)
 
+    class Meta:
+        permissions = [
+            ('network-pro', 'Can create unlimited contacts')
+        ]
 
     def __str__(self):
         return self.first_name + " " + self.last_name

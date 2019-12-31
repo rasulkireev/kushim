@@ -19,10 +19,10 @@ class CreateContact(LoginRequiredMixin, CreateView):
         return super(CreateContact, self).form_valid(form)
 
     def is_limit_reached(self):
-        return Contact.objects.filter(contact_owner=self.request.user).count() >= 2
+        return Contact.objects.filter(contact_owner=self.request.user).count() >= 10
 
     def has_permission(self):
-        return self.request.user.has_perm('pro')
+        return self.request.user.has_perm('network.network-pro')
 
     def post(self, request, *args, **kwargs):
         if self.is_limit_reached() and not self.has_permission():
@@ -33,7 +33,6 @@ class CreateContact(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateContact, self).get_context_data(**kwargs)
         context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)
-        context['MEDIA_URL'] = settings.MEDIA_URL
         return context
 
 class EditContact(LoginRequiredMixin, UpdateView):

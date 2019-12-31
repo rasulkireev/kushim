@@ -4,32 +4,31 @@
 {% block title %}Upgrade to Pro{% endblock title %}
 
 {% block stripe_init %}
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stripe.css' %}"> -->
 {% endblock %}
 
 
 {% block content %}
 
-<h1>Orders page</h1>
+<div class="text-center">
+  <h1 class="mb-6 text-4xl text-white">Please, upgrade to Pro to continue.</h1>
+  <p class="mb-2 text-xl text-white">To create more I ask you to purchse the 'PRO' plan.</p>
+  <p class="mb-2 text-xl text-white">
+    The plan will cost you $25. One-time payment. This will help me keep the app alive and work on updates for you.
+  </p>
 
-<!-- Use the CSS tab above to style your Element's container. -->
-<form action="/charge" method="post" id="payment-form">
-    <div class="form-row">
-      <label for="card-element">
-        Credit or debit card
-      </label>
-      <div id="card-element">
-        <!-- A Stripe Element will be inserted here. -->
-      </div>
-  
-      <!-- Used to display form errors. -->
-      <div id="card-errors" role="alert"></div>
-    </div>
-  
-    <button>Submit Payment</button>
+  <form class="m-6" action="{% url 'charge-success' %}" method="post">{% csrf_token %}
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="{{ stripe_key }}"
+      data-description="Pro account"
+      data-amount="2500"
+      data-locale="auto">
+    </script>
+
   </form>
-
+</div>
 
 {% endblock content %}
