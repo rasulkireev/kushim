@@ -1,62 +1,54 @@
 {% extends 'base.html' %}
-{% block title %}{{ journal_name }}{% endblock title %}
-{% block content %}
 
+{% block title %}{{ journal_name }}{% endblock title %}
+
+{% block content %}
 
 <a class="go-back" href="{% url 'home' %}">back home</a>
 
-<div class="journal-name-header">
-    <h2 class="journal-name">{{ journal_name }}</h2>
-    <span onclick="editJournal(); this.onclick=null"><i class="white las la-pen"></i></span>
-</div>
+<div class="w-auto mx-auto mt-10">
+  <div class="p-8 mb-6 bg-white rounded-lg shadow-lg">
+    {% if journal.profile_image %}
+      <img src="{{ journal.profile_image.url }}" class="block w-32 mx-auto mb-2 -mt-24 bg-white border-2 border-solid rounded-full">    
+    {% endif %}
+    <h1 class="mb-2 text-4xl font-bold text-center text-blue-900">{{ journal_name }}</h1>
+    {% if journal.description %}
+      <p class="mb-2 text-lg font-semibold text-center">{{ journal.description }}</p>
+    {% endif %}
+    <a class="block w-40 px-4 py-2 mx-auto font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="">Edit Journal</a>
 
-<div class="delete-rename-block">
-  <a id="rename-button" href="{% url 'rename-journal' slug=slug id=journal_id %}">Rename</a>
-  <a id="delete-button" href="{% url 'delete-journal' slug=slug id=journal_id %}">Delete</a>
+    <a class="block text-red-800 underline" id="" href="{% url 'rename-journal' slug=slug id=journal_id %}">Rename</a>
+    <a class="block text-red-800 underline" id="" href="{% url 'delete-journal' slug=slug id=journal_id %}">Delete</a>
+  </div>
 </div>
-
 
 <button id="journal-to-hide" class="add-entry-button" onclick="inputJournal(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
-  <form class="" id="myJournalForm" action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+  <form class="" id="myJournalForm" action="" method="post" enctype="multipart/form-data">{% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Entry</button>
   </form>
 </div>
 
-
-
-
   <div id="entries">
     {% regroup to_journal_entries by entry_date|date:'F j, Y' as journal_entries %}
-
       {% for journal_entry_date in journal_entries %}
-
-      <div class="px-4 py-2 mb-4 bg-white rounded-lg">
+      <div class="px-4 py-2 mb-4 bg-white rounded-lg shadow-lg">
         <h1 class="mt-2 mb-3 text-3xl font-semibold text-blue-900">{{ journal_entry_date.grouper }}</h1>
-
         {% for journal_entry in journal_entry_date.list %}
         <div class="mb-5 entry">
           <span class="entry-body">{{ journal_entry.body|urlize|linebreaks }}</span> - <span class='small-text'>@{{ journal_entry.entry_date|date:'P' }}</span>
 
           <a class="edit-entry-button-main" href="{% url 'edit-journal-entry' journal_entry.id %}"><i class="las la-pen"></i></a>
           <a class="edit-entry-button-main" href="{% url 'delete-journal-entry' journal_entry.id %}"><i class="las la-times-circle small"></i></a>
-          
+
           {% if journal_entry.support_image %}
-            <img src="{{ MEDIA_URL }}{{ journal_entry.support_image }}" alt="{{ journal_entry.body}}" class="journal-support-image">
+            <img src="{{ journal_entry.support_image.url }}" alt="{{ journal_entry.body}}" class="journal-support-image">
           {% endif %}
         </div>
         {% endfor %}
       </div>
-
       {% endfor %}
-
-
   </div>
-
-
-
-
 
 {% endblock content %}

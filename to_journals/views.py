@@ -69,6 +69,7 @@ class ToJournalEntriesList(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
         context = super(ToJournalEntriesList, self).get_context_data(**kwargs)
+        context["journal"] = current_journal
         context["journal_name"] = current_journal.journal_name
         context["slug"] = current_journal.slug
         context["journal_id"] = current_journal.id

@@ -1,62 +1,59 @@
 {% extends 'base.html' %}
+
 {% block title %}{{ list_name }}{% endblock title %}
+
 {% block content %}
+
+ 
 
 <a class="go-back" href="{% url 'home' %}">back home</a>
 
-<div class="journal-name-header">
-    <h2 class="journal-name">{{ list_name }}</h2>
-    <span onclick="editJournal(); this.onclick=null"><i class="white las la-pen"></i></span>
-</div>
+<div class="w-auto mx-auto mt-10">
+  <div class="p-8 mb-6 bg-white rounded-lg shadow-lg">
+    
+    {% if garden.profile_image %}
+      <img src="{{ garden.profile_image.url }}" class="block w-32 mx-auto mb-2 -mt-24 bg-white border-2 border-solid rounded-full">   
+    {% endif %}
 
-<div class="delete-rename-block">
-  <a id="rename-button" href="{% url 'rename-list' slug=list_slug id=list_id %}">Rename</a>
-  <a id="delete-button" href="{% url 'delete-list' slug=list_slug id=list_id %}">Delete</a>
-</div>
+    <h1 class="mb-2 text-4xl font-bold text-center text-blue-900">{{ garden.list_name }}</h1>
 
+    {% if garden.description %}
+      <p class="mb-2 text-lg font-semibold text-center">{{ garden.description }}</p>
+    {% endif %}
+
+    <a class="block w-40 px-4 py-2 mx-auto font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="">Edit Garden</a>
+    <a class="block text-red-800 underline" id="" href="{% url 'rename-list' slug=list_slug id=list_id %}">Rename</a>
+    <a class="block text-red-800 underline" id="" href="{% url 'delete-list' slug=list_slug id=list_id %}">Delete</a>
+  </div>
+</div>
 
 <button id="list-to-hide" class="add-entry-button" onclick="inputList(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
-  <form class="" id="myListForm" action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+  <form class="" id="myListForm" action="" method="post" enctype="multipart/form-data">{% csrf_token %}
     {{ form }}
     <button type="submit" class="add-entry-button">Add Entry</button>
   </form>
 </div>
 
-
-
-
-
   <div id="entries">
     {% regroup list_entries by entry_date|date:'F j, Y' as list_entries %}
-
       {% for entry_date in list_entries %}
-
-      <div class="px-4 py-2 mb-4 bg-white rounded-lg">
+      <div class="px-4 py-2 mb-4 bg-white rounded-lg shadow-lg">
         <h1 class="mt-2 mb-4 text-3xl font-semibold text-blue-900">{{ entry_date.grouper }}</h1>
-
         {% for list_entry in entry_date.list %}
         <div class="mb-5 entry">
             <span class="entry-body">{{ list_entry.body|urlize|linebreaks }}</span> - <span class='small-text'>@{{ list_entry.entry_date|date:'P' }}</span>
-                        
+
             <a class="edit-entry-button-main" href="{% url 'edit-list-entry' list_entry.id %}"><i class="las la-pen small"></i></a>
             <a class="edit-entry-button-main" href="{% url 'delete-garden-entry' list_entry.id %}"><i class="las la-times-circle small"></i></a>
-           
+
             {% if list_entry.support_image %}
               <img src="{{ MEDIA_URL }}{{ list_entry.support_image }}" alt="{{ list_entry.body}}" class="journal-support-image">
             {% endif %}
         </div>
         {% endfor %}
       </div>
-
       {% endfor %}
-
-
   </div>
-
-
-
-
 
 {% endblock content %}

@@ -70,6 +70,7 @@ class CreateListEntry(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         current_list = List.objects.get(list_owner=self.request.user, slug=self.kwargs['slug'])
         context = super(CreateListEntry, self).get_context_data(**kwargs)
+        context["garden"] = current_list
         context["list_name"] = current_list.list_name
         context["list_slug"] = current_list.slug
         context["list_id"] = current_list.id
