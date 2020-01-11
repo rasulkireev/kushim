@@ -120,6 +120,7 @@ body {
   right: 0;
   z-index: 1;
   background-color: #3F8CE8;
+  width: 10rem;
 }
 .dropdown:hover .dropdown-content {
   display: block;

@@ -1,0 +1,16 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}\
+
+{% autoescape off %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Hey there! This is Rasul from {{ site_name }}!
+
+Currently the best practice is to confirm the email of the person who signed up for the account.
+
+If you are {{ user_display }} and this is your email address, please go to {{ activate_url }} to confirm.
+{% endblocktrans %}
+
+{% endautoescape %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Huge thanks for giving Kushim a try.
+{% endblocktrans %}

@@ -50,11 +50,11 @@
               
               <div class="dropdown-content">
                 <p class="white dropdown-item">{{ user.username }}</p>
-                <a class="white dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                <p class="white dropdown-item" ><a href="{% url 'account_logout' %}">Log Out</a></p>
               </div>
             </div>
             {% else %}
-              <a class='login-nav-button' href="{% url 'login' %}">Login</a>
+              <a class='login-nav-button' href="{% url 'account_login' %}">Login</a>
             {% endif %}
           </div>
         </div>

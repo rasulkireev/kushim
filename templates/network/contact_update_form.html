@@ -25,6 +25,12 @@
                 </div>
 
                 <div class="">
+                  {{ form.contact_frequency.errors }}
+                  <label class="block mb-2 font-bold text-gray-700" for="{{ form.contact_frequency.id_for_label }}">How often should we remind you to contact this person? (days)</label>
+                  {{ form.contact_frequency }}
+                </div>
+
+                <div class="">
                   {{ form.profile_image.errors }}
                   <label class="block mb-2 font-bold text-gray-700" for="{{ form.profile_image.id_for_label }}">Profile Image</label>
                     {{ form.profile_image }}

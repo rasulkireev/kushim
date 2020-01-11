@@ -19,7 +19,7 @@ class Contact(models.Model):
     how_you_met = models.TextField(blank=True)
     description = models.TextField(blank=True)
     current_location = models.CharField(max_length=200, blank=True)
-    when_to_contact = models.DurationField(blank=True, null=True)
+    contact_frequency = models.IntegerField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
 
     title = models.CharField(max_length=200, blank=True)

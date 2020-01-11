@@ -26,9 +26,7 @@ def trigger_error(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('users/', include('users.urls')),
-    path('users/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
 
     path('', include('pages.urls')),
     path('journals/', include('to_journals.urls')),

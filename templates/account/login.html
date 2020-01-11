@@ -35,15 +35,15 @@
             {{ form.non_field_errors }}
             
             <div class="mb-4">
-              {{ form.username.errors }}
-              <label class="block mb-2 font-bold text-gray-700" for="{{ form.username.id_for_label }}">Username</label>
-              {{ form.username }}
+              {{ form.login.errors }}
+              <label class="block mb-2 font-bold text-gray-700" for="{{ form.login.id_for_label }}">Username</label>
+              <input type="text" class="block w-full px-2 py-2 bg-white border rounded shadow appearance-none border-grey-light hover:border-grey" name='login'>
             </div>
         
             <div class="mb-4">
               {{ form.password.errors }}
               <label class="block mb-2 font-bold text-gray-700" for="{{ form.password.id_for_label }}">Password</label>
-              {{ form.password }}
+              <input id="id_password" type="password" class="block w-full px-2 py-2 bg-white border rounded shadow appearance-none border-grey-light hover:border-grey" name='password'>
             </div>
 
             <button class="px-4 py-2 font-bold text-white bg-blue-700 rounded hover:bg-blue-400" type="submit">Log In</button>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="text-center">
-          <p class="text-sm text-grey-700">Don't have an account? <a class="font-bold no-underline text-blue" href="{% url 'signup' %}">Create an Account</a>.</p>
+          <p class="text-sm text-grey-700">Don't have an account? <a class="font-bold no-underline text-blue" href="{% url 'account_signup' %}">Create an Account</a>.</p>
         </div>
     </div>
   </div>

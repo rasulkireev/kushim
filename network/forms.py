@@ -6,7 +6,7 @@ class EditContact(ModelForm):
     def __init__(self, *args, **kwargs):
             super(EditContact, self).__init__(*args, **kwargs)
             
-            for fieldname in ['first_name', 'last_name', 'tags', 'description', 'profile_image','how_you_met', 'current_location', 'date_of_birth', 'title', 'employer']:
+            for fieldname in ['first_name', 'last_name', 'tags', 'description', 'profile_image','how_you_met', 'contact_frequency','current_location', 'date_of_birth', 'title', 'employer']:
                 self.fields[fieldname].help_text = None
                 self.fields[fieldname].widget.attrs.update({'class':'appearance-none block mx-auto w-full bg-gray-100 text-gray-800 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'})
                 
@@ -15,7 +15,7 @@ class EditContact(ModelForm):
 
     class Meta:
         model = Contact
-        fields = ('first_name', 'last_name', 'profile_image', 'tags', 'description', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer')
+        fields = ('first_name', 'last_name', 'profile_image', 'tags', 'description', 'contact_frequency', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer')
 
 
 class ContactForm(ModelForm):

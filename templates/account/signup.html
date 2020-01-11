@@ -37,25 +37,25 @@
                 <div class="mb-4">
                   {{ form.username.errors }}
                   <label class="block mb-2 font-bold text-gray-700" for="{{ form.username.id_for_label }}">Username</label>
-                  {{ form.username }}
+                  <input type="text" name="username" class="block w-full px-2 py-2 bg-white border rounded shadow appearance-none border-grey-light hover:border-grey" autofocus="autofocus" minlength="1" maxlength="150" required="" id="id_username">
                 </div>
 
                 <div class="mb-4">
                     {{ form.email.errors }}
                     <label class="block mb-2 font-bold text-gray-700" for="{{ form.email.id_for_label }}">Email address</label>
-                    {{ form.email }}
+                    <input type="email" name="email" id="id_email" class="block w-full px-2 py-2 bg-white border rounded shadow appearance-none border-grey-light hover:border-grey">
                 </div>
 
                 <div class="mb-4">
                     {{ form.password1.errors }}
                     <label class="block mb-2 font-bold text-gray-700" for="{{ form.password1.id_for_label }}">Password</label>
-                    {{ form.password1 }}
+                    <input type="password" id="id_password1" name="password1" required="" class="block w-full px-2 py-2 bg-white border rounded shadow appearance-none border-grey-light hover:border-grey">
                 </div>
 
                 <div class="mb-4">
                     {{ form.password2.errors }}
                     <label class="block mb-2 font-bold text-gray-700" for="{{ form.password2.id_for_label }}">Password Confirmation</label>
-                    {{ form.password2 }}
+                    <input type="password" id="id_password2" required="" name="password2" class="block w-full px-2 py-2 bg-white border rounded shadow appearance-none border-grey-light hover:border-grey">
                 </div>
     
                 <button class="px-4 py-2 font-bold text-white bg-blue-700 rounded hover:bg-blue-400" type="submit">Sign Up</button>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="text-center">
-            <p class="text-sm text-grey-700">Already have an account? <a class="font-bold no-underline text-blue" href="{% url 'login' %}">Log In</a>.</p>
+            <p class="text-sm text-grey-700">Already have an account? <a class="font-bold no-underline text-blue" href="{% url 'account_login' %}">Log In</a>.</p>
           </div>
       </div>
     </div>

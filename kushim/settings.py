@@ -52,8 +52,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     
     'crispy_forms',
+    'allauth',
+    'allauth.account',
     'analytical',
     'image_optimizer',
     'emoji_picker',
@@ -156,7 +159,6 @@ if not DEBUG:
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-AUTH_USER_MODEL = 'users.CustomUser'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -167,13 +169,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static-local/'),
 ]
-
-
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
-
-# Email setup
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Django Analytical
 if not DEBUG:
@@ -188,3 +183,29 @@ OPTIMIZED_IMAGE_METHOD = 'pillow'
 # Stripe Keys
 STRIPE_TEST_PUBLIC_KEY=env('STRIPE_TEST_PUBLIC_KEY')
 STRIPE_TEST_SECRET_KEY=env('STRIPE_TEST_SECRET_KEY')
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+# django-allauth config
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+ACCOUNT_SESSION_REMEMBER = True
+
+
+
+# Postmark Email
+EMAIL_BACKEND = 'postmarker.django.EmailBackend'
+DEFAULT_FROM_EMAIL = 'rasul@kushim.io'
+POSTMARK = {
+    'TOKEN': env('POSTMARK_TOKEN'),
+    'TEST_MODE': env('POSTMARK_TEST_MODE'),
+    'VERBOSITY': 0,
+}
