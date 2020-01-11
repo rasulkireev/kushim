@@ -5,14 +5,14 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.models import Permission
 from django.shortcuts import render
 
-stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class UpgradePageView(TemplateView):
     template_name = 'upgrades/to_pro.html'
 
     def get_context_data(self, **kwargs): # new
         context = super().get_context_data(**kwargs)
-        context['stripe_key'] = settings.STRIPE_TEST_PUBLIC_KEY
+        context['stripe_key'] = settings.STRIPE_PUBLIC_KEY
         return context
 
 
