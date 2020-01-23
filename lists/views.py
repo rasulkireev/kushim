@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import List, ListEntry, ListForm
+from .forms import EditGarden
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.http.response import HttpResponseRedirect
@@ -43,14 +44,28 @@ class DeleteList(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
     pk_url_kwarg = 'id'
 
-class RenameList(LoginRequiredMixin, UpdateView):
+
+class EditGarden(LoginRequiredMixin, UpdateView):
     model = List
     template_name_suffix = '_update_form'
-    fields = ['list_name']
-    success_url = reverse_lazy('home')
+    form_class = EditGarden
     pk_url_kwarg = 'id'
+    
+    def get_success_url(self):
+        return reverse('list-entries', kwargs={'slug':self.object.slug})
 
-
+    def form_valid(self, form):
+        current_list = List.objects.get(list_owner=self.request.user, slug=self.kwargs['slug'])
+        form.instance.list_owner = self.request.user
+        form.instance.id = current_list.id
+        return super(EditGarden, self).form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        current_list = List.objects.get(list_owner=self.request.user, slug=self.kwargs['slug'])
+        context = super(EditGarden, self).get_context_data(**kwargs)
+        context["list_slug"] = current_list.slug
+        context["list_id"] = current_list.id
+        return context
 
 class CreateListEntry(LoginRequiredMixin, CreateView):
     model = ListEntry

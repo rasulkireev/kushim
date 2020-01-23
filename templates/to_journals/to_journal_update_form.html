@@ -2,13 +2,36 @@
 {% block title %}Rename Journal{% endblock title %}
 {% block content %}
 
-<a class="go-back" href="{% url 'home' %}">back home</a>
+<div class="w-auto mx-auto mt-10">
+  <div class="p-8 mb-6 bg-white border-t-8 border-blue-500 rounded-lg shadow-lg">
+    <form class="" id="" method="post" enctype="multipart/form-data">{% csrf_token %}
+      {{ form.non_field_errors }}
 
-<div class="rename-form">
-  <form method="post">{% csrf_token %}
-      {{ form }}
-      <input id="rename-form-button" type="submit" value="Update">
-  </form>
-</div>
+        <div class="">
+          {{ form.journal_name.errors }}
+          <label class="block mb-2 font-bold text-gray-700" for="{{ form.journal_name.id_for_label }}">Journal Name</label>
+          {{ form.journal_name }}
+        </div>
 
+        <div class="">
+          {{ form.description.errors }}
+          <label class="block mb-2 font-bold text-gray-700" for="{{ form.description.id_for_label }}">Description</label>
+            {{ form.description }}
+        </div>
+
+        <div class="">
+          {{ form.profile_image.errors }}
+          <label class="block mb-2 font-bold text-gray-700" for="{{ form.profile_image.id_for_label }}">Image</label>
+            {{ form.profile_image }}
+        </div>
+
+        <div class="flex flex-row justify-end">
+          <button class="px-4 py-2 ml-1 font-bold text-white bg-blue-800 rounded hover:bg-blue-300" type="submit">Save</button>
+          <a class="block px-4 py-2 ml-1 font-bold text-center text-white bg-red-800 rounded hover:bg-red-300" id="" href="{% url 'delete-journal' slug=journal_slug id=journal_id %}">Delete</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  
 {% endblock content %}

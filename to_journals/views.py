@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import to_journal, to_journal_entry, JournalForm
+from .forms import EditJournal
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.http.response import HttpResponseRedirect
@@ -38,19 +39,32 @@ class CreateToJournal(LoginRequiredMixin, CreateView):
         return context
 
 
+class EditJournal(LoginRequiredMixin, UpdateView):
+    model = to_journal
+    template_name_suffix = '_update_form'
+    form_class = EditJournal
+    pk_url_kwarg = 'id'
+    
+    def get_success_url(self):
+        return reverse('to-journal-entries', kwargs={'slug':self.object.slug})
+
+    def form_valid(self, form):
+        current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
+        form.instance.journal_user = self.request.user
+        form.instance.id = current_journal.id
+        return super(EditJournal, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        current_journal = to_journal.objects.get(journal_user=self.request.user, slug=self.kwargs['slug'])
+        context = super(EditJournal, self).get_context_data(**kwargs)
+        context["journal_slug"] = current_journal.slug
+        context["journal_id"] = current_journal.id
+        return context
+
 class DeleteJournal(LoginRequiredMixin, DeleteView):
     model = to_journal
     success_url = reverse_lazy('home')
     pk_url_kwarg = 'id'
-
-class RenameJournal(LoginRequiredMixin, UpdateView):
-    model = to_journal
-    template_name_suffix = '_update_form'
-    fields = ['journal_name']
-    success_url = reverse_lazy('home')
-    pk_url_kwarg = 'id'
-
-
 
 class ToJournalEntriesList(LoginRequiredMixin, CreateView):
     model = to_journal_entry

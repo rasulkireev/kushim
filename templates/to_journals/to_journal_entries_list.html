@@ -15,10 +15,7 @@
     {% if journal.description %}
       <p class="mb-2 text-lg font-semibold text-center">{{ journal.description }}</p>
     {% endif %}
-    <a class="block w-40 px-4 py-2 mx-auto font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="">Edit Journal</a>
-
-    <a class="block text-red-800 underline" id="" href="{% url 'rename-journal' slug=slug id=journal_id %}">Rename</a>
-    <a class="block text-red-800 underline" id="" href="{% url 'delete-journal' slug=slug id=journal_id %}">Delete</a>
+    <a class="block w-40 px-4 py-2 mx-auto font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="{% url 'edit-journal' slug=slug id=journal_id %}">Edit Journal</a>
   </div>
 </div>
 

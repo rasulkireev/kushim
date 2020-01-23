@@ -373,14 +373,14 @@ body {
 #journal-to-hide, #list-to-hide, #contact-to-hide {
   
 }
-#id_journal_name, #id_list_name, .homepage-add-contact {
+/* #id_journal_name, #id_list_name, .homepage-add-contact {
   height: 2.2rem;
   width: 150px;
   padding-left: 5px;
   border-radius: 5px;
   border: 0;
   margin-bottom: 10px;
-}
+} */
 /* Add Journal Button End */
 
 /* Delete, Rename Journal and List Button  */

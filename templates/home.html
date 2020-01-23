@@ -12,7 +12,13 @@
     <section class='flex flex-wrap items-start text-xl'>
 
       {% for journal in journals %}
-        <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'to-journal-entries' journal.slug %}">{{ journal.journal_name }}</a>
+        <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'to-journal-entries' journal.slug %}">
+          {% if journal.profile_image %}
+          <img class="w-6 h-6 mr-1 rounded-full" src="{{ journal.profile_image.url }}" alt="{{ journal.journal_name }}">
+          {% endif %}
+          {{ journal.journal_name }}
+        </a>
+        
       {% endfor %}
 
         <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
@@ -34,7 +40,12 @@
     <section id="digital-garden" class='flex flex-wrap items-start text-xl'>
 
       {% for garden in gardens %}
-        <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'list-entries' garden.slug %}">{{ garden.list_name }}</a>
+        <a class="flex items-center px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'list-entries' garden.slug %}">
+          {% if garden.profile_image %}
+          <img class="w-6 h-6 mr-1 rounded-full" src="{{ garden.profile_image.url }}" alt="{{ garden.list_name }}">
+          {% endif %}
+          {{ garden.list_name }}
+        </a>
       {% endfor %}
 
         <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="list-to-hide" onclick="inputList(); this.onclick=null;">Add a Garden</button>
@@ -55,7 +66,7 @@
       <section class='flex flex-wrap items-start text-xl'>
 
         {% for contact in contacts %}
-          <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'contact-detail' contact.contact_id %}">
+          <a class="flex items-center px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'contact-detail' contact.contact_id %}">
             {% if contact.profile_image %}
               <img class="w-6 h-6 mr-1 rounded-full" src="{{ contact.profile_image.url }}" alt="{{ contact.first_name }} {{ contact.last_name }}">
             {% endif %}

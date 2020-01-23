@@ -21,9 +21,7 @@
       <p class="mb-2 text-lg font-semibold text-center">{{ garden.description }}</p>
     {% endif %}
 
-    <a class="block w-40 px-4 py-2 mx-auto font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="">Edit Garden</a>
-    <a class="block text-red-800 underline" id="" href="{% url 'rename-list' slug=list_slug id=list_id %}">Rename</a>
-    <a class="block text-red-800 underline" id="" href="{% url 'delete-list' slug=list_slug id=list_id %}">Delete</a>
+    <a class="block w-40 px-4 py-2 mx-auto font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="{% url 'edit-list' slug=list_slug id=list_id %}">Edit Garden</a>
   </div>
 </div>
 
