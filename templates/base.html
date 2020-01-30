@@ -21,8 +21,11 @@
 
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
-    {% block stripe_init %}
+    {% block stripe_styles %}
       {# Stripe Elements #}
+    {% endblock %}
+
+    {% block additional_style %}
     {% endblock %}
 
 

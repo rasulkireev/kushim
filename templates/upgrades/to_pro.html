@@ -3,32 +3,126 @@
 
 {% block title %}Upgrade to Pro{% endblock title %}
 
-{% block stripe_init %}
-    <!-- <script src="https://js.stripe.com/v3/"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/stripe.css' %}"> -->
+{% block stripe_styles %}
+  <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
 {% endblock %}
 
+{% block additional_style %}
+{% endblock %}
 
 {% block content %}
 
-<div class="text-center">
-  <h1 class="mb-6 text-4xl text-white">Please, upgrade to Pro to continue.</h1>
-  <p class="mb-2 text-xl text-white">To create more I ask you to purchse the 'PRO' plan.</p>
-  <p class="mb-2 text-xl text-white">
+<script src="https://js.stripe.com/v3/"></script> 
+
+<div class="p-6 text-center bg-white rounded">
+  <h1 class="mb-6 text-4xl">Please, upgrade to Pro to continue.</h1>
+  <p class="mb-2 text-xl">To create more I ask you to purchse the 'PRO' plan.</p>
+  <p class="mb-2 text-xl">
     The plan will cost you $25. One-time payment. This will help me keep the app alive and work on updates for you.
   </p>
-
-  <form class="m-6" action="{% url 'charge-success' %}" method="post">{% csrf_token %}
-
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="{{ stripe_key }}"
-      data-description="Pro account"
-      data-amount="2500"
-      data-locale="auto">
-    </script>
-
-  </form>
 </div>
 
+<form class="w-full my-4" action="/charge" method="post" id="payment-form">{% csrf_token %}
+  <div class="form-row">
+    <label for="card-element"></label>
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
+
+  <button>Submit Payment</button>
+</form>
+    
+
+    
+<script type="text/javascript" nonce="hzo8BDjjBlaBCdgqFX1Ekg==">  // Create a Stripe client.
+  var stripe = Stripe('pk_test_EgnvEAi6j9xWm3XdQkFlceSH');
+
+  // Create an instance of Elements.
+  var elements = stripe.elements();
+
+  // Custom styling can be passed to options when creating an Element.
+  // (Note that this demo uses a wider set of styles than the guide below.)
+  var style = {
+    base: {
+      color: '#32325d',
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4'
+      }
+    },
+    invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a'
+    }
+  };
+
+  // Create an instance of the card Element.
+  var card = elements.create('card', {style: style});
+
+  // Add an instance of the card Element into the `card-element` <div>.
+  card.mount('#card-element');
+
+  // Handle real-time validation errors from the card Element.
+  card.addEventListener('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  });
+
+  // Handle form submission.
+  var form = document.getElementById('payment-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    stripe.createToken(card).then(function(result) {
+      if (result.error) {
+        // Inform the user if there was an error.
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = result.error.message;
+      } else {
+        // Send the token to your server.
+        stripeTokenHandler(result.token);
+      }
+    });
+  });
+
+  // Submit the form with the token ID.
+  function stripeTokenHandler(token) {
+    // Insert the token ID into the form so it gets submitted to the server
+    var form = document.getElementById('payment-form');
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'stripeToken');
+    hiddenInput.setAttribute('value', token.id);
+    form.appendChild(hiddenInput);
+
+    // Submit the form
+    form.submit();
+  }
+
+  var successElement = document.getElementById('stripe-token-handler');
+  document.querySelector('.wrapper').addEventListener('click', function() {
+    successElement.className = 'is-hidden';
+  });
+
+  // Not in demo.
+  function stripeTokenHandler(token) {
+    successElement.className = '';
+    successElement.querySelector('.token').textContent = token.id;
+  }
+</script>
+
 {% endblock content %}
+
+
+
+
