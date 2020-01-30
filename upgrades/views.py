@@ -1,10 +1,11 @@
-import stripe
 
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.contrib.auth.models import Permission
+from django.urls import reverse
 from django.shortcuts import render
 
+import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class UpgradePageView(TemplateView):
@@ -33,10 +34,15 @@ def charge(request):
 
 
     if request.method == 'POST':
-        charge = stripe.Charge.create(
-            amount=2500,
-            currency='usd',
-            description='Getting Pro Access',
-            source=request.POST['stripeToken']
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            subscription_data={
+                'items': [{
+                'plan': 'prod_GPvvIacCAfCSho',
+                }],
+            },
+            # success_url='https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+            # cancel_url='https://example.com/cancel',
         )
-        return render(request, 'upgrades/success.html')
+    
+        return render(request, 'charge-success')
