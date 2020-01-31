@@ -21,13 +21,15 @@
         
       {% endfor %}
 
-        <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">Add Journal</button>
+        <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">
+          +
+        </button>
 
         <span id="new-journal">
           <form class="" id="myJournalForm" action="{% url 'to-journals' %}" method="post">
             {% csrf_token %}
-            {{ journal_form }}
-            <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer">Add Journal</button>
+            <input type="text" name="journal_name" maxlength="40" required="" id="id_journal_name" class="w-auto p-1 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white">
+            <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">+</button>
           </form>
         </span>
 
