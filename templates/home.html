@@ -26,7 +26,7 @@
           <span id="new-journal">
             <form class="hidden" id="myJournalForm" action="{% url 'to-journals' %}" method="post">
               {% csrf_token %}
-              <input type="text" name="journal_name" maxlength="40" required="" id="id_journal_name" class="w-full p-1 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white">
+              <input type="text" name="journal_name" maxlength="40" required="" id="id_journal_name" class="w-full p-1 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white ">
               <button type="submit" class="w-full px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">Add a Journal</button>
             </form>
           </span>
