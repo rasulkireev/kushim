@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" href="{% static 'favicon/500x500.png' %}">
     <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'favicon/500x500.png' %}">
 
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.1.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/final.css' %}">
 
@@ -36,9 +36,9 @@
     {% analytical_body_top %}
 
   
-      <nav id="navbar">
-        <div class='nav-container'>
-          <div id="brand">
+      <nav class="fixed top-0 left-0 z-10 w-full h-12 bg-blue-500 shadow">
+        <div class='flex items-center justify-between h-12 max-w-4xl px-4 m-auto'>
+          <div class="float-left py-1 text-xl font-semibold text-center text-white uppercase rounded pointer nowrap">
             <a href="/">Kushim</a>
           </div>
           <div id="user">
@@ -46,7 +46,7 @@
             <div class="dropdown" onclick="void(0)">
               
               {% if user_profile_image %}
-                <img src="{{ MEDIA_URL }}{{ user_profile_image }}" alt="">
+                <img src="{{ MEDIA_URL }}{{ user_profile_image   }}" alt="">
               {% else %}
                 <i class="las la-user"></i>
               {% endif %}
@@ -64,7 +64,7 @@
         </div>
       </nav>
 
-      <div class="custom-content">
+      <div class="max-w-4xl px-4 mx-auto mt-20">
         {% block content %}
         {% endblock content %}
       </div>

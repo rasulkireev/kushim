@@ -7,94 +7,83 @@
 
 {% if user.is_authenticated %}
 
-  <div class="mb-6">
-    <h1 class='mb-2 text-2xl font-semibold text-white uppercase'>Journals</h1>
-    <section class='flex flex-wrap items-start text-xl'>
-
+  <div class="flex flex-col flex-wrap justify-center md:flex-row md:justify-start">
+    <div class="flex flex-col flex-wrap self-start flex-grow-0 p-2 mb-4 bg-white rounded md:mr-2">
+      <h1 class='block mb-2 text-2xl font-semibold text-gray-800 uppercase border-b border-gray-200'>Journals</h1>
       {% for journal in journals %}
-        <a class="flex px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'to-journal-entries' journal.slug %}">
+        <a class="flex items-center flex-grow-0 p-1 mb-1 text-lg font-semibold text-gray-800 no-underline rounded cursor-pointer" href="{% url 'to-journal-entries' journal.slug %}">
           {% if journal.profile_image %}
           <img class="w-6 h-6 mr-1 rounded-full" src="{{ journal.profile_image.url }}" alt="{{ journal.journal_name }}">
           {% endif %}
           {{ journal.journal_name }}
         </a>
-        
-      {% endfor %}
-
-        <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">
-          +
-        </button>
-
-        <span id="new-journal">
-          <form class="" id="myJournalForm" action="{% url 'to-journals' %}" method="post">
-            {% csrf_token %}
-            <input type="text" name="journal_name" maxlength="40" required="" id="id_journal_name" class="w-auto p-1 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white">
-            <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">+</button>
-          </form>
-        </span>
-
-  </section>
-
-  </div>
-
-  <div class="app">
-    <h1 class='mb-2 text-3xl font-bold text-white uppercase'>Digital Garden</h1>
-    <section id="digital-garden" class='flex flex-wrap items-start text-xl'>
-
-      {% for garden in gardens %}
-        <a class="flex items-center px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'list-entries' garden.slug %}">
-          {% if garden.profile_image %}
-          <img class="w-6 h-6 mr-1 rounded-full" src="{{ garden.profile_image.url }}" alt="{{ garden.list_name }}">
-          {% endif %}
-          {{ garden.list_name }}
-        </a>
-      {% endfor %}
-
-        <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="list-to-hide" onclick="inputList(); this.onclick=null;">Add a Garden</button>
-
-        <span id="new-journal">
-          <form class="" id="myListForm" action="{% url 'lists' %}" method="post">
-            {% csrf_token %}
-            {{ garden_form }}
-            <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer">Add a Garden</button>
-          </form>
-        </span>
-
-  </section>
-  </div>
-
-  <div class="app">
-      <h1 class='mb-2 text-3xl font-bold text-white uppercase'>Network</h1>
-      <section class='flex flex-wrap items-start text-xl'>
-
-        {% for contact in contacts %}
-          <a class="flex items-center px-2 py-1 mb-2 mr-2 text-lg font-semibold text-blue-700 no-underline bg-white rounded cursor-pointer" href="{% url 'contact-detail' contact.contact_id %}">
-            {% if contact.profile_image %}
-              <img class="w-6 h-6 mr-1 rounded-full" src="{{ contact.profile_image.url }}" alt="{{ contact.first_name }} {{ contact.last_name }}">
+        {% endfor %}
+  
+          <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="journal-to-hide" onclick="inputJournal(); this.onclick=null;">
+            Add a Journal
+          </button>
+  
+          <span id="new-journal">
+            <form class="hidden" id="myJournalForm" action="{% url 'to-journals' %}" method="post">
+              {% csrf_token %}
+              <input type="text" name="journal_name" maxlength="40" required="" id="id_journal_name" class="w-full p-1 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white">
+              <button type="submit" class="w-full px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">Add a Journal</button>
+            </form>
+          </span>
+    </div>
+  
+    <div class="flex flex-col flex-wrap self-start flex-grow-0 p-2 mb-4 bg-white rounded md:mr-2">
+      <h1 class='block mb-2 text-2xl font-semibold text-gray-800 uppercase border-b border-gray-200'>Gardens</h1>
+        {% for garden in gardens %}
+          <a class="flex items-center p-1 mb-1 text-lg font-semibold text-gray-800 no-underline rounded cursor-pointer" href="{% url 'list-entries' garden.slug %}">
+            {% if garden.profile_image %}
+            <img class="w-6 h-6 mr-1 rounded-full" src="{{ garden.profile_image.url }}" alt="{{ garden.list_name }}">
             {% endif %}
-            {{ contact.first_name }} {{ contact.last_name }}
+            {{ garden.list_name }}
           </a>
         {% endfor %}
-
-          <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="contact-to-hide" onclick="inputContact(); this.onclick=null;">Add Contact</button>
-    </section>
-
-    <div id="new-contact">
-      <form class="" id="myContactForm" action="{% url 'contacts' %}" method="post">{% csrf_token %}
-        {{ network_form.non_field_errors }}
-
-        <div class="">
-          {{ network_form.first_name.errors }}
-          {{ network_form.first_name }}
-        </div>
-
-        <div class="">
-          {{ network_form.last_name.errors }}
-          {{ network_form.last_name }}
-        </div>
-
-        <button type="submit" class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer">Add Contact</button>
-      </form>
+  
+          <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="list-to-hide" onclick="inputList(); this.onclick=null;">Add a Garden</button>
+  
+          <span id="new-journal">
+            <form class="hidden" id="myListForm" action="{% url 'lists' %}" method="post">
+              {% csrf_token %}
+              <input class ="block w-full p-1 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white" type="text" name="list_name" maxlength="40" required="">
+              <button type="submit" class="w-full px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">Add a Garden</button>
+            </form>
+          </span>
+      </div>
+  
+    <div class="flex flex-col flex-wrap self-start flex-grow-0 p-2 mb-4 bg-white rounded md:mr-2">
+      <h1 class='block mb-2 text-2xl font-semibold text-gray-800 uppercase border-b border-gray-200'>Network</h1>
+          {% for contact in contacts %}
+            <a class="flex items-center p-1 mb-1 text-lg font-semibold text-gray-800 no-underline rounded cursor-pointer" href="{% url 'contact-detail' contact.contact_id %}">
+              {% if contact.profile_image %}
+                <img class="w-6 h-6 mr-1 rounded-full" src="{{ contact.profile_image.url }}" alt="{{ contact.first_name }} {{ contact.last_name }}">
+              {% endif %}
+              {{ contact.first_name }} {{ contact.last_name }}
+            </a>
+          {% endfor %}
+  
+            <button class="px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-gray-500 rounded cursor-pointer" id="contact-to-hide" onclick="inputContact(); this.onclick=null;">Add Contact</button>
+  
+      <div id="new-contact">
+        <form class="hidden" id="myContactForm" action="{% url 'contacts' %}" method="post">{% csrf_token %}
+          {{ network_form.non_field_errors }}
+  
+          <div class="mb-2">
+            {{ network_form.first_name.errors }}
+            <input type="text" name="first_name" maxlength="30" class="block w-full p-1 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white" placeholder="First Name" required="" id="id_first_name">
+          </div>
+  
+          <div class="mb-2">
+            {{ network_form.last_name.errors }}
+            <input type="text" name="last_name" maxlength="30" class="block w-full p-1 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white" placeholder="Last Name" required="" id="id_last_name">
+          </div>
+  
+          <button type="submit" class="w-full px-2 py-1 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">Add Contact</button>
+        </form>
+      </div>
     </div>
   </div>
 

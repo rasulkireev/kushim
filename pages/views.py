@@ -11,13 +11,13 @@ class HomePageView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['gardens'] = List.objects.filter(list_owner=self.request.user)
+        context['gardens'] = List.objects.filter(list_owner=self.request.user)[:3]
         context['garden_form'] = ListForm
         
-        context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)
+        context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)[:3]
         context['network_form'] = ContactForm
 
-        context['journals'] = to_journal.objects.filter(journal_user=self.request.user)
+        context['journals'] = to_journal.objects.filter(journal_user=self.request.user)[:3]
         context['journal_form'] = JournalForm
 
         return context
