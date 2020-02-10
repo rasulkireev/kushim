@@ -43,20 +43,7 @@
           </div>
           <div id="user">
             {% if user.is_authenticated %}
-            <div class="dropdown" onclick="void(0)">
-              
-              {% if user_profile_image %}
-                <img src="{{ MEDIA_URL }}{{ user_profile_image   }}" alt="">
-              {% else %}
-                <i class="las la-user"></i>
-              {% endif %}
-              
-              <div class="dropdown-content">
-                <p class="white dropdown-item">{{ user.username }}</p>
-                <p class="white dropdown-item"><a href="{% url 'upgrade' %}">Go Pro</a></p>
-                <p class="white dropdown-item" ><a href="{% url 'account_logout' %}">Log Out</a></p>
-              </div>
-            </div>
+              <p class="text-white" ><a href="{% url 'account_logout' %}">Log Out</a></p>
             {% else %}
               <a class='login-nav-button' href="{% url 'account_login' %}">Login</a>
             {% endif %}

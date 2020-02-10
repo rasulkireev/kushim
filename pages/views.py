@@ -14,10 +14,10 @@ class HomePageView(LoginRequiredMixin, TemplateView):
         context['gardens'] = List.objects.filter(list_owner=self.request.user)[:3]
         context['garden_form'] = ListForm
         
-        context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)[:3]
+        context['contacts'] = Contact.objects.filter(contact_owner=self.request.user)
         context['network_form'] = ContactForm
 
-        context['journals'] = to_journal.objects.filter(journal_user=self.request.user)[:3]
+        context['journals'] = to_journal.objects.filter(journal_user=self.request.user)
         context['journal_form'] = JournalForm
 
         return context
