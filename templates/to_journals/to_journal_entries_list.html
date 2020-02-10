@@ -7,31 +7,33 @@
 <a class="text-sm text-white underline" href="{% url 'home' %}">back home</a>
 
 <div class="w-auto mx-auto mt-10">
-  <div class="flex flex-col items-center p-8 mb-6 bg-white rounded-lg shadow-lg md:items-start md:flex-row">
+  <div class="flex flex-col items-center p-4 mb-6 bg-white rounded-lg shadow-lg md:items-start md:flex-row">
     {% if journal.profile_image %}
       <div class="flex md:mr-4">
-        <img src="{{ journal.profile_image.url }}" class="block w-40 h-40 bg-white border border-solid rounded">    
+        <img src="{{ journal.profile_image.url }}" class="block w-40 h-40 bg-white rounded">    
       </div>
       {% endif %}
     <div class="flex flex-col items-center md:items-start">
-      <h1 class="mb-0 text-4xl font-bold text-blue-900">{{ journal_name }}</h1>
-      {% if journal.description %}
-        <p class="mb-6 text-lg font-semibold text-center">{{ journal.description }}</p>
-      {% endif %}
-      <a class="block w-40 px-4 py-2 font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="{% url 'edit-journal' slug=slug id=journal_id %}">Edit Journal</a>
+      <div class="flex flex-col items-center mb-4 md:items-start ">
+        <h1 class="text-4xl font-bold text-blue-900">{{ journal_name }}</h1>
+        {% if journal.description %}
+          <p class="text-lg font-semibold text-center">{{ journal.description }}</p>
+        {% endif %}
+      </div>
+      <a class="block w-40 px-4 py-2 text-lg font-bold text-center text-white bg-blue-500 rounded hover:bg-blue-700" href="{% url 'edit-journal' slug=slug id=journal_id %}">Edit Journal</a>
     </div>
   </div>
 </div>
 
 <button id="journal-to-hide"
-class="w-40 px-2 py-1 mb-2 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer" 
+class="w-40 px-2 py-1 mb-2 text-lg font-semibold text-center text-white no-underline bg-green-600 rounded cursor-pointer hover:bg-green-700" 
 onclick="inputJournal(); this.onclick=null;">Add Entry</button>
 <div id="new-journal">
-  <form class="hidden max-w-lg" id="myJournalForm" action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+  <form class="hidden max-w-md mb-4" id="myJournalForm" action="" method="post" enctype="multipart/form-data">{% csrf_token %}
     <textarea class="block w-full p-4 mb-2 leading-tight text-gray-800 bg-gray-100 border rounded appearance-none focus:outline-none focus:bg-white" 
     name="body" cols="40" rows="10" required="" id="id_body" spellcheck="false"></textarea>
     <button type="submit" 
-    class="w-full px-2 py-1 mb-2 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer">
+    class="w-full px-2 py-1 mb-2 text-lg font-semibold text-center text-white no-underline bg-green-500 rounded cursor-pointer hover:bg-green-700">
       Add Entry
     </button>
   </form>
