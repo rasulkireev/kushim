@@ -42,9 +42,9 @@
     <div class="flex flex-col self-start flex-1 p-2 mx-2 overflow-hidden no-underline bg-white rounded-lg shadow-lg">
       <h1 class='block mb-2 text-2xl font-semibold text-gray-800 uppercase border-b border-gray-200'>Gardens</h1>
       
-      <div class="h-40 p-2 mb-2 overflow-y-scroll bg-gray-200 rounded shadow-inner">
+      <div class="h-40 px-2 mb-2 overflow-y-scroll bg-gray-200 rounded shadow-inner">
         {% for garden in gardens %}
-          <a class="flex items-center px-1 py-3 mb-1 text-lg font-semibold text-gray-800 no-underline border-b border-gray-400 cursor-pointer"
+          <a class="flex items-center p-2 text-lg font-semibold text-gray-800 no-underline border-b border-gray-400 cursor-pointer hover:text-blue-900"
           href="{% url 'list-entries' garden.slug %}">
             {% if garden.profile_image %}
               <img class="w-6 h-6 mr-1 rounded-full" 
@@ -69,9 +69,10 @@
     <div class="flex flex-col self-start flex-1 p-2 mx-2 overflow-hidden no-underline bg-white rounded-lg shadow-lg">
       <h1 class='block mb-2 text-2xl font-semibold text-gray-800 uppercase border-b border-gray-200'>Network</h1>
       
-      <div class="h-40 p-2 mb-2 overflow-y-scroll bg-gray-200 rounded shadow-inner">   
+      <div class="h-40 px-2 mb-2 overflow-y-scroll bg-gray-200 rounded shadow-inner">   
           {% for contact in contacts %}
-            <a class="flex items-center px-1 py-3 mb-1 text-lg font-semibold text-gray-800 no-underline border-b border-gray-400 cursor-pointer" href="{% url 'contact-detail' contact.contact_id %}">
+            <a class="flex items-center p-2 text-lg font-semibold text-gray-800 no-underline border-b border-gray-400 cursor-pointer hover:text-blue-900" 
+            href="{% url 'contact-detail' contact.contact_id %}">
               {% if contact.profile_image %}
                   <img class="w-6 h-6 mr-1 rounded-full" 
                   src="{{ contact.profile_image.url }}" 
