@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     
-    'crispy_forms',
+    'djstripe',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -186,6 +186,13 @@ OPTIMIZED_IMAGE_METHOD = 'pillow'
 STRIPE_PUBLIC_KEY=env('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY=env('STRIPE_SECRET_KEY')
 
+STRIPE_LIVE_PUBLIC_KEY = env('STRIPE_LIVE_PUBLIC_KEY')
+STRIPE_LIVE_SECRET_KEY = env('STRIPE_LIVE_SECRET_KEY')
+STRIPE_TEST_PUBLIC_KEY = env('STRIPE_TEST_PUBLIC_KEY')
+STRIPE_TEST_SECRET_KEY = env('STRIPE_TEST_SECRET_KEY')
+STRIPE_LIVE_MODE = env('STRIPE_LIVE_MODE')  # Change to True in production
+DJSTRIPE_WEBHOOK_SECRET = env.list('DJSTRIPE_WEBHOOK_SECRET')  # Get it from the section in the Stripe dashboard where you added the webhook endpoint
+
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # django-allauth config
@@ -202,12 +209,3 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_SESSION_REMEMBER = True
 
 
-
-# Postmark Email
-EMAIL_BACKEND = 'postmarker.django.EmailBackend'
-DEFAULT_FROM_EMAIL = 'rasul@kushim.io'
-POSTMARK = {
-    'TOKEN': env('POSTMARK_TOKEN'),
-    'TEST_MODE': env('POSTMARK_TEST_MODE'),
-    'VERBOSITY': 0,
-}
