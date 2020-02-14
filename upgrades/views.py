@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.shortcuts import render
 
 import stripe
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_TEST_PUBLIC_KEY
 
 class UpgradePageView(TemplateView):
     template_name = 'upgrades/to_pro.html'
