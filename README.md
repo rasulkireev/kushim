@@ -10,14 +10,10 @@ If you have any questions about the app please feel free to reach out to me. I w
 
 I decided to stop the development process of the app due to the lack of interest from public and me. I have found better tools to suit my needs. I don't plan to make any corrections / improvements any time soon.
 
-### Demo Account
-
-The app is free, so feel free to register and test it out. If you don't feel comfortable registering (why?...), feel free to login with the following credentials to test the app.
-
-login: demo
-password: fakePassword123
-
-> Please don't be a jerk and overuse it.
-
 ### Screenshots
+
+**Adding Journals, Gardens and Contacts**
 ![Adding Journals](static-local/images/adding-journals-at-homepage.gif)
+
+**Adding Entries**
+![Adding Entries](static-local/images/adding-entries.gif)

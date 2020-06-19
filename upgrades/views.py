@@ -13,7 +13,7 @@ class UpgradePageView(TemplateView):
 
     def get_context_data(self, **kwargs): # new
         context = super().get_context_data(**kwargs)
-        context['stripe_key'] = settings.STRIPE_PUBLIC_KEY
+        context['stripe_key'] = settings.STRIPE_TEST_PUBLIC_KEY
         return context
 
 
