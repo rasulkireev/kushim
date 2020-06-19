@@ -9,12 +9,10 @@ __pycache__/
 # C extensions
 *.so
 
-# Media
+# Data
 media/
-
-# Dependency directories
 node_modules/
-
+db/
 
 # Distribution / packaging
 .Python
