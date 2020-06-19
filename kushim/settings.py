@@ -213,4 +213,5 @@ ACCOUNT_SESSION_REMEMBER = True
 
 
 # Heroku Settings
-django_heroku.settings(locals())
+if not DEBUG:
+    django_heroku.settings(locals())
