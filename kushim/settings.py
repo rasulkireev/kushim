@@ -192,10 +192,8 @@ if not DEBUG:
     GOOGLE_ANALYTICS_PROPERTY_ID = env('GOOGLE_ANALYTICS_PROPERTY_ID')
     ANALYTICAL_INTERNAL_IPS = env.list('ANALYTICAL_INTERNAL_IPS')
 
-
-# Using Pillow for image optimization when user uploads
-OPTIMIZED_IMAGE_METHOD = 'pillow'
-
+# Email / Signup
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
 # Stripe Keys
 STRIPE_LIVE_PUBLIC_KEY = env('STRIPE_LIVE_PUBLIC_KEY')
@@ -219,7 +217,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Heroku Settings
 if not DEBUG:
     django_heroku.settings(locals())
+
