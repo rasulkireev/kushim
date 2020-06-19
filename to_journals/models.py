@@ -5,6 +5,7 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.urls import reverse
 
+from cloudinary.models import CloudinaryField
 
 
 class to_journal(models.Model):
@@ -12,7 +13,7 @@ class to_journal(models.Model):
     slug = AutoSlugField(populate_from='journal_name',always_update=True)
     date_created = models.DateTimeField(auto_now_add=True)
     journal_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
-    profile_image = models.ImageField(upload_to='journal-desc-image/', blank=True)
+    profile_image = CloudinaryField('image', blank=True)
     description = models.TextField(blank=True)
 
     class Meta:

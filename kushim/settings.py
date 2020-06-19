@@ -14,7 +14,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import environ
+
 import django_heroku
+import cloudinary
 
 env = environ.Env(
     # set casting, default value
@@ -63,6 +65,7 @@ INSTALLED_APPS = [
     'analytical',
     'image_optimizer',
     'emoji_picker',
+    'cloudinary',
 
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
@@ -177,6 +180,13 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Cloudinary Config
+cloudinary.config( 
+  cloud_name = env("CLOUDINARY_CLOUD_NAME"), 
+  api_key = env("CLOUDINARY_API_KEY"), 
+  api_secret = env("CLOUDINARY_API_SECRET") 
+)
+
 # Django Analytical
 if not DEBUG:
     GOOGLE_ANALYTICS_PROPERTY_ID = env('GOOGLE_ANALYTICS_PROPERTY_ID')
@@ -209,8 +219,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ACCOUNT_SESSION_REMEMBER = True
-
-
 
 # Heroku Settings
 if not DEBUG:

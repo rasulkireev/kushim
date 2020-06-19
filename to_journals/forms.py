@@ -13,3 +13,9 @@ class EditJournal(ModelForm):
     class Meta:
         model = to_journal
         fields = ('journal_name', 'description', 'profile_image')
+
+        def clean_photo(self):
+            data = self.cleaned_data.get("profile_image")
+            if data is False:
+                data = None
+            return data
