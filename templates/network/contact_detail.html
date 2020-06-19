@@ -7,7 +7,7 @@
   <div class="flex mb-6 md:mb-4">
     <div id="headshot">
       {% if contact_info.profile_image %}
-        <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{{ MEDIA_URL }}{{ contact_info.profile_image }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}"></a>
+        <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{{ contact_info.profile_image.url }}" alt="{{ contact_info.first_name }} {{ contact_info.last_name }}"></a>
       {% else %}
         <a href="#"><img class="float-left w-24 h-24 mr-2 rounded-full md:h-32 md:w-32" src="{% static 'images/unknown-profile.png' %}" alt="Sample Contact Image"></a>
       {% endif %}
