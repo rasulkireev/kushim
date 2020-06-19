@@ -18,3 +18,6 @@ login: demo
 password: fakePassword123
 
 > Please don't be a jerk and overuse it.
+
+### Screenshots
+![Adding Journals](static-local/images/adding-journals-at-homepage.gif)
