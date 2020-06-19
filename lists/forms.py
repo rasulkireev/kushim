@@ -13,3 +13,9 @@ class EditGarden(ModelForm):
     class Meta:
         model = List
         fields = ('list_name', 'description', 'profile_image')
+
+        def clean_photo(self):
+            data = self.cleaned_data.get("profile_image")
+            if data is False:
+                data = None
+            return data

@@ -7,7 +7,6 @@ from django.urls import reverse
 
 from cloudinary.models import CloudinaryField
 
-
 class to_journal(models.Model):
     journal_name = models.CharField(max_length = 40)
     slug = AutoSlugField(populate_from='journal_name',always_update=True)
@@ -20,7 +19,6 @@ class to_journal(models.Model):
         permissions = [
             ('journal-pro', 'Can create unlimited journals')
         ]
-
 
     def __str__(self):
         return str(self.journal_user) + " " + self.journal_name

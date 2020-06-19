@@ -5,6 +5,7 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.urls import reverse
 
+from cloudinary.models import CloudinaryField
 
 class Contact(models.Model):
     contact_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
@@ -15,7 +16,7 @@ class Contact(models.Model):
 
     nickname = models.CharField(max_length = 30, blank=True)
     tags = models.CharField(max_length=200, blank=True)
-    profile_image = models.ImageField(upload_to='profile-images/', blank=True)
+    profile_image = CloudinaryField('image', blank=True)
     how_you_met = models.TextField(blank=True)
     description = models.TextField(blank=True)
     current_location = models.CharField(max_length=200, blank=True)

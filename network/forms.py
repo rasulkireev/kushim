@@ -17,6 +17,13 @@ class EditContact(ModelForm):
         model = Contact
         fields = ('first_name', 'last_name', 'profile_image', 'tags', 'description', 'contact_frequency', 'how_you_met', 'current_location', 'date_of_birth', 'title', 'employer')
 
+        def clean_photo(self):
+            data = self.cleaned_data.get("profile_image")
+            if data is False:
+                data = None
+            return data
+
+
 
 class ContactForm(ModelForm):
 
