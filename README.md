@@ -1,41 +1,20 @@
-# Work in Progress
-
 # Kushim
 ## Open Source Minimalist Life Management Tool
 
 ### About
-I have started building this for myself. I have started with a Journaling app that was inspired by [Derek Sivers](http://sivers.org) [post on Journaling](https://sivers.org/dj). I have kept a physical journal for the past 6 months and wanted to experiment with a digital version, but couldn't find anything that fit my needs. I have now fully moved my journal to [Kushim](https://kushim.io). This is how my current setup looks like:
+This project is way for me to learn Django. Started with a Journaling app that was inspired by [Derek Sivers](http://sivers.org) [post on Journaling](https://sivers.org/dj). Then I wanted to add a bookmark catalog (Digital Garden) and a Personal CRM (like MonicaHQ).
 
-.
-.
-.
+If you have any questions about the app please feel free to reach out to me. I will try to answer any questions you might have.
 
-### Installation
-.
-.
-.
+### The future of the app
 
+I decided to stop the development process of the app due to the lack of interest from public and me. I have found better tools to suit my needs. I don't plan to make any corrections / improvements any time soon.
 
-### To-dos
+### Demo Account
 
-#### Github
-- [ ] Write the Installation Process
+The app is free, so feel free to register and test it out. If you don't feel comfortable registering (why?...), feel free to login with the following credentials to test the app.
 
-#### Functionality
-- [ ] Finish the CRM application
-- [ ] Integrate Stripe to the signup process
+login: demo
+password: fakePassword123
 
-#### Styling
-- [ ] Display signup on the main page
-- [ ] Improve the landing page
-
-#### Account
-- [ ] Allow to add personal image and date of birth.
-- [ ] Create account edit page. 
-
-### Roadmap
-- [x] Journals
-- [x] Lists
-- [ ] Personal CRM
-- [ ] Habit Tracker
-- [ ] Closed Community for Users
+> Please don't be a jerk and overuse it.
