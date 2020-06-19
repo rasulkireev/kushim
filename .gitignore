@@ -11,8 +11,11 @@ __pycache__/
 
 # Data
 media/
+media-local/
+static/
 node_modules/
 db/
+
 
 # Distribution / packaging
 .Python
